@@ -469,6 +469,18 @@ $$\mathcal{L}(\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_m) = \left\{ \sum_{i
 
 ## 5.THE WHOLE DETAILS
 
+### 5.1 Initialization Argument List in System Registration Phase
+
+### 5.2 Techniques Be Used in the Scheme & the Specialized Form of all of them
+
+### 5.3 Details of Bound-Processing, e.g., What the very techniques will be used?
+
+### 5.4 The Detailed Arguments of the certain kind of UAV Our Proposed Scheme Want To Serve For
+
+### 5.5 The Details of the Cryptosystem We Used
+
+
+
 ## 6.APPENDIX
 
 ### 6.1 具体的实验环境
