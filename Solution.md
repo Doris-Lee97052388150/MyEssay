@@ -287,7 +287,7 @@ $$\mathcal{L}(\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_m) = \left\{ \sum_{i
 
 - **ZKP 介入**：通过将 SMT 的哈希路标计算逻辑封装进零知识证明的**算术电路（Arithmetic Circuit）** 中，无人机只需在链下证明：
 
-  $$\pi_{smt} \leftarrow \text{ZKP.Prove}(\text{Public: } Root_{\mathcal{D}_A}, PID_j; \; \text{Secret: } Proof_{smt})$$
+  ​		$$\pi_{smt} \leftarrow \text{ZKP.Prove}(\text{Public: } Root_{\mathcal{D}_A}, PID_j; \; \text{Secret: } Proof_{smt})$$
 
 - 目标域边缘服务器只需验证证明 $\pi_{smt}$ 是否通过，即可在**不获取任何具体树形路径明文**的前提下，铁证如山地确信该无人机未被母域拉黑，从而在全局（On-Chain / Off-Chain）实现了完全切断个体轨迹关联性的**强不可链接性（Unlinkability）**。
 
@@ -475,4 +475,4 @@ $$\mathcal{L}(\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_m) = \left\{ \sum_{i
 
 ​	做一个无人机跨域认证的实验，首先就要搭建一个可以跨域的网络拓扑来模拟真是环境。因此首先想到的是ns-3模拟器，这是一款经典的网络模拟器，比较偏向学术性质，但是目前来看呢，我个人的电脑不足以运行这款模拟器，因此我当前选择Mininet-Wifi，这是一个无线网络模拟工具，使用Python编码，我个人比较熟悉Python的编码流程，正好ns-3太大，因此接下来的实验会首先使用Mininet-Wifi进行建模、部署。
 
-​	后面又尝试各种方式部署ns-3，但每次要么缺少依赖，要么
+​	后面基本解决了内存不足的问题后（限制`ns-3 build`只能使用两个线程：`./ns3 build -j 2`），又尝试各种方式部署ns-3，但每次要么缺少依赖，要么有一些莫名其妙的错误（环境不一致啦、缓存固化未清理啦、库有了但并未自动链接上啦、手动指定库目录但仍旧不知为何的报错啦, etc.）
