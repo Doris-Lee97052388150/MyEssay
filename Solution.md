@@ -45,7 +45,7 @@
 
 从几何与线性代数的角度来看，格（Lattice）可以看作是高维欧几里得空间 $\mathbb{R}^n$ 中的一组离散点集。具体而言，给定 $m$ 个在 $\mathbb{R}^n$ 空间中线性无关的基向量 $\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_m$（其中 $m \le n$），这组基所生成的格 $\mathcal{L}$ 定义为这些基向量的所有**整数线性组合**的集合：
 
-$$\mathcal{L}(\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_m) = \left\{ \sum_{i=1}^m x_i \mathbf{b}_i \;\middle|\; x_i \in \mathbb{Z} \right\}$$
+​			$$\mathcal{L}(\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_m) = \left\{ \sum_{i=1}^m x_i \mathbf{b}_i \;\middle|\; x_i \in \mathbb{Z} \right\}$$
 
 通常可以用矩阵形式表示为 $\mathcal{L}(\mathbf{B}) = \{ \mathbf{B}\mathbf{x} \mid \mathbf{x} \in \mathbb{Z}^m \}$，其中 $\mathbf{B}$ 为基矩阵。对于同一个格，存在无数组不同的基。密码学正是利用了“好基”**（向量近似正交，长度较短）和**“坏基”（向量夹角极小，长度极长）之间的转换陷门来构建加密与签名算法。在目标加噪的情况下，寻找最合适的整向量正是其核心。
 
@@ -319,7 +319,7 @@ $$\mathcal{L}(\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_m) = \left\{ \sum_{i
 
 4. **假名凭证生成（解盲）**：无人机在本地利用盲化因子 $r$ 移除签名中的盲化噪声（解盲），获得母域对于原始消息的权威签名凭证：
 
-   $$\sigma_j \leftarrow \text{Unblind}(\sigma', r)$$
+   ​			$$\sigma_j \leftarrow \text{Unblind}(\sigma', r)$$
 
    此时，无人机基于密码学哈希函数生成其在系统中的**唯一全局匿名假名（Pseudo-ID）**：
 
@@ -327,7 +327,7 @@ $$\mathcal{L}(\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_m) = \left\{ \sum_{i
 
 5. **链下树形锚定**：母域将 $PID_j$ 作为键（Key），对应的状态参数（如授权有效期、角色权限）作为值（Value），插入到该域在本地维护的**稀疏默克尔树（SMT）** 中。更新树拓扑后将新 SMT 托管至 **IPFS**，并将更新后的 32 字节 $Root_{\mathcal{D}_A}$ 和对应的 IPFS CID 广播至区块链智能合约进行原子化锁存。
 
-### 4.2 边界处理 (Geofence Boundaries and Elastical Inner-Boundaries)
+### 4.2 边界处理 (Geofence Boundaries and Elastic Inner-Boundaries)
 
 ​	边界处理是触发跨域事前认证的物理逻辑保障。本方案不依赖于高成本的硬件改动，而是通过在无人机飞控系统与边缘 RSU/基站的定位机制中嵌入**自适应软边界触发算法**来实现。
 
@@ -368,7 +368,7 @@ $$\mathcal{L}(\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_m) = \left\{ \sum_{i
 
 2. **事前请求发送**：无人机在不暴露自身真实身份的前提下，向当前母域 $\mathcal{D}_A$ 的边缘基站发送事前认证触发数据包：
 
-   $$Req_{pre} = \{PID_j, \mathcal{D}_B, Timestamp, \mathcal{S}_{ign\_sl}(PID_j \parallel \mathcal{D}_B)\}$$
+   ​		$$Req_{pre} = \{PID_j, \mathcal{D}_B, Timestamp, \mathcal{S}_{ign\_sl}(PID_j \parallel \mathcal{D}_B)\}$$
 
    其中使用的签名 $\mathcal{S}_{ign\_sl}$ 为 3.1 节所述的基于**双线性对构造的轻量短签名**，从而在高度动态的空中无线信道中最大化节省传输带宽。
 
@@ -467,24 +467,149 @@ $$\mathcal{L}(\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_m) = \left\{ \sum_{i
 
 ​	通过这一闭环机制，被拉黑的恶意无人机在物理层面上被“剥夺了全网重生的可能”，彻底解决了匿名系统下恶意洗白、反复黑飞的顽疾。
 
-## 5.THE WHOLE DETAILS
+## 5. THE WHOLE DETAILS
 
 ### 5.1 Initialization Argument List in System Registration Phase
 
+在系统初始化与注册阶段（4.1节），为了确保多域协同的安全性与互操作性，系统需全局配置并固化以下密码学参数与系统变量。参数列表及其实际代数/物理内涵如下表所示：
+
+| **参数符号**                             | **数据类型 / 代数结构**                                      | **物理与密码学内涵描述**                                     |
+| ---------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| $\lambda$                                | $1^\lambda \in \mathbb{Z}^+$                                 | **系统全局安全参数**：决定底层格密码和双线性对的抗安全攻击强度。 |
+| $R_q$                                    | $\mathbb{Z}_q[x]/(x^n+1)$                                    | **后量子多项式商环**：主信任链（格密码）运行的基础代数结构，其中 $n=256, 512$ 或 $1024$。 |
+| $e, G_1, G_2, G_T$                       | $e: G_1 \times G_2 \to G_T$                                  | **双线性映射群组**：用于边缘短签名和轻量级认证交互。         |
+| $pk_{\mathcal{D}_i}, sk_{\mathcal{D}_i}$ | $\mathbf{A} \in \mathbb{Z}_q^{k \times l}, \mathbf{s} \in \mathbb{Z}_q^l$ | **管理域 $\mathcal{D}_i$ 的主密钥对**：基于环上容错学习（Ring-LWE）难题生成。 |
+| $Fingerprint_j$                          | $\mathbf{v}_{puf} \in \{0,1\}^{256}$                         | **无人机物理不可克隆特征（PUF）**：不可伪造的设备级硬件特征向量。 |
+| $s_j$                                    | $x \in \mathbb{Z}_q^*$                                       | **无人机本地随机秘密状态**：用于解盲及后续零知识证明的 Witness 输入。 |
+| $PID_j$                                  | $\text{H}_0(M \parallel \sigma_j) \in \{0,1\}^{256}$         | **全局匿名假名（Pseudo-ID）**：作为稀疏默克尔树（SMT）索引的 256 位键。 |
+| $Root_{\mathcal{D}_A}$                   | $\text{Hash} \in \{0,1\}^{256}$                              | **母域 SMT 根哈希**：锚定在区块链账本上的 32 字节全局原子状态根。 |
+
 ### 5.2 Techniques Be Used in the Scheme & the Specialized Form of all of them
+
+为了实现跨域认证的安全、高效与抗量子性，本方案将多种先进密码学原语进行了深度解耦与模块化组合，其具体落地形态与 specialized 表现形式如下：
+
+- **抗量子主信任链签名（Lattice Signature Form）**：
+
+  采用 **Crystals-Dilithium** 范式。由于其不依赖复数领域的浮点数运算，仅在有限域群环上进行矩阵及多项式乘加法，极大降低了机载芯片的运算耗时。具体采用 $\text{Dilithium-G}$ 变体（基于拒绝采样），公钥形式表现为矩阵 $\mathbf{A}$ 和向量 $\mathbf{t} = \mathbf{A}\mathbf{s} + \mathbf{e} \pmod q$。
+
+- **边缘空中交互短签名（Bilinear Pairing Form）**：
+
+  采用 **BLS (Boneh-Lynn-Shacham)** 签名范式。专门用于 4.3 节事前认证。签名形式表现为 $G_1$ 群上的单个群元素点：$\sigma = \text{H}(M)^{sk}$，长度仅为 $256 \text{ bits}$。利用其特有的**可聚合性（Aggregation）**，目标域边缘 RSU 可将 $k$ 架无人机的签名聚合为：
+
+  $$\sigma_{agg} = \sum_{i=1}^k \sigma_i$$
+
+  实现 $\mathcal{O}(1)$ 的带宽传输。
+
+- **链下凭证检索与状态证明（SMT & ZKP Form）**：
+
+  树结构采用拥有 $2^{256}$ 个叶子节点的 **Sparse Merkle Tree (SMT)**。零知识证明采用 **zk-SNARKs**（专门选用抗量子的 **Groth16 / Plonk 基于格或哈希的多项式承诺变体**）。其具体电路线路（Circuit）将 SMT 节点的哈希级联过程：
+
+  $$\text{H}\left(\text{Node}_{left} \parallel \text{Node}_{right}\right) = \text{Node}_{parent}$$
+
+  完全算术化，输出体积固定为数百字节的 $\pi_{auth}$ 和 $\pi_{smt}$。
+
+- **去中心化数据存座（IPFS Form）**：
+
+  采用 **IPFS 默克尔有向无环图（Merkle DAG）** 结构，大体积数据以 `base58` 编码的 **CIDv1** 格式（形如 `bafybeiy...`）暴露，其专门职能是作为智能合约的链下重映射指针。
 
 ### 5.3 Details of Bound-Processing, e.g., What the very techniques will be used?
 
+边界处理（4.2节）并非依赖物理地理屏障，而是通过**飞控内置的自适应空间动力学算法与无线电异构信号流检测**实现的。
+
+```
++------------------------------------------+
+|       母域 A (核心空域范围)               |
+|                                          |
+|   ====================================   |  <--- 弹性内边界【出域界限】
+|   \                                  /   |       (触发本地计时器 Tout)
+|    \       缓冲区 (Buffer Zone)     /    |
+|     v                              v     |
++------[ 物理管理边界 \partial\mathcal{D}_A ]-+  <--- 传统国境/空域分界线
+|     ^                              ^     |
+|    /       缓冲区 (Buffer Zone)     \    |
+|   /                                  \   |
+|   ====================================   |  <--- 弹性外边界【入域界限】
+|       目标域 B (接入空域范围)             |       (触发正式认证握手)
++------------------------------------------+
+```
+
+#### 1. 弹性安全裕度 $d$ 的动态定性收敛技术
+
+安全裕度（内缩距离） $d$ 的计算并非静态死板，而是根据无人机的物理状态进行自适应调整：
+
+$$d = v_{current} \cdot \left( \Delta T_{comm} + \Delta T_{pre\_auth} \right) + \delta_{GNSS}$$
+
+其中，$v_{current}$ 是无人机的当前巡航速度，$\Delta T_{comm}$ 是边界多径衰落下的网络传输时延，$\Delta T_{pre\_auth}$ 是 4.3 节代理重加密及 P2P 链下准入同步的系统计算开销，$\delta_{GNSS}$ 是惯导/卫星定位的物理误差。通过该算法，高速无人机的内边界会自动内缩更远，确保留足事前认证的反应时间。
+
+#### 2. 状态机翻转与边界触发机制
+
+- **空间几何计算技术**：机载飞控高频执行点与多边形关系算法（Ray-Casting Algorithm）或地理围栏向量正交投影。一旦计算出当前坐标到物理边界的距离 $L(t) \le d$，即判定越过弹性内边界。
+- **本地计时技术**：越界瞬间激活机载计时器 $T_{out}$。如果 $T_{out} > T_{max}$ 且航向角 $\theta$ 的一阶导数显示无人机持续远离母域中心，则机载状态机由 `REGULAR_FLIGHT` 翻转为 `PRE_AUTHENTICATION_STAGE`。
+- **异构信道定向嗅探技术**：此时，无人机启动定向无线电寻址，嗅探目标域地面 RSU 的广播信标。一旦越过物理边界并触发目标域的【入域界限】，状态机再次翻转为 `FORMAL_AUTH_STAGE`，强制执行 4.4 节的正式双向核验。
+
 ### 5.4 The Detailed Arguments of the certain kind of UAV Our Proposed Scheme Want To Serve For
+
+如 1. BACKGROUND 节所述，本方案并非针对在几百米范围内低速徘徊的玩具无人机，而是专门服务于具有**跨管理域刚需、具备中高算力、易被物理捕获或伪装身份**的行业级/消费级高功能飞行器。其服务对象的详细参数空间及具体定性技术指标如下：
+
+- **物理与续航特性（Physical & Endurance Arguments）**：
+  - **飞行半径（Range）**：$\ge 15 \text{ km}$ 至数百公里，具备长途跨越行政、商业或行业多管理域的续航能力。
+  - **巡航速度（Velocity）**：$15 \text{ m/s} \sim 40 \text{ m/s}$。高运动速度导致其在边界处留给系统的容错时间极短。
+- **算力与芯片特征（Computational Hardware Arguments）**：
+  - **机载处理器（MCU/SoC）**：具备 ARM Cortex-M4/M7（具备硬件 FPU）或 Cortex-A 系列边缘嵌入式处理器。主频 $\ge 168 \text{ MHz}$，拥有足够的 SRAM（$\ge 256 \text{ KB}$）以在内存中载入格密码的高维矩阵或执行 256 次哈希电路生成。
+  - **安全硬件（Security Anchor）**：集成有 **PUF（物理不可克隆函数）** 电路。利用芯片制造过程中晶体管层面的微观工艺偏差，为无人机提供无法被物理提取、抗篡改（Physical Tamper-Resistance）的设备级数字指纹（Fingerprint），作为防洗白机制的底层硬件锚点。
+- **身份行为特征（Identity Behavioral Arguments）**：
+  - **高伪装风险性**：该类无人机通常具备修改软件配置、伪装成合法 MAC 地址或软件 ID 的技术能力。本方案服务的正是那些**通过欺骗目标域试图获取合法授信、但其硬件特征已被母域或链上通报拉黑的恶意“洗白”设备**。
 
 ### 5.5 The Details of the Cryptosystem We Used
 
+本方案构建的混合公钥密码体制（Hybrid Cryptosystem）在数学上的底层核心算法逻辑详述如下：
 
+#### 1. 基于格的后量子密钥对生成（Dilithium 变体）
+
+每个管理域或高算力实体运行此算法以抵抗量子计算带来的大整数因数分解威胁。给定参数 $q$ 以及多项式商环 $R_q$：
+
+1. 随机选择两个小系数多项式向量 $\mathbf{s}_1 \in R_q^l, \mathbf{s}_2 \in R_q^k$（作为私钥 $sk$）。
+2. 生成公开的均匀随机矩阵 $\mathbf{A} \in R_q^{k \times l}$。
+3. 计算公开公钥向量 $\mathbf{t} = \mathbf{A}\mathbf{s}_1 + \mathbf{s}_2 \pmod q$。
+
+- **最终密钥形式**：$pk = (\mathbf{A}, \mathbf{t})$，$sk = (\mathbf{s}_1, \mathbf{s}_2)$。
+
+#### 2. 基于双线性同态的代理重加密（PRE）数学逻辑
+
+在 4.3 节中，母域 $\mathcal{D}_A$ 在不解密的情况下，将无人机状态密文转换给目标域 $\mathcal{D}_B$。
+
+1. **原始加密**：无人机在母域下的密文利用双线性乘法同态构造，设母域公钥为 $g^{sk_A}$，密文为 $CT_{\mathcal{D}_A} = (g^r, M \cdot e(g,g)^{r \cdot sk_A})$。
+
+2. **重加密密钥生成**：当域间建立授信时，智能合约或两域通过安全信道计算出单向重加密转换密钥：
+
+   $$rk_{A \to B} = sk_A^{-1} \cdot sk_B \pmod p$$
+
+3. **代理转换**：母域边缘服务器收到密文后，在链下执行：
+
+   $$e\left(g^r, g\right)^{rk_{A \to B}} = e(g,g)^{r \cdot sk_A \cdot (sk_A^{-1} \cdot sk_B)} = e(g,g)^{r \cdot sk_B}$$
+
+   从而将密文原子化转换为目标域 $\mathcal{D}_B$ 的公钥所对应的控辖密文 $CT_{\mathcal{D}_B} = (g^r, M \cdot e(g,g)^{r \cdot sk_B})$。全过程中，母域无法窥探明文 $M$，目标域无法得知母域的私钥 $sk_A$。
+
+#### 3. 盲签名（Blind Signature）的代数代入
+
+在注册阶段，为了彻底斩断真实 ID 与假名的关联：
+
+1. 无人机选择随机盲化因子 $r \in \mathbb{Z}_q^*$，对消息哈希进行盲化：$M' = r^e \cdot \text{H}(M) \pmod N$。
+
+2. 母域 CA 使用私钥签署：$\sigma' = (M')^{sk} \pmod N$。
+
+3. 无人机在本地去除噪声（解盲）：
+
+   $$\sigma_j = \sigma' \cdot r^{-1} = (r^e \cdot \text{H}(M))^{sk} \cdot r^{-1} = r \cdot \text{H}(M)^{sk} \cdot r^{-1} = \text{H}(M)^{sk} \pmod N$$
+
+   该签名 $\sigma_j$ 具备完全的母域背书权威性，但母域 CA 的注册日志中只存在 $M'$，无法将解盲后的 $\sigma_j$ 和 $PID_j$ 与任何一条特定的真实注册记录相挂钩，完美保障了位置隐私。
 
 ## 6.APPENDIX
 
 ### 6.1 具体的实验环境
 
-​	做一个无人机跨域认证的实验，首先就要搭建一个可以跨域的网络拓扑来模拟真是环境。因此首先想到的是ns-3模拟器，这是一款经典的网络模拟器，比较偏向学术性质，但是目前来看呢，我个人的电脑不足以运行这款模拟器，因此我当前选择Mininet-Wifi，这是一个无线网络模拟工具，使用Python编码，我个人比较熟悉Python的编码流程，正好ns-3太大，因此接下来的实验会首先使用Mininet-Wifi进行建模、部署。
+​	~~做一个无人机跨域认证的实验，首先就要搭建一个可以跨域的网络拓扑来模拟真是环境。因此首先想到的是ns-3模拟器，这是一款经典的网络模拟器，比较偏向学术性质，但是目前来看呢，我个人的电脑不足以运行这款模拟器，因此我当前选择Mininet-Wifi，这是一个无线网络模拟工具，使用Python编码，我个人比较熟悉Python的编码流程，正好ns-3太大，因此接下来的实验会首先使用Mininet-Wifi进行建模、部署。~~
 
-​	后面基本解决了内存不足的问题后（限制`ns-3 build`只能使用两个线程：`./ns3 build -j 2`），又尝试各种方式部署ns-3，但每次要么缺少依赖，要么有一些莫名其妙的错误（环境不一致啦、缓存固化未清理啦、库有了但并未自动链接上啦、手动指定库目录但仍旧不知为何的报错啦, etc.）
+​	~~后面基本解决了内存不足的问题后（限制`ns-3 build`只能使用两个线程：`./ns3 build -j 2`），又尝试各种方式部署ns-3，但每次要么缺少依赖，要么有一些莫名其妙的错误（环境不一致啦、缓存固化未清理啦、库有了但并未自动链接上啦、手动指定库目录但仍旧不知为何的报错啦, etc.）~~
+
+​	目前仍在完善代码，但同时发现了ns-3的正确环境配置，即wsl2的Ubuntu是残缺品，想要在windows上无缝使用Ubuntu系统还是商业级的虚拟化软件好使，e.g., 在vmware workstation pro上运行了Ubuntu26.06后，按手册安装ns-3，成功配置好了环境。但现在的话，还是准备代码逻辑的完善（兼以ns-3拓扑的搭建，由于ns-3使用的专业性极高，我想我应该会搭配ai进行拓扑的设计）
