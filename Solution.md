@@ -10,18 +10,17 @@
 
 ## 2.RELATED WORKS
 
-| 会议/期刊名称（年份）-文章标题-作者 | 主要针对内容 | 重要创新点/贡献，以及对我的启发 |
-| ----------------------------------- | ------------ | ------------------------------- |
-| [新建文本文档](./新建文本文档.txt)  | 仅作语法示范 | 怎么样使用md语法链接本地文件    |
-|                                     |              |                                 |
-|                                     |              |                                 |
-|                                     |              |                                 |
-|                                     |              |                                 |
-|                                     |              |                                 |
-|                                     |              |                                 |
-|                                     |              |                                 |
-|                                     |              |                                 |
-|                                     |              |                                 |
+| 论文的引用格式                                               | 主要针对内容                                                 | 重要创新点/贡献，以及对我的启发                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [[1] L. Rui, X. Zhang, J. Yang, and L. Liu, "Trust-Based Cross-Domain Batch Authentication Protocol for UAV Networks," in *2025 11th International Conference on Computer and Communications (ICCC)*, 2025, pp. 1715-1720, doi: 10.1109/ICCC68654.2025.11438133.](./refs/Trust-Based_Cross-Domain_Batch_Authentication_Protocol_for_UAV_Networks.pdf) | **针对无人机跨域认证中的传统认证中心（CA）单点故障、跨域信任难以建立以及海量设备接入时认证效率低下的问题。** 论文提出了一种基于信任机制的无人机网络跨域批量认证协议，旨在保障无人机在动态跨域场景下的安全、低延迟接入。 | **1. 机制创新：** 引入了**动态信任评估模型**，通过计算无人机的历史行为信任值来辅助跨域准入决策，有效识别恶意或被劫持的设备。<br>**2. 密码学优化：** 采用**中国剩余定理（CRT）**与椭圆曲线密码学相结合，实现了无双线性对的**批量认证（Batch Authentication）**机制，显著降低了地面控制站在面对多设备并发接入时的计算开销。<br>**3. 启发：** 该文的“批量认证”思想可与我方案中 3.1/5.2.2 的 **BLS短签名聚合验证** 形成对比；其信任评估逻辑可为我方案 4.5/4.6 节中如何通过**硬件死名单**和行为审计来动态撤销和阻击恶意设备（“黑飞”洗白）提供定性策略的参考。 |
+| [[2] G. Qiao, P. Yang, T. Ye, and F. Han, "A Blockchain-Based Cross-Domain Authentication and Flight Trajectory Privacy Protection Scheme for Unmanned Aerial Vehicle Networks," *IEEE Internet of Things Journal*, vol. 13, no. 2, pp. 2155-2170, Jan. 2026, doi: 10.1109/JIOT.2025.3627629.](./refs/A_Blockchain-Based_Cross-Domain_Authentication_and_Flight_Trajectory_Privacy_Protection_Scheme_for_Unmanned_Aerial_Vehicle_Networks.pdf) | **针对低空经济下无人机跨域任务中，传统集中式CA架构易发生单点故障、现有区块链方案存在性能瓶颈，以及因多域数据零散暴露导致攻击者能拼接并重构无人机完整飞行轨迹（轨迹隐私泄露）的问题 。** 论文提出了一种基于联盟链（CBC）与域内私有链（PBC）相结合的双层区块链协同保护框架 [cite: 5, 108]。 | **1. [cite_start]架构创新：** 设计了分层的“联盟链 + 私有链”双层链架构 [cite: 108][cite_start]，利用域内私有链快速处理高频局部认证 [cite: 114][cite_start]，联盟链负责跨域信任互通与任务审计 [cite: 112]，打破了单一链的性能瓶颈。<br>**2. [cite_start]隐私编码：** 提出了一种分层身份编码方案，将真实身份映射为动态变化的匿名标识符（PID） [cite: 57][cite_start]，在不泄露原始身份的前提下利用共识机制完成跨域认证 [cite: 58][cite_start]，切断了攻击者跨多域拼接完整轨迹的可能（防路径重构） [cite: 6, 58]。<br>**3. [cite_start]启发：** 该文的“身份与任务双重验证”以及“分层动态匿名PID”设计 [cite: 55, 57]，可作为我方案第 2 章中关于**无人机多管理域假名固化与解盲逻辑**的演进支撑；其“分层双链隔离”思想可为我方案在海量设备接入场景下的**跨域账本轻量化存储与高并发性能优化**提供直接的模型参考。 |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
 
 ## 3.PRELIMINARIES
 
@@ -653,3 +652,6 @@ $$d = v(t) \cdot \cos(\theta) \cdot \left[ \Delta T_{network}(RSSI) + \Delta T_{
 
 ​	目前仍在完善代码，但同时发现了ns-3的正确环境配置，即wsl2的Ubuntu是残缺品，想要在windows上无缝使用Ubuntu系统还是商业级的虚拟化软件好使，e.g., 在vmware workstation pro上运行了Ubuntu26.06后，按手册安装ns-3，成功配置好了环境。但现在的话，还是准备代码逻辑的完善（兼以ns-3拓扑的搭建，由于ns-3使用的专业性极高，我想我应该会搭配ai进行拓扑的设计）
 
+
+
+[cite_start]: 
