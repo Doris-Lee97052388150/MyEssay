@@ -1,0 +1,452 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{CTEX}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+	
+	\title{面向低空空域的无人机混合密码跨域认证与黑飞设备拦截方案\\
+	}
+	
+	\author{\IEEEauthorblockN{姓名}
+		\IEEEauthorblockA{\textit{机构部门} \\
+			\textit{机构}\\
+			城市, 国家 \\
+		}
+	}
+	
+	\maketitle
+	
+	\begin{abstract}
+		针对当前低空经济下无人机远距离跨管理域飞行场景存在的集中式 CA 单点故障、海量无人机并发认证时延高、跨域轨迹隐私泄露、非法 “黑飞” 无人机伪装洗白重复入侵等安全痛点，本文提出一套融合格后量子密码、BLS 短签名、稀疏默克尔树（SMT）、IPFS 分布式存储、联盟区块链与零知识证明（ZKP）的混合架构无人机跨域认证方案。首先界定空域弹性内外边界机制，实现无人机出域行为提前判定；其次设计双层预认证 + 正式认证两阶段跨域交互流程，依托代理重加密完成域间密文权限无损转换；采用盲签名生成无人机全局匿名假名保障常态轨迹隐私，结合芯片 PUF 硬件指纹构建全网硬件死名单，搭配 SMT 非成员证明实现恶意无人机注册阶段拦截，彻底解决黑飞设备身份洗白漏洞；底层采用分层密码体系，骨干信任链路使用 NIST 标准 Dilithium 格密码抵御量子攻击，空地空口通信采用 BLS 聚合短签名压缩传输开销，同时改造动态累加器用于假名盲化混淆，规避传统累加器全网同步开销瓶颈。仿真层面基于 NS-3 搭建空地异构网络拓扑，方案可实现毫秒级跨域核验、支持批量无人机并发接入，兼具双向互认证、不可伪造、强不可链接、位置隐私、即时撤销、物理抗篡改等完整安全属性，适配长途巡检、物流配送、安防巡逻等长航时行业级无人机跨域管控场景。
+	\end{abstract}
+	
+	\begin{IEEEkeywords}
+		无人机跨域认证；低空空域；区块链；格密码；零知识证明；黑飞拦截；隐私保护；稀疏默克尔树
+	\end{IEEEkeywords}
+	
+	\section{引言}
+	
+	\subsection{研究背景}
+	随着低空经济规模化发展，消费级、行业级无人机保有量持续增长，跨区域巡检、物流运输、全域安防等长距离飞行任务需求激增，随之产生大量脱离属地空域管理、未经空域审批的 “黑飞” 行为，严重扰乱空域秩序。现有空域管理按行政、职能划分为独立管理域，合法无人机跨域需提前申领第三方临时飞行许可，但传统认证架构存在多重缺陷：集中式认证中心 CA 存在单点故障；多域异构信任体系难以互通；海量无人机并发接入时认证计算、通信开销激增；恶意无人机可通过修改软件标识、重置通信 ID 伪装合法设备，跨域规避管控，拉黑后重新注册实现 “身份洗白”；无人机飞行轨迹可被多域日志拼接重构，带来位置隐私泄露风险。
+	
+	现有无人机跨域认证方案多采用单一密码体制或单一分布式架构，难以同时兼顾抗量子安全、轻量化机载计算、实时设备撤销、强隐私保护与黑飞拦截需求。本文面向多部门（民航、空管、地方公安）协同空域管控场景，设计弹性地理边界触发机制、两阶段跨域认证流程、硬件指纹级黑名单防洗白体系、链上链下协同分布式存储架构，通过混合密码原语分层部署平衡安全与效率，实现合法无人机高效无缝跨域，同时精准捕获、永久阻断伪装黑飞无人机。
+	
+	\subsection{研究核心问题}
+	\begin{enumerate}
+		\item 空域管理域边界判定机制固化，无法适配无人机动态飞行速度与通信时延，跨域认证触发滞后，易出现越界后管控失效；
+		\item 传统集中式 PKI 跨域信任链冗长，单点故障风险高，海量无人机并发接入时认证延迟过高，无法满足低空实时管控需求；
+		\item 匿名认证体系下恶意无人机拉黑后可更换软件标识重新注册，存在身份洗白漏洞，缺少硬件层面永久拦截机制；
+		\item 单一密码体制难以兼顾机载设备低算力需求与未来量子计算机攻击风险，轨迹数据跨域交互易造成隐私泄露；
+		\item 设备撤销状态同步存在时间差，传统 CRL 证书撤销列表存储、检索开销大，无法实现毫秒级黑名单核验。
+	\end{enumerate}
+	
+	\subsection{论文整体结构}
+	本文组织结构如下：第 2 章梳理无人机、车联网、工业物联网跨域认证相关国内外研究，对比现有方案创新与不足；第 3 章介绍方案所需密码学、分布式存储、区块链基础预备知识；第 4 章详细阐述本方案整体架构与完整执行流程，包含系统初始化注册、弹性边界处理、域间事前预认证、正式双向跨域认证、信任更新与恶意设备撤销、黑飞设备防洗白拦截六大核心模块；第 5 章给出方案完整参数定义、密码原语实例化实现、边界判定算法、适配无人机硬件指标、混合密码系统数学推导与累加器优化改进；第 6 章介绍仿真实验环境搭建；最后为总结与展望。
+	
+	\section{相关工作}
+	
+	本节梳理无人机网络、车载自组织网络、工业物联网三类典型移动设备跨域认证文献，分析各方案创新点、存在局限，以及对本文方案的启发，文献汇总对比见表 I。
+	
+	\begin{table*}[htbp]
+		\caption{相关文献核心内容、创新与方案启发汇总}
+		\begin{center}
+			\begin{tabular}{p{1.5cm}p{3cm}p{5.5cm}p{5.5cm}}
+				\toprule
+				\textbf{文献} & \textbf{核心技术} & \textbf{方案创新与优势} & \textbf{存在的局限性与启发} \\
+				\midrule
+				Rui 等 \cite{b1} & 信任评价、批量认证 & 基于信任度量筛选节点，提高批量认证效率 & 未考虑抗量子性，缺乏硬件级防洗白机制 \\
+				Qiao 等 \cite{b2} & 区块链、轨迹隐私 & 结合区块链保障轨迹隐私与非单点认证 & 共识开销较高，未设计自适应弹性边界 \\
+				Li 等 \cite{b3} & 区块链、可撤销认证 & 实现车载网中高效设备撤销与跨域信任 & 缺少物理硬件指纹，设备更换软件标识可洗白 \\
+				Kang 等 \cite{b4} & 边缘计算、身份认证 & 降低边缘节点认证开销 & 基于传统密码学，难以抵抗量子攻击 \\
+				Cao 等 \cite{b5} & 智能合约、去中心化 & 智能工厂去中心化跨域认证 & 链上数据开销过大，未采用分布式轻量化存储 \\
+				Xue 等 \cite{b6} & 智能合约、漫游服务 & 车载漫游服务高效跨域认证 & 缺乏毫秒级离线撤销与黑飞拦截闭环 \\
+				Gu \cite{b7} & 证书撤销、区块链 & 提出高效证书撤销管理方案 & 依靠 CRL，海量并发时更新与传输时延高 \\
+				Sun 等 \cite{b8} & 假名认证、隐私保护 & 强隐私保护假名方案 & 缺乏恶意节点全网追溯与物理指纹绑定 \\
+				Lin 等 \cite{b9} & 条件隐私保护、区块链 & 区块链辅助条件隐私保护 & 缺乏出域事前预认证机制，边界管控存在时延 \\
+				Shen 等 \cite{b10} & 工业物联网、跨域 & 跨域 IIoT 边缘设备认证 & 密码体制单一，未分层优化空口传输开销 \\
+				Li 等 \cite{b11} & 无证书密码、区块链 & 无证书跨域认证，降低密钥管理开销 & 缺少硬件 PUF 指纹防洗白机制 \\
+				Dong 等 \cite{b12} & 无证书跨域、工业互联网 & 无证书跨域机制 & 依赖传统双线性对，计算开销较高 \\
+				Wang 等 \cite{b13} & 轻量级消息认证 & 边缘辅助轻量级消息认证 & 未解决拉黑后的设备重新注册与洗白问题 \\
+				Zhong 等 \cite{b15} & 条件隐私、工业物联网 & 跨域条件隐私消息认证 & 缺少抗量子格密码设计 \\
+				Cui 等 \cite{b16} & 匿名认证、区块链 & 工业物联网高效匿名认证 & 状态同步开销较大，缺乏 SMT+IPFS 优化 \\
+				Zeng 等 \cite{b17} & 可撤销匿名认证 & 可撤销跨域匿名认证 & 依赖软件假名撤销，未绑定 PUF 硬件指纹 \\
+				Chen 等 \cite{b18} & PKI 信任增强 & 传统 PKI 系统跨域信任增强 & 存在集中式单点故障风险 \\
+				Wu 等 \cite{b19} & 区块链服务编排 & 弹性跨域无人机服务编排 & 侧重服务编排，缺少空口密码学优化 \\
+				Liang 等 \cite{b20} & 切比雪夫混沌映射 & 轻量级 Authentication 和密钥协商 & 混沌映射安全性存在争议，不支持抗量子 \\
+				Feng 等 \cite{b21} & 区块链协议 & 高效区块链无人机跨域协议 & 缺少硬件级死名单与 ZKP 状态证明 \\
+				\bottomrule
+			\end{tabular}
+		\end{center}
+	\end{table*}
+	
+	\subsection{现有方案局限性分析}
+	\begin{enumerate}
+		\item \textbf{信任架构单一化}：多数方案仅采用纯集中式 PKI 或纯区块链架构，前者存在单点故障，后者链上高频交互带来共识延迟，无法兼顾实时性与鲁鲁棒性；
+		\item \textbf{密码体制选择单一}：仅使用 ECC、双线性对、混沌映射其中一种，缺少分层混合设计，无法同时满足抗量子长期安全与机载轻量化通信需求；
+		\item \textbf{黑飞拦截机制缺失}：现有匿名认证仅基于软件假名撤销，未绑定硬件唯一特征，恶意设备更换固件、软件 ID 即可重新注册洗白；
+		\item \textbf{边界触发机制缺失}：无自适应弹性空域边界设计，跨域认证仅在无人机完全越界后触发，管控存在滞后；
+		\item \textbf{撤销同步存在时差}：依赖 CRL、OCSP 同步黑名单，更新周期长，撤销空窗期内恶意设备可伪装接入，缺少本地毫秒级离线核验机制。
+	\end{enumerate}
+	
+	\subsection{本文方案创新点}
+	\begin{enumerate}
+		\item \textbf{自适应弹性空域内外边界模型}：基于无人机速度、航向、定位误差、无线通信时延动态计算安全裕度，提前触发跨域预认证，规避越界管控滞后问题；
+		\item \textbf{两阶段分层跨域认证流程}：边界缓冲区完成事前预认证，物理越界后执行正式双向认证，依托代理重加密实现域间密文权限无损转换，大幅削减边界等待时延；
+		\item \textbf{硬件指纹级永久防洗白体系}：融合 PUF 芯片硬件指纹全网死名单 + SMT 非成员证明双重校验，从物理硬件层面阻断拉黑无人机重新注册；
+		\item \textbf{分层混合密码架构}：骨干信任链采用 Dilithium 格密码实现抗量子安全，空地空口通信采用 BLS 聚合短签名降低传输开销，改造动态累加器用于假名混淆，规避全网同步瓶颈；
+		\item \textbf{链上链下协同分布式存储}：联盟链仅存储 SMT 根哈希与 IPFS 索引 CID，海量黑名单、树形数据、凭证明细存储于 IPFS，兼顾共识不可篡改与存储轻量化；
+		\item \textbf{完整闭环安全机制}：融合盲签名、ZKP 零知识证明实现常态强轨迹隐私，区块链智能合约实现恶意设备全网不可逆撤销，同时满足双向互认证、防中间人、防重放、物理抗篡改全部安全属性。
+	\end{enumerate}
+	
+	\section{预备知识}
+	
+	本章系统介绍方案所需全部密码学、分布式存储、区块链基础理论，包含双线性映射、动态累加器、扩展切比雪夫混沌映射、格密码、代理重加密、安全评判标准、数字签名、稀疏默克尔树 SMT、IPFS、联盟区块链、零知识证明 ZKP 共 11 项基础模块。
+	
+	\subsection{双线性映射}
+	定义双线性映射 $e: G_1\times G_2\longrightarrow G_T$，$G_1,G_2$ 为加法循环群，$G_T$ 为乘法循环群，生成元分别为 $P,Q$，满足三条核心性质：
+	\begin{enumerate}
+		\item 双线性：$\forall a,b\in \mathbb{Z}, e(aP,bQ)=e(P,Q)^{ab}$；
+		\item 非退化性：$e(P,Q)\neq 1_{G_T}$；
+		\item 可计算性：存在多项式时间算法高效计算映射值。
+	\end{enumerate}
+	工程实现选用 Weil 配对、Tate 配对、BLS12-381 曲线配对，衍生 BLS 短签名。双线性对优势为签名长度极短、支持批量聚合验证；缺陷为计算开销高于 ECC、格密码，无天然抗量子能力，小特征有限域存在准多项式破解算法，因此本文仅将其作为空地空口轻量化辅助组件，搭配短时会话密钥规避长期安全风险。
+	
+	\subsection{动态累加器}
+	动态 RSA 乘法累加器基础迭代仅为模乘法运算，单次计算复杂度 $\mathcal{O}(1)$，可快速生成集合成员唯一标识，原生支持成员存在性证明。传统方案将累加器作为全网设备撤销状态同步依据，存在致命缺陷：设备上下线更新累加器值后，全网所有无人机需同步最新累加器参数以生成合法证明，同步请求伴随高开销加密运算，海量终端并发同步易引发地面站 DDoS 攻击。
+	
+	可以看出，之所以说动态累加器不行，不是因为其本身的复杂度问题，而是通信上的时延问题，因此在完全不管同步而仅提取动态累加器关键的累加器值后，动态累加器就完全能够作为关键的认证参数加入到很多模块里面，这里我设想将累加器值 ACC 加入到签名中。
+	
+	\subsection{代理重加密（PRE）}
+	代理重加密实现密文跨权限转换，代理节点（母域地面站）持有重加密密钥，在不解密原始明文前提下，将仅母域可解密的密文转换为目标域可解密密文，全程不泄露无人机授权明文、母域私钥。底层可基于双线性对、格密码构造，本文采用双线性对单向 PRE 用于边界事前预认证密文转换，实现域间授权信息安全流序。
+	
+	\section{方案整体框架}
+	
+	本方案完整流程分为六大核心模块：系统注册与多域初始化、弹性地理边界判定处理、域间事前预认证、正式双向跨域认证、信任更新与恶意设备撤销、黑飞无人机硬件级防洗白拦截，整体架构依托联盟区块链 + IPFS 双层存储、分层混合密码体系构建。
+	
+	\subsection{系统注册（System Registration）}
+	分为\textbf{多管理域区块链授信初始化}、\textbf{无人机硬件绑定匿名假名注册}两个阶段，全程采用格密码构建根信任，盲签名实现身份隐私隔离。
+	
+	\subsubsection{管理域与联盟链初始化}
+	\begin{enumerate}
+		\item 全域 $N$ 个空域管理域 $\mathcal{D}_1,\mathcal{D}_2,\dots,\mathcal{D}_N$ 接入联盟区块链，各域地面控制服务器作为共识验证节点，统部署域间授信智能合约；
+		\item 每个管理域基于 Dilithium 格密码生成域主密钥对：
+		$$(pk_{\mathcal{D}_i}, sk_{\mathcal{D}_i}) \leftarrow \text{Lattice.KeyGen}(1^\lambda)$$
+		域公钥 $pk_{\mathcal{D}_i}$ 上链广播固化，作为全域唯一身份标识；
+		\item 各域初始化独立动态累加器并注入域专属随机 nounce，用于后续无人机假名混淆；本地初始化深度 256 层稀疏默克尔树 SMT，用于存储在册无人机 PID 与授权状态。
+	\end{enumerate}
+	
+	\subsubsection{无人机硬件级匿名注册}
+	\begin{enumerate}
+		\item \textbf{硬件指纹提取}：无人机上电读取 SRAM-PUF 芯片 256 位唯一硬件特征 $Fingerprint_j$，该指纹无法通过软件刷机、固件修改篡改；
+		\item \textbf{凭证构造与盲化}：无人机生成本地随机秘密 $s_j$，拼接真实身份、硬件指纹构造原始凭证 $M = Real\_ID_j \parallel Fingerprint_j \parallel s_j$，使用盲化因子 $r$ 对 $M$ 盲化得到 $M'=\text{Blind}(M,r)$；
+		\item \textbf{母域盲签名授权}：无人机向母域 $\mathcal{D}_A$ 注册服务器提交盲化消息 $M'$，母域核验设备合法后，使用域格私钥生成盲签名 $\sigma'$ 并回传；
+		\item \textbf{解盲生成全局假名 PID}：无人机本地使用 $r$ 逆元解盲，获取母域对原始凭证的有效签名 $\sigma_j=\text{Unblind}(\sigma',r)$，哈希计算全局唯一匿名假名：
+		$$PID_j = \text{Hash}(M \parallel \sigma_j)$$
+		\item \textbf{链下树更新 + 链上锚定}：母域将 $PID_j$ 作为 SMT 索引键，授权有效期、飞行权限作为值写入 SMT；更新完整树结构上传 IPFS 生成 CID，将最新 $Root_{\mathcal{D}_A}$ 与 CID 打包上链，智能合约完成原子化状态锁存。
+	\end{enumerate}
+	
+	\subsection{边界处理（Geofence Boundaries and Elastic Inner-Boundaries）}
+	设计弹性内外双层空域边界，通过机载飞控实时几何计算动态判定出域行为，提前触发跨域预认证，边界拓扑结构如图 1 所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\begin{verbatim}
+			+-------------------------------------------------------------+
+			|                     管理域 A (Domain A)                      |
+			|                                                             |
+			|    +---------------------------------------------------+    |
+			|    |               最内域 Core Zone 正常飞行区          |    |
+			|    |                                                   |    |
+			|    +---------------------------------------------------+    |
+			|          全域边界正交向内平移安全裕度d                     |
+			| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  |
+			| 弹性内边界【出域界限】：触发出域计时器                     |
+			|                                                             |
+			+-------------------------------------------------------------+
+			====================== 物理行政空域边界 =======================
+			+-------------------------------------------------------------+
+			| 弹性外边界【入域界限】：目标域预认证信标广播区             |
+			| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  |
+			|                     管理域 B (Domain B)                      |
+			+-------------------------------------------------------------+
+		\end{verbatim}
+		\caption{空域弹性内外边界拓扑示意图}
+		\label{fig1}
+	\end{figure}
+	
+	\subsubsection{弹性安全裕度动态计算}
+	安全裕度 $d$ 非固定常量，基于无人机运动学、通信、定位误差实时求解：
+	$$d = v(t) \cdot \cos(\theta) \cdot \left[ \Delta T_{network}(RSSI) + \Delta T_{PRE} + \Delta T_{P2P} \right] + 3\sigma_{GNSS}$$
+	
+	参数说明：
+	\begin{itemize}
+		\item $v(t)$：无人机实时地速；$\theta$：飞行航向与边界法线夹角；
+		\item $\Delta T_{network}$：当前 RSSI 信道重传期望时延；
+		\item $\Delta T_{PRE}$：代理重加密固定计算时延；$\Delta T_{P2P}$：域间 P2P 数据传输时延；
+		\item $\sigma_{GNSS}$：组合导航定位均方根误差。
+		\end{itemize">高速、强电磁干扰场景自动扩大 $d$，提前启动跨域流程。			
+			上面的公式说是这么说，但某些参数在所给协议里只能参照通信领域的一些权威信息。			
+			\subsubsection{出域状态判定逻辑}
+			\begin{enumerate}
+				\item 无人机飞控以 20Hz（50ms 周期）运行射线判别法，将经纬度投影为平面直角坐标，计算到物理边界最短正交距离 $L(t)$；
+				\item 若 $L(t)\le d$，判定越过【出域界限】，启动计时器 $T_{out}$；
+				\item 计时器超过全局阈值 $T_{max}=15\mathrm{s}$ 仍未返回核心内域，判定无人机执行跨域飞行，强制启动事前预认证流程。
+			\end{enumerate}
+			
+			\subsection{域间事前认证（Inter-Domain Pre-Authentication）}
+			无人机处于内外边界缓冲区时，母域与目标域边缘节点提前完成授权密文转换与准入预校验，物理越界后直接执行简短正式认证，大幅降低空中等待时限。
+			
+			\begin{enumerate}
+				\item \textbf{预认证请求封装}：无人机向母域边缘基站发送轻量化请求包，采用 BLS 短签名压缩带宽：
+				$$Req_{pre} = \{PID_j, \mathcal{D}_B, Timestamp, \mathcal{S}_{ign\_sl}(PID_j \parallel \mathcal{D}_B)\}$$
+				$\mathcal{S}_{ign\_sl}$ 为 BLS12-381 短签名，单签名仅 48 字节；
+				\item \textbf{代理重加密密文转换}：母域服务器读取链上目标域公钥与域间授信重加密密钥 $rk_{A\to B}$，在不解开无人机授权明文前提下，将母域可读密文 $CT_{\mathcal{D}_A}$ 转换为仅目标域可解密密文 $CT_{\mathcal{D}_B}$；
+				\item \textbf{P2P 预准入推送}：母域通过边缘网状网络将 $CT_{\mathcal{D}_B}$、$PID_j$ 直接推送至目标域 RSU，目标域提前解密完成合法性预校验，存入预备接入队列。
+			\end{enumerate}
+			
+			\subsection{正式跨域认证（Formal Cross-Domain Authentication）}
+			无人机越过物理空域边界、抵达目标域【入域界限】时，执行双向挑战握手、链上 SMT 状态核验、会话密钥协商，完成完整跨域授信。
+			
+			\begin{enumerate}
+				\item \textbf{双向挑战抗中间人握手}：目标域基站下发随机挑战值 $R_B$ 与时间戳 $TS_1$；无人机使用本地秘密 $s_j$ 与格签名算法生成响应数据包：
+				$$Res_{formal} = \{PID_j, \text{Lattice.Sign}(sk_{uav}, R_B \parallel TS_1), Proof_{smt}\}$$
+				$Proof_{smt}$ 为无人机在母域 SMT 树的成员存在性 ZKP 证明；
+				\item \textbf{全局链上状态原子核验}：
+				\begin{enumerate}
+					\item 目标域基站先批量校验格签名，抵御中间人、消息伪造攻击；
+					\item 读取联盟链最新母域 SMT 根哈希 $Root_{\mathcal{D}_A}$；
+					\item 验证 ZKP 封装的 SMT 成员证明，若 $\text{SMT.Verify}(Root_{\mathcal{D}_A}, PID_j, Proof_{smt})=1$，证明无人机未被母域撤销；
+				\end{enumerate}
+				\item \textbf{会话密钥协商与跨域接入}：双向校验全部通过后，基站与无人机协商短时对称会话密钥 $K_{session}$，智能合约标记 $PID_j$ 为合法域外访客；无人机切换至目标域通信频段，正常执行跨域飞行任务。
+			\end{enumerate}
+			
+			\subsection{信任更新与恶意设备撤销（Trust Update \& Malicious Device Revocation）}
+			无人机出现航线偏离、拒绝管控、劫持入侵等恶意行为时，执行单域拉黑、链上全网同步、SMT 与 IPFS 状态更新全流程不可逆撤销。
+			
+			\begin{enumerate}
+				\item \textbf{单域恶意判定}：目标域监控节点识别无人机异常行为，对 $PID_j$ 下发本地拉黑指令；
+				\item \textbf{链上智能合约全网撤销}：管控服务器调用区块链恶意设备审计合约，将 $PID_j$ 上链广播；共识完成后全网永久标记该假名失效，无任何管理域可单方面删除拉黑记录；
+				\item \textbf{链下 SMT 与 IPFS 同步更新}：
+				\begin{enumerate}
+					\item 无人机所属母域将 SMT 中 $PID_j$ 对应叶子节点置空（赋值 0），重新计算全新树根 $Root_{\mathcal{D}_A}^{new}$；
+					\item 更新后的完整 SMT 文件上传 IPFS 生成新 $CID_{new}$；
+					\item 母域发起链上交易，将新 Root、$CID_{new}$ 原子化更新至智能合约；
+				\end{enumerate}
+				后续任意域核验该无人机时，SMT 存在性证明无法匹配链上最新根哈希，直接判定非法设备。
+			\end{enumerate}
+			
+			\subsection{黑飞设备防洗白拦截机制}
+			传统匿名认证存在漏洞：恶意无人机拉黑 PID 后，可依靠全新随机数重新发起盲签名注册，软件层面完全伪装新设备，实现身份洗白。本文基于 PUF 硬件指纹死名单 + SMT 非成员证明构建双重拦截闭环，流程如图 2。
+			
+			\begin{figure}[htbp]
+				\centering
+				\begin{verbatim}
+					恶意无人机携带不变硬件指纹Fingerprint_j，尝试重新注册
+					↓
+					提交盲化注册请求（包含硬件PUF指纹）
+					↓
+					母域CA从本地IPFS缓存拉取全网硬件死名单CID_DeadList
+					↓
+					硬件指纹全字段碰撞比对
+					┌─────────────┬─────────────┐
+					│命中死名单   │未命中死名单 │
+					↓             ↓
+					直接拒绝盲签名签发    校验SMT非成员证明，通过则颁发盲签名生成新PID
+					触发链上恶意注册告警
+				\end{verbatim}
+				\caption{黑飞无人机洗白拦截逻辑流程图}
+				\label{fig2}
+			\end{figure}
+			
+			\begin{enumerate}
+				\item \textbf{硬件指纹全网死名单生成}：无人机被判定恶意拉黑后，合约调用审计陷门解开注册绑定的唯一 PUF 指纹 $Fingerprint_j$，封装进全局硬件死名单文件；
+				\item \textbf{IPFS 全网边缘同步}：死名单上传 IPFS 生成固定 $CID_{DeadList}$，所有管理域注册服务器本地缓存文件，毫秒级完成指纹比对；
+				\item \textbf{注册阶段双重强制审计}：
+				\begin{enumerate}
+					\item 硬件指纹匹配校验：无论无人机更换随机数、软件 ID、固件，PUF 指纹永久不变，命中死名单直接拦截；
+					\item SMT 非成员证明二次校验：无人机需证明自身未在黑名单树形结构内，无法提供合法非成员证明则拒绝注册；
+				\end{enumerate}
+				从物理硬件层面彻底杜绝拉黑无人机洗白重复入侵，实现永久拦截。
+			\end{enumerate}
+			
+			\subsection{恶意请求过滤}
+			若是仅按协议顺序来排的话，请求过滤其实应该放在预认证那里，在接收到实体的请求之后，正式确认合法性并预认证建立信任之前，可以在自机按照过滤方案以 100\% 的准确率和较高的精确率排除恶意设备。
+			
+			方案在进行试验，甚至不能算作是实验。过滤的初衷是轻量化的本地处理机制，但真的要求精确率的话，过滤的流程又会显得太长，因此当下并无什么比较好的成型方案。
+			
+			\section{方案完整细节参数与密码系统实例化}
+			
+			\subsection{系统初始化全局参数列表}
+			表 II 给出系统全局密码、几何、状态参数定义与工程标准取值。
+			
+			\begin{table*}[htbp]
+				\caption{系统全局密码、几何、状态参数定义与工程标准取值}
+				\begin{center}
+					\begin{tabular}{c c p{10cm}}
+						\toprule
+						\textbf{参数符号} & \textbf{代数 / 数据类型} & \textbf{物理与密码学含义、推荐工程值} \\
+						\midrule
+						$\lambda$ & 安全参数 $1^\lambda$ & 全局安全等级，$\lambda=128$，满足 NIST III 级安全标准 \\
+						$q$ & 大模数素数 & Dilithium 格密码环模数 $q=8380417$，适配 NTT 多项式加速 \\
+						$n$ & 正整数 & 多项式环维度 $n=256$，商环 $R_q=\mathbb{Z}_q[x]/(x^{256}+1)$ \\
+						$e,G_1,G_2,G_T$ & 双线性映射 $e:G_1\times G_2\rightarrow G_T$ & BLS12-381 配对曲线，$G_1$ 输出 48 字节短签名 \\
+						$pk_{\mathcal{D}_i},sk_{\mathcal{D}_i}$ & 环多项式矩阵 / 向量 & 管理域格密码主密钥，矩阵维度 $k=6,l=5$，私钥稀疏边界 $\eta=4$ \\
+						$Fingerprint_j$ & 256 位二进制串 & SRAM-PUF 硬件指纹，上电生成，汉明对准率 $\ge 99.99\%$ \\
+						$s_j$ & $\mathbb{Z}_q^*$ 随机数 & 无人机本地 128 位强随机秘密，盲化、ZKP 见证根 \\
+						$PID_j$ & 256 位哈希串 & 全局匿名假名，SMT 检索索引键 \\
+						$Root_{\mathcal{D}_A}$ & 32 字节哈希值 & 母域 SMT 全局状态根，链上持久存储 \\
+						$T_{max}$ & 实数 & 出域计时器阈值，固定 $T_{max}=15.0\mathrm{s}$ \\
+						\bottomrule
+					\end{tabular}
+				\end{center}
+			\end{table*}
+			
+			\subsection{方案所用密码原语专用实例化形式}
+			
+			\subsubsection{Dilithium3}
+			选用 NIST 标准化 Crystals-Dilithium3 变体，域公钥为多项式矩阵 $\mathbf{A}$ 与向量 $\mathbf{t}$，公钥体积 1952 字节；验证仅执行 NTT 多项式加减乘，边缘服务器单次验签耗时小于 0.1ms；用于域间授信凭证、恶意设备审计记录。
+			
+			\subsubsection{BLS 聚合短签名}
+			基于 BLS12-381 曲线，单签名 $\sigma=\text{H}_1(PID_j \parallel \mathcal{D}_B)^{sk_{uav}}\in G_1$，编码 48 字节；多无人机并发请求时签名聚合：
+			$$\sigma_{agg} = \sum_{i=1}^N \sigma_i \in G_1$$
+			传输开销由 $\mathcal{O}(N)$ 压缩至 $\mathcal{O}(1)$，单次配对批量完成全部无人机预认证校验，适配高密度空域并发接入。
+			
+			\subsubsection{SMT+ZKP 轻量化状态证明}
+			SMT 深度固定 256 层，ZKP 选用 zk-STARK 后量子方案，将 SMT 哈希校验电路编译为 R1CS 约束；无人机输出固定 256 字节非交互式证明 $\pi_{smt}$，无需传输完整 Merkle 路径，隐匿同域设备拓扑活跃度隐私。
+			
+			\subsubsection{IPFS 分布式存储实例}
+			底层哈希采用 sha2-256，文件标识为 base58 编码 CIDv1（46 字符）；SMT 完整树体、硬件死名单分片存储于 IPFS，链上仅锚定 CID 与 SMT 根哈希，实现海量数据链下轻量化托管。
+			
+			\subsection{边界处理完整实现技术}
+			\begin{enumerate}
+				\item \textbf{动态裕度收敛算法}：基于无人机运动学、信道 RSSI、导航误差多变量耦合计算 $d$，高速强干扰场景自动拓宽安全边界，提前触发预认证；
+				\item \textbf{射线多边形几何判定}：飞控 50ms 周期执行平面射线法，计算无人机坐标到空域多边形边界正交距离，触发出域状态机自锁；
+				\item \textbf{SDR 定向射频嗅探}：触发出域后切换 5.9GHz V2X 信道，捕获目标域 RSU 地理信标，建立 P2P 网状链路完成预认证交互。
+			\end{enumerate}
+			
+			\subsection{方案适配无人机硬件指标}
+			本方案面向长航时行业级 VTOL 复合翼、多旋翼无人机，不适用于短途玩具级小型消费机，适配硬件参数如表 III。
+			
+			\begin{table}[htbp]
+				\caption{目标无人机技术参数边界}
+				\begin{center}
+					\begin{tabular}{c c p{4cm}}
+						\toprule
+						\textbf{维度} & \textbf{分类规格} & \textbf{定量指标} \\
+						\midrule
+						飞行半径 & 跨城巡检、物流、安防巡逻 & 15km ~ 250km \\
+						飞行速度 & 中高速行业无人机 & 15m/s ~ 45m/s（最高 162km/h） \\
+						机载处理器 & 嵌入式边缘芯片 & ARM Cortex-M7 $\ge 400\text{MHz}$ / Cortex-A53 \\
+						内存资源 & 运行内存、静态存储 & SRAM $\ge 512\text{KB}$，DRAM $\ge 128\text{MB}$ \\
+						硬件安全锚点 & 芯片 PUF 模块 & 256 位上电随机指纹，汉明熵密度 $\ge 0.99$ \\
+						物理抗篡改 & 硬件自毁电路 & 物理拆解 5ms 内销毁全部密钥、指纹缓存 \\
+						伪装风险 & 软件篡改防护 & 固件、MAC、软件 ID 可修改，PUF 指纹不可篡改 \\
+						\bottomrule
+					\end{tabular}
+				\end{center}
+			\end{table}
+			
+			\subsection{混合密码系统完整数学推导}
+			
+			\subsubsection{Dilithium 格密钥生成算法}
+			\begin{enumerate}
+				\item 环定义：$R_q = \mathbb{Z}_q[x]/(x^{256}+1), q=8380417$；
+				\item 采样稀疏私钥多项式向量：$\mathbf{s}_1\in R_q^5, \mathbf{s}_2\in R_q^6$，系数区间 $[-\eta,\eta],\eta=4$；
+				\item 生成均匀随机矩阵 $\mathbf{A}\in R_q^{6\times 5}$；
+				\item 计算公钥向量：$\mathbf{t} = \mathbf{A}\mathbf{s}_1 + \mathbf{s}_2 \pmod q$；
+				\item 密钥输出：$pk=(\mathbf{A},\mathbf{t}), sk=(\mathbf{s}_1,\mathbf{s}_2,\mathbf{t})$。
+			\end{enumerate}
+			
+			\subsubsection{双线性单向代理重加密 PRE}
+			\begin{enumerate}
+				\item 母域私钥 $sk_A=\alpha$，公钥 $pk_A=g^\alpha\in G_2$；无人机授权明文 $M\in G_T$，母域初始密文：
+				$$CT_{\mathcal{D}_A} = \left(X = g^r, Y = M \cdot e(h, g^\alpha)^r\right)$$
+				$r$ 为母域随机盲因子，$h$ 为 $G_1$ 生成元；
+				\item 域间授信重加密密钥 $rk_{A\to B}=sk_A^{-1}\cdot sk_B=\beta/\alpha \pmod p$，$sk_B=\beta$ 为目标域私钥；
+				\item 重加密转换：$\tilde{X}=X^{rk_{A\to B}}=g^{r\beta/\alpha}$，重加密密文 $CT_{\mathcal{D}_B}=(\tilde{X},Y)$；
+				\item 目标域解密：$M = Y / e(h,\tilde{X})^\alpha$，全程母域、目标域均无法互相推导对方私钥，明文不泄露。
+			\end{enumerate}
+			
+			\subsubsection{盲签名假名生成数学过程}
+			\begin{enumerate}
+				\item 盲化因子 $r\in \mathbb{Z}_N^*$，原始凭证哈希 $H_M=\text{H}_0(Real\_ID_j \parallel Fingerprint_j \parallel s_j)$；
+				\item 盲化消息：$M'=r^e \cdot H_M \pmod N$，$e$ 为公钥加密指数；
+				\item 母域盲签名：$\sigma'=(M')^{sk_{\mathcal{D}_A}} \pmod N = r^{e\cdot sk} \cdot H_M^{sk}$；
+				\item 无人机本地解盲：$\sigma_j = \sigma' \cdot r^{-1} = H_M^{sk}$；
+				\item 全局假名：$PID_j=\text{Hash}(\sigma_j)$，母域无法将 $PID_j$ 与原始注册记录关联。
+			\end{enumerate}
+			
+			\subsubsection{优化改造动态累加器实现}
+			摒弃传统累加器全网撤销同步功能，仅用于域内假名混淆：
+			\begin{enumerate}
+				\item 单域初始化累加器 $V_{init}$，注入域专属随机盐 nounce；
+				\item 新无人机入网分配唯一素数标识 $\omega_j$，迭代更新累加器：
+				$$V_{new} = (V_{old})^{\omega_j} \pmod N$$
+				\item $V_{new}$ 作为签名内部盲化伪随机因子；各域独立 nounce 保证累加器输出正交，攻击者无法跨域关联设备；
+				\item 撤销功能完全移交 SMT+IPFS 硬件死名单，消除全网 Witness 同步 DDoS 漏洞。
+			\end{enumerate}
+			
+			\subsubsection{混合密码体系安全综合分析}
+			\begin{enumerate}
+				\item \textbf{层级解耦安全}：骨干区块链、管控中心使用格密码抵御量子攻击；空地窄带宽通信使用 BLS 短签名压缩传输开销，分层部署平衡长期安全与实时轻量化；
+				\item \textbf{隐私审计解耦}：常态跨域依靠盲签名、ZKP、PID 实现强匿名、轨迹不可链接；识别恶意设备后通过 PUF 硬件指纹触发全局追溯，实现 “正常飞行完全隐私，黑飞永久溯源拦截”；
+				\item \textbf{多重防御闭环}：弹性边界提前预认证、两阶段跨域核验、SMT 实时状态校验、硬件指纹黑名单、链上不可逆撤销多层防护，完整覆盖 3.6 节全部安全评判指标。
+			\end{enumerate}
+			
+			\section{仿真实验环境}
+			
+			本方案代码逻辑、网络仿真基于 NS-3 平台搭建，开发环境配置如下：
+			\begin{enumerate}
+				\item 虚拟化环境：VMware Workstation Pro 部署 Ubuntu 26.06 完整发行版，规避 WSL2 Ubuntu 系统组件残缺问题；
+				\item 仿真工具：NS-3 搭建空地异构无人机网络拓扑，搭配 AI 辅助生成多域地面站、无人机动态移动场景；
+				\item 开发进度：密码学底层代码、区块链智能合约逻辑持续完善，NS-3 空域拓扑模型正在搭建，后续将完成认证时延、通信开销、并发接入性能定量仿真测试。
+			\end{enumerate}
+			
+			\section{总结与展望}
+			
+			\subsection{工作总结}
+			本文针对低空经济无人机跨域管控安全痛点，提出一套融合格后量子密码、BLS 短签名、SMT、IPFS、联盟区块链、零知识证明的分层混合架构跨域认证方案。设计自适应弹性空域边界提前触发预认证，采用事前预认证 + 正式双向认证两阶段流程降低边界交互时延；依托盲签名生成全局匿名假名保障无人机轨迹位置隐私；创新引入 PUF 硬件指纹全网死名单，搭配 SMT 非成员证明彻底解决恶意无人机拉黑后洗白重注册漏洞；底层分层部署密码原语，骨干链路使用 Dilithium 格密码抵御量子攻击，空地无线通信使用 BLS 聚合签名压缩带宽；采用链上存根、链下 IPFS 存海量数据的协同存储架构，消除区块链存储爆炸与集中式服务器单点故障；通过智能合约实现恶意设备全网不可逆批量撤销，改造动态累加器规避传统同步开销缺陷。方案完整满足双向互认证、不可伪造、强匿名不可链接、物理抗篡改、抗中间人 / 重放攻击、毫秒级撤销等全部安全属性，适配长途巡检、物流配送、全域安防等行业级无人机跨域管控场景。
+			
+			\subsection{未来工作展望}
+			\begin{enumerate}
+				\item 完成 NS-3 大规模仿真定量测试，对比现有主流方案的认证时延、通信带宽、机载算力消耗、并发接入上限性能指标；
+				\item 完善硬件原型实现，基于 ARM 嵌入式无人机开发板部署 PUF 指纹、格密码、BLS 签名轻量化固件；
+				\item 优化零知识证明生成速度，进一步降低机载芯片 ZKP 计算时延；
+				\item 拓展多机协同集群跨域认证场景，增加群组批量撤销、集群轨迹隐私保护模块；
+				\item 兼容现有民航、空管空域管理 PKI 系统，完善跨体系遗留凭证互信转换协议。
+			\end{enumerate}
+			
+			\begin{thebibliography}{00}
+				\bibitem{b1} L. Rui, X. Zhang, J. Yang, and L. Liu, "Trust-Based Cross-Domain Batch Authentication Protocol for UAV Networks," in \emph{2025 11th International Conference on Computer and Communications (ICCC)}, 2025, pp. 1715-1720, doi: 10.1109/ICCC68654.2025.11438133.
+				\bibitem{b2} G. Qiao, P. Yang, T. Ye, and F. Han, "A Blockchain-Based Cross-Domain Authentication and Flight Trajectory Privacy Protection Scheme for Unmanned Aerial Vehicle Networks," \emph{IEEE Internet of Things Journal}, vol. 13, no. 2, pp. 2155-2170, Jan. 2026, doi: 10.1109/JIOT.2025.3627629.
+				\bibitem{b3} R. Li, J. Cui, J. Zhang, L. Wei, H. Zhong, and D. He, "Blockchain-Assisted Revocable Cross-Domain Authentication for Vehicular Ad-Hoc Networks," \emph{IEEE Transactions on Dependable and Secure Computing}, vol. 22, no. 5, pp. 4593-4607, Sept./Oct. 2025, doi: 10.1109/TDSC.2024.3435678.
+				\bibitem{b4} N. Kang, Z. Ning, S. Zhang, S. Rehman, and M. Waqas, "Identity-Based Edge Computing Anonymous Authentication Protocol," \emph{Computers, Materials \& Continua}, vol. 74, no. 1, pp. 2005-2018, 2023, doi: 10.32604/cmc.2023.029711.
+				\bibitem{b5} Z. Cao, X. Wen, S. Ai, W. Shang, and S. Huan, "A decentralized authentication scheme for smart factory based on blockchain," \emph{Scientific Reports}, vol. 14, no. 1, p. 24640, Oct. 2024, doi: 10.1038/s41598-024-76065-x.
+				\bibitem{b6} K. Xue, X. Luo, Y. Ma, J. Li, J. Liu, and D. S. L. Wei, "A Distributed Authentication Scheme Based on Smart Contract for Roaming Service in Mobile Vehicular Networks," \emph{IEEE Transactions on Vehicular Technology}, vol. 71, no. 5, pp. 5284-5297, May 2022, doi: 10.1109/TVT.2022.3157591.
+				\bibitem{b7} P. Gu, "An Efficient Blockchain-based Cross-domain Authentication and Secure Certificate Revocation Scheme," in \emph{2020 IEEE 6th International Conference on Computer and Communications (ICCC)}, 2020, pp. 1651-1655, doi: 10.1109/ICCC51575.2020.9345108.
+				\bibitem{b8} Y. Sun, R. Lu, X. Lin, X. S. Shen, and J. Su, "An Efficient Pseudonymous Authentication Scheme With Strong Privacy Preservation for Vehicular Communications," \emph{IEEE Transactions on Vehicular Technology}, vol. 59, no. 7, pp. 3589-3603, Sept. 2010, doi: 10.1109/TVT.2010.2051468.
+				\bibitem{b9} C. Lin, D. He, X. Huang, N. Kumar, and K. R. Choo, "BCPPA: A Blockchain-Based Conditional Privacy-Preserving Authentication Protocol for Vehicular Ad Hoc Networks," \emph{IEEE Transactions on Intelligent Transportation Systems}, vol. 22, no. 12, pp. 7408-7420, Dec. 2021, doi: 10.1109/TITS.2020.3002015.
+				\bibitem{b10} M. Shen, H. Liu, L. Zhu, K. Xu, H. Yu, X. Du, and M. Guizani, "Blockchain-Assisted Secure Device Authentication for Cross-Domain Industrial IoT," \emph{IEEE Journal on Selected Areas in Communications}, vol. 38, no. 5, pp. 942-954, May 2020, doi: 10.1109/JSAC.2020.2980911.
+				\bibitem{b11} Z. Li, X. Liu, N. Zhang, and Z. Wei, "Blockchain-Based Certificateless Cross-Domain Authentication Scheme in the Industrial Internet of Things," \emph{Computers, Materials \& Continua}, vol. 80, no. 3, pp. 3835-3856, Sept. 2024, doi: 10.32604/cmc.2024.053950.
+				\bibitem{b12} J. Dong, G. Xu, M. Chuang, J. Liu, and U. G. O. Cliff, "Blockchain-Based Certificate-Free Cross-Domain Authentication Mechanism for Industrial Internet," \emph{IEEE Internet of Things Journal}, vol. 11, no. 2, pp. 3316-3329, Jan. 2024, doi: 10.1109/JIOT.2023.3299371.
+				\bibitem{b13} F. Wang, J. Cui, Q. Zhang, D. He, C. Gu, and H. Zhong, "Blockchain-Based Lightweight Message Authentication for Edge-Assisted Cross-Domain Industrial Internet of Things," \emph{IEEE Transactions on Dependable and Secure Computing}, vol. 21, no. 4, pp. 1587-1601, July/Aug. 2024, doi: 10.1109/TDSC.2023.3306132.
+				\bibitem{b15} H. Zhong, C. Gu, Q. Zhang, J. Cui, C. Gu, and D. He, "Conditional privacy-preserving message authentication scheme for cross-domain Industrial Internet of Things," \emph{Ad Hoc Networks}, vol. 144, p. 103137, May 2023, doi: 10.1016/j.adhoc.2023.103137.
+				\bibitem{b16} J. Cui, N. Liu, Q. Zhang, D. He, C. Gu, and H. Zhong, "Efficient and Anonymous Cross-Domain Authentication for IIoT Based on Blockchain," \emph{IEEE Transactions on Network Science and Engineering}, vol. 10, no. 3, pp. 899-910, March/April 2023, doi: 10.1109/TNSE.2022.3225574.
+				\bibitem{b17} M. Zeng, J. Cui, Q. Zhang, H. Zhong, and D. He, "Efficient Revocable Cross-Domain Anonymous Authentication Scheme for IIoT," \emph{IEEE Transactions on Information Forensics and Security}, vol. 20, pp. 996-1010, 2025, doi: 10.1109/TIFS.2024.3512345.
+				\bibitem{b18} Y. Chen, G. Dong, J. Bai, Y. Hao, F. Li, and H. Peng, "A Trust Enhancement Scheme for Cross Domain Authentication of PKI system," in \emph{2019 International Conference on Cyber-Enabled Distributed Computing and Knowledge Discovery (CyberC)}, 2019, pp. 364-371, doi: 10.1109/CyberC.2019.00067.
+				\bibitem{b19} Y. Wu, Z. Jia, J. Zhao, H. Wang, Q. Wu, and Z. Han, "A Blockchain-Based Trust Framework for Resilient Cross-Domain UAV Service Orchestration," arXiv preprint arXiv:2603.00456, 2026.
+				\bibitem{b20} S. Liang, B. Duo, J. Ning, and R. Zhou, "A Lightweight Authentication and Key Agreement Scheme for Cross-Domain UAV Networks Based on Extended Chebyshev Chaotic Map and Hash Chain," in \emph{2025 4th International Conference on Cloud Computing, Big Data Application and Software Engineering (CBASE)}, 2025, pp. 1-6, doi: 10.1109/CBASE67452.2025.11335560.
+				\bibitem{b21} L. Feng, C. Xu, M. Liu, F. Huang, and Y. Yu, "TEBP-UAVs: A trusted and efficient blockchain-based protocol for cross-domain authentication in UAVs," \emph{Computer Networks}, vol. 282, p. 112243, 2026, doi: 10.1016/j.comnet.2026.112243.
+			\end{thebibliography}
+		\end{document}

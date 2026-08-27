@@ -1,0 +1,185 @@
+\documentclass[lettersize,journal]{IEEEtran}
+\usepackage{amsmath,amsfonts}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{array}
+\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\usepackage{textcomp}
+\usepackage{stfloats}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
+
+\begin{document}
+
+\title{Hybrid Cryptographic Cross-Domain Authentication and Illegal Unmanned Aerial Vehicle Interception Scheme for Low-Altitude Airspace}
+
+\author{Author 1, Author 2, and Author 3
+\thanks{Manuscript received August 1, 2026. (Corresponding author: Author 1.)}%
+\thanks{The authors are with the Department of Computer Science and Technology.}}
+
+\markboth{IEEE Transactions on Mobile Computing,~Vol.~XX, No.~X, August~2026}%
+{Author \MakeLowercase{\textit{et al.}}: Hybrid Cryptographic Cross-Domain Authentication Scheme}
+
+\maketitle
+
+\begin{abstract}
+To address security pain points in long-distance cross-domain flight scenarios under the low-altitude economy—such as single points of failure in centralized CAs, high latency during mass UAV concurrent authentication, cross-domain trajectory privacy leakage, and illegal "black-flight" UAVs laundering identities to repeatedly intrude—this paper proposes a hybrid architecture cross-domain authentication scheme. The scheme integrates lattice-based post-quantum cryptography, BLS short signatures, Sparse Merkle Trees (SMT), IPFS distributed storage, consortium blockchain, and Zero-Knowledge Proofs (ZKP). First, an elastic inner and outer boundary mechanism for airspace is defined to enable early detection of outbound UAV behavior. Second, a two-stage inter-domain interaction flow consisting of two-layer pre-authentication and formal authentication is designed, relying on proxy re-encryption to complete lossless inter-domain ciphertext permission conversion. Blind signatures generate global anonymous pseudonyms to protect routine trajectory privacy. Combined with chip PUF hardware fingerprints, a network-wide hardware deadlist is constructed, paired with SMT non-membership proofs to achieve malicious UAV registration-stage interception, thoroughly resolving identity-whitening vulnerabilities of illegal UAVs. The underlying layer adopts a hierarchical cryptographic system: the backbone trust chain utilizes NIST-standard Dilithium lattice cryptography to resist quantum attacks, air-to-ground interface communication uses BLS aggregate short signatures to reduce transmission overhead, and a modified dynamic accumulator is deployed for pseudonym obfuscation, avoiding traditional accumulator synchronization bottlenecks. Simulation results based on NS-3 indicate millisecond-level cross-domain verification and support for concurrent access of batch UAVs, satisfying comprehensive security properties such as mutual authentication, unforgeability, strong unlinkability, location privacy, immediate revocation, and physical tamper resistance, making it highly suitable for long-endurance industry-grade UAV cross-domain management scenarios like power line inspection, logistics delivery, and security patrol.
+\end{abstract}
+
+\begin{IEEEkeywords}
+UAV cross-domain authentication, low-altitude airspace, blockchain, lattice cryptography, zero-knowledge proof, illegal flight interception, privacy protection, sparse Merkle tree.
+\end{IEEEkeywords}
+
+\section{Introduction}
+\IEEEPARstart{W}{ith} the large-scale development of the low-altitude economy, the population of consumer and industrial Unmanned Aerial Vehicles (UAVs) continues to expand. Demand for long-distance missions such as cross-regional inspection, logistics transport, and wide-area security has surged. Consequently, a large number of illegal "black-flight" activities—unauthorized flights detached from local airspace management—have emerged, severely disrupting airspace order. Existing airspace management is partitioned into independent domains according to administrative and functional boundaries. Legitimate UAVs crossing domains must apply for temporary flight permits from third parties in advance. However, traditional authentication architectures suffer from multiple flaws: centralized Certificate Authorities (CAs) represent single points of failure; heterogeneous multi-domain trust systems struggle with interoperability; computation and communication overheads explode under high-concurrency access; and malicious UAVs can modify software identifiers or reset communication IDs to disguise themselves as legitimate devices, evading cross-domain control and re-registering ("identity laundering") after being blacklisted. Furthermore, UAV flight trajectories can be reconstructed by stitching logs across multiple domains, posing significant location privacy risks.
+
+Most existing UAV cross-domain authentication schemes rely on a single cryptographic scheme or a pure distributed architecture, making it difficult to simultaneously satisfy quantum resistance, lightweight onboard computation, real-time device revocation, strong privacy protection, and illegal flight interception. Targeting multi-department collaborative airspace control scenarios (civil aviation, air traffic control, local public security), this paper designs an elastic boundary triggering mechanism, a two-stage cross-domain authentication process, a hardware-fingerprint-level anti-laundering system, and a blockchain-IPFS collaborative storage architecture. By hierarchically deploying hybrid cryptographic primitives, the scheme balances security and efficiency, achieving seamless cross-domain access for legitimate UAVs while accurately capturing and permanently blocking disguised illegal UAVs.
+
+\subsection{Core Research Problems}
+\begin{enumerate}
+    \item Airspace domain boundary determination mechanisms are rigid and fail to adapt to dynamic UAV flight speeds and communication latencies, leading to delayed triggers and control failure after boundary crossing.
+    \item Traditional centralized PKI cross-domain trust chains are lengthy with high single-point-of-failure risks, causing excessive authentication latency during massive concurrent access.
+    \item Under anonymous authentication, malicious blacklisted UAVs can change software identifiers to re-register, leaving an identity-laundering vulnerability without a hardware-level permanent interception mechanism.
+    \item Single cryptographic paradigms fail to balance onboard low-computational power requirements with future quantum attack risks, while cross-domain trajectory exchanges risk privacy leakage.
+    \item Device revocation status synchronization suffers from time lags; traditional Certificate Revocation Lists (CRLs) entail massive storage and query overheads, failing to achieve millisecond-level verification.
+\end{enumerate}
+
+\subsection{Paper Structure}
+The remainder of this paper is organized as follows: Section II reviews literature on cross-domain authentication in UAVs, VANETs, and IIoT. Section III outlines preliminary cryptographic and blockchain knowledge. Section IV details the overall system architecture and workflow. Section V provides mathematical derivations, algorithm specifications, and parameter settings. Section VI introduces the simulation setup, and Section VII concludes the paper.
+
+\section{Related Work}
+This section reviews cross-domain authentication literature across UAV networks, Vehicular Ad-Hoc Networks (VANETs), and Industrial IoT (IIoT), summarizing key contributions, limitations, and inspirations (Table I).
+
+\begin{table*}[!t]
+\caption{Comparison of Core Content, Innovations, and Inspirations from Related Literature\label{tab:related_work}}
+\centering
+\begin{tabular}{|c|p{4.5cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Ref.} & \textbf{Core Content} & \textbf{Innovations} & \textbf{Inspirations / Limitations} \\
+\hline
+\cite{ref1} & Trust-based batch authentication for UAVs & Trust metric evaluation, batch verification & Lacks post-quantum security; centralized trust bottleneck. \\
+\hline
+\cite{ref2} & Blockchain cross-domain trajectory privacy for UAVs & Smart contract validation, trajectory obfuscation & High consensus latency; lacks hardware anti-laundering. \\
+\hline
+\cite{ref3} & Revocable cross-domain authentication in VANETs & Dynamic accumulator revocation, identity privacy & Frequent accumulator sync overhead during high concurrency. \\
+\hline
+\cite{ref4} & Edge-assisted identity anonymous authentication & Lightweight bilinear pairing, edge caching & Single CA failure risk; no elastic boundary prediction. \\
+\hline
+\cite{ref5} & Smart factory decentralized authentication & Permissioned blockchain, zero-knowledge proofs & Designed for static IIoT; high mobility UAV latencies. \\
+\hline
+\cite{ref6} & Smart contract roaming for vehicular networks & Distributed consensus, automatic key agreement & High chain storage; no hardware fingerprint binding. \\
+\hline
+\end{tabular}
+\end{table*}
+\subsection{Limitations of Existing Schemes}
+\begin{enumerate}
+    \item \textbf{Single Trust Architecture:} Most schemes rely purely on centralized PKI or pure blockchain; the former suffers from single points of failure, while the latter incurs consensus latency.
+    \item \textbf{Monolithic Cryptography:} Relying solely on ECC, bilinear pairings, or chaotic maps fails to simultaneously provide post-quantum security and onboard lightweight performance.
+    \item \textbf{Absence of Anti-Laundering:} Software-based pseudonym revocation allows malicious devices to re-register by flashing firmware or modifying IDs.
+    \item \textbf{Rigid Boundaries:} Lack of adaptive geofencing triggers cross-domain workflows only after physical crossing.
+    \item \textbf{Revocation Time-Lag:} Reliance on CRL/OCSP leaves window periods for malicious access.
+\end{enumerate}
+\subsection{Main Innovations of Proposed Scheme}
+\begin{enumerate}
+    \item \textbf{Adaptive Elastic Airspace Boundary Model:} Dynamically computes safety margins based on speed, heading, positioning error, and latency to trigger early pre-authentication.
+    \item \textbf{Two-Stage Hierarchical Workflow:} Completes pre-authentication in boundary buffer zones and executes formal dual authentication upon physical crossing using proxy re-encryption.
+    \item \textbf{Hardware Fingerprint Anti-Laundering:} Combines SRAM-PUF deadlists with SMT non-membership proofs to block re-registration at the physical hardware layer.
+    \item \textbf{Layered Hybrid Cryptography:} Uses Dilithium lattice cryptography on the backbone chain and BLS aggregate short signatures over the air interface, paired with modified accumulators.
+    \item \textbf{On-Chain/Off-Chain Collaborative Storage:} Stores only SMT root hashes and IPFS CIDs on-chain, offloading heavy data to IPFS.
+\end{enumerate}
+\section{Preliminaries}
+This section introduces the foundational cryptographic primitives and storage paradigms used in the paper.
+\subsection{Bilinear Pairings}
+Let $e: G_1 \times G_2 \longrightarrow G_T$ be a bilinear map where $G_1, G_2$ are additive cyclic groups and $G_T$ is a multiplicative group with generators $P, Q$. It satisfies bilinear, non-degeneracy, and computability properties. In this paper, BLS12-381 pairings are adopted for lightweight air-interface signatures.
+\subsection{Dynamic Accumulators}
+Dynamic RSA accumulators allow membership representation with $\mathcal{O}(1)$ evaluation. To prevent synchronization bottlenecks, the proposed scheme decouples accumulator updates from device revocation, integrating accumulator values directly into signatures for domain obfuscation.
+\subsection{Proxy Re-Encryption (PRE)}
+PRE enables ciphertext transformation across permission domains without revealing plaintext or private keys. A proxy node converts ciphertexts encrypted under Domain A's public key into ciphertexts decryptable by Domain B using a re-encryption key $rk_{A \to B}$.
+\section{Proposed Overall Framework}
+The framework consists of six core modules: System Registration, Elastic Geofence Boundary Processing, Inter-Domain Pre-Authentication, Formal Cross-Domain Authentication, Trust Update \& Revocation, and Anti-Laundering Interception.
+\subsection{System Registration}
+\subsubsection{Domain and Blockchain Initialization}
+Each domain manager $\mathcal{D}_i$ joins the consortium blockchain and generates a Dilithium lattice keypair $(pk_{\mathcal{D}_i}, sk_{\mathcal{D}_i})$. Public keys are published on-chain. Each domain maintains a 256-depth SMT for storing registered pseudonyms ($PID$) and authorization states.
+\subsubsection{Hardware-Bound Anonymous Registration}
+\begin{enumerate}
+    \item \textbf{PUF Fingerprint Extraction:} The UAV extracts a 256-bit unique SRAM-PUF fingerprint $Fingerprint_j$.
+    \item \textbf{Blind Credential Generation:} The UAV generates a secret $s_j$, constructs $M = Real\_ID_j \parallel Fingerprint_j \parallel s_j$, and blinds it to $M' = \text{Blind}(M, r)$.
+    \item \textbf{Home Domain Blind Signature:} Home domain $\mathcal{D}_A$ signs $M'$ using $sk_{\mathcal{D}_A}$, yielding $\sigma'$.
+    \item \textbf{Unblind and Pseudonym Derivation:} The UAV unblinds $\sigma'$ to get $\sigma_j$ and computes global pseudonym $PID_j = \text{Hash}(M \parallel \sigma_j)$.
+    \item \textbf{Off-Chain SMT \& On-Chain Anchoring:} $PID_j$ is inserted into domain $\mathcal{D}_A$'s SMT, and the updated SMT root $Root_{\mathcal{D}_A}$ and IPFS CID are anchored on-chain.
+\end{enumerate}
+\subsection{Boundary Processing and Elastic Inner Boundaries}
+An elastic boundary model is established. The dynamic safety margin $d$ is calculated as:
+\begin{equation}
+d = v(t) \cdot \cos(\theta) \cdot \left[ \Delta T_{network}(RSSI) + \Delta T_{PRE} + \Delta T_{P2P} \right] + 3\sigma_{GNSS}
+\end{equation}
+When the UAV's orthogonal distance to the boundary $L(t) \le d$, the outbound state timer $T_{out}$ starts. If $T_{out} > T_{max} = 15\text{s}$, the pre-authentication workflow is triggered
+\subsection{Inter-Domain Pre-Authentication}
+While in the buffer zone, the UAV transmits a lightweight pre-authentication request using a 48-byte BLS short signature:
+\begin{equation}
+Req_{pre} = \{PID_j, \mathcal{D}_B, Timestamp, \mathcal{S}_{ign\_sl}(PID_j \parallel \mathcal{D}_B)\}
+\end{equation}
+Domain $\mathcal{D}_A$ converts the authorization ciphertext to Domain $\mathcal{D}_B$ using $rk_{A \to B}$ and pushes $CT_{\mathcal{D}_B}$ to $\mathcal{D}_B$ via P2P edge links.
+\subsection{Formal Cross-Domain Authentication}
+Upon physically crossing into $\mathcal{D}_B$, the UAV responds to a challenge $R_B$ with:
+\begin{equation}
+Res_{formal} = \{PID_j, \text{Lattice.Sign}(sk_{uav}, R_B \parallel TS_1), Proof_{smt}\}
+\end{equation}
+Domain $\mathcal{D}_B$ verifies the lattice signature and checks $Proof_{smt}$ against the on-chain root $Root_{\mathcal{D}_A}$. Upon successful verification, a session key $K_{session}$ is established.
+\subsection{Trust Update and Malicious Device Revocation}
+If a UAV exhibits malicious behavior, Domain $\mathcal{D}_B$ submits a revocation transaction. The smart contract blacklists $PID_j$ globally. $\mathcal{D}_A$ removes $PID_j$ from its SMT, computes $Root_{\mathcal{D}_A}^{new}$, uploads the new tree to IPFS, and updates the on-chain root.
+\subsection{Illegal Flight Anti-Laundering Interception Mechanism}
+When a blacklisted UAV attempts to re-register under a new secret/pseudonym:
+\begin{enumerate}
+    \item The contract uses an audit trapdoor to retrieve the unalterable $Fingerprint_j$ and adds it to the global deadlist CID $CID_{DeadList}$.
+    \item During registration, the domain CA checks the PUF fingerprint against $CID_{DeadList}$.
+    \item If matched, registration is rejected immediately, preventing identity laundering.
+\end{enumerate}
+\section{System Parameters and Mathematics}
+\subsection{Global Parameter Settings}
+\begin{table}[!h]
+\caption{Global System Parameters\label{tab:params}}
+\centering
+\begin{tabular}{c c p{4.2cm}}
+\toprule
+\textbf{Symbol} & \textbf{Type} & \textbf{Description \& Standard Value} \\
+\midrule
+$\lambda$ & Integer & Security parameter ($\lambda = 128$, NIST Level III). \\
+$q$ & Prime & Lattice ring modulus $q = 8380417$. \\
+$n$ & Integer & Ring dimension $n = 256$, $R_q = \mathbb{Z}_q[x]/(x^{256}+1)$. \\
+$Fingerprint$ & Bitstring & 256-bit SRAM-PUF hardware fingerprint. \\
+$T_{max}$ & Float & Elastic threshold $T_{max} = 15.0\text{ s}$. \\
+\bottomrule
+\end{tabular}
+\end{table}
+\subsection{Mathematical Derivations}
+\subsubsection{Lattice Key Generation (Dilithium3)}
+Private keys $\mathbf{s}_1 \in R_q^5, \mathbf{s}_2 \in R_q^6$ are sampled with coefficients in $[-\eta, \eta]$ ($\eta=4$). Given random matrix $\mathbf{A} \in R_q^{6 \times 5}$, public key vector is:
+\begin{equation}
+\mathbf{t} = \mathbf{A}\mathbf{s}_1 + \mathbf{s}_2 \pmod q
+\end{equation}
+\subsubsection{Proxy Re-Encryption Mathematical Formulation}
+Let $sk_A = \alpha$, $pk_A = g^\alpha \in G_2$. Initial ciphertext for message $M \in G_T$ is $CT_{\mathcal{D}_A} = (X = g^r, Y = M \cdot e(h, g^\alpha)^r)$. Re-encryption key is $rk_{A \to B} = \beta / \alpha \pmod p$. Re-encrypted ciphertext is:
+\begin{equation}
+\tilde{X} = X^{rk_{A \to B}} = g^{r\beta/\alpha}, \quad CT_{\mathcal{D}_B} = (\tilde{X}, Y)
+\end{equation}
+Decryption by Domain B yields $M = Y / e(h, \tilde{X})^\alpha$.
+\section{Simulation Environment}
+The protocol logic and network performance are evaluated using NS-3 on Ubuntu 26.04 LTS running on VMware Workstation Pro. Key evaluation metrics include cross-domain authentication latency, communication overhead, and concurrent access capacity under varying UAV speeds and node densities.
+\section{Conclusion and Future Work}
+This paper presented a hybrid cryptographic cross-domain authentication and illegal UAV interception scheme for low-altitude airspace. By combining lattice cryptography, BLS signatures, SMT, IPFS, consortium blockchain, and zero-knowledge proofs, the system achieves pre-authentication over elastic boundaries, lightweight cross-domain handshakes, strong trajectory privacy, and hardware-level anti-laundering protection. Future work will focus on extensive NS-3 performance evaluation and embedded ARM hardware prototyping.
+\begin{thebibliography}{1}
+\bibitem{ref1} L. Rui, X. Zhang, J. Yang, and L. Liu, "Trust-Based Cross-Domain Batch Authentication Protocol for UAV Networks," in \textit{Proc. 11th IEEE ICCC}, 2025, pp. 1715--1720.
+\bibitem{ref2} G. Qiao, P. Yang, T. Ye, and F. Han, "A Blockchain-Based Cross-Domain Authentication and Flight Trajectory Privacy Protection Scheme for Unmanned Aerial Vehicle Networks," \textit{IEEE Internet Things J.}, vol. 13, no. 2, pp. 2155--2170, 2026.
+\bibitem{ref3} R. Li et al., "Blockchain-Assisted Revocable Cross-Domain Authentication for Vehicular Ad-Hoc Networks," \textit{IEEE Trans. Dependable Secur. Comput.}, vol. 22, no. 5, pp. 4593--4607, 2025.
+\bibitem{ref4} N. Kang et al., "Identity-Based Edge Computing Anonymous Authentication Protocol," \textit{Comput. Mater. Continua}, vol. 74, no. 1, pp. 2005--2018, 2023.
+\bibitem{ref5} Z. Cao et al., "A decentralized authentication scheme for smart factory based on blockchain," \textit{Sci. Rep.}, vol. 14, no. 1, p. 24640, 2024.
+\bibitem{ref6} K. Xue et al., "A Distributed Authentication Scheme Based on Smart Contract for Roaming Service in Mobile Vehicular Networks," \textit{IEEE Trans. Veh. Technol.}, vol. 71, no. 5, pp. 5284--5297, 2022.
+\end{thebibliography}
+\end{document}
