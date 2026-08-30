@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.17)  7 AUG 2026 20:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.17)  31 AUG 2026 02:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -430,22 +430,39 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 (d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/algorithms/al
-gorithmic.sty
-Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+gorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
 
+(d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/float/float.s
+ty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count300
+\float@exts=\toks25
+\float@box=\box59
+\@float@everytoks=\toks26
+\@floatcapt=\box60
+)
 (d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/base/ifthen.s
 ty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 )
+\@float@every@algorithm=\toks27
+\c@algorithm=\count301
+)
+(d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/algorithms/al
+gorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+
 (d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/graphics/keyv
 al.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks25
+\KV@toks@=\toks28
 )
-\c@ALC@unique=\count300
-\c@ALC@line=\count301
-\c@ALC@rem=\count302
-\c@ALC@depth=\count303
+\c@ALC@unique=\count302
+\c@ALC@line=\count303
+\c@ALC@rem=\count304
+\c@ALC@depth=\count305
 \ALC@tlm=\skip56
 \algorithmicindent=\skip57
 )
@@ -513,24 +530,28 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen186
 \cmidrulekern=\dimen187
 \defaultaddspace=\dimen188
-\@cmidla=\count304
-\@cmidlb=\count305
+\@cmidla=\count306
+\@cmidlb=\count307
 \@aboverulesep=\dimen189
 \@belowrulesep=\dimen190
-\@thisruleclass=\count306
-\@lastruleclass=\count307
+\@thisruleclass=\count308
+\@lastruleclass=\count309
 \@thisrulewidth=\dimen191
 )
 (d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/tools/array.s
 ty
 Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
 \col@sep=\dimen192
-\ar@mcellbox=\box59
+\ar@mcellbox=\box61
 \extrarowheight=\dimen193
-\NC@list=\toks26
+\NC@list=\toks29
 \extratabsurround=\skip58
 \backup@length=\skip59
-\ar@cellbox=\box60
+\ar@cellbox=\box62
+)
+(d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 (d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/cjk/texinput/
 UTF8/UTF8.enc
@@ -542,101 +563,101 @@ File: UTF8.chr 2021/10/16 4.8.5
 ) (./conference_041818.aux)
 \openout1 = `conference_041818.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
 -- Lines per column: 41 (approximate, difference = 2.34192pt).
 
 (d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/context/base/mkii/s
 upp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count308
+\scratchcounter=\count310
 \scratchdimen=\dimen194
-\scratchbox=\box61
-\nofMPsegments=\count309
-\nofMParguments=\count310
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count311
+\scratchbox=\box63
+\nofMPsegments=\count311
+\nofMParguments=\count312
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count313
 \MPscratchDim=\dimen195
-\MPnumerator=\count312
-\makeMPintoPDFobject=\count313
-\everyMPtoPDFconversion=\toks28
+\MPnumerator=\count314
+\makeMPintoPDFobject=\count315
+\everyMPtoPDFconversion=\toks31
 )
 (d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/
 epstopdf-base.sty
@@ -678,306 +699,68 @@ pdftex.map}{UGBK.sfd}{Unicode.sfd}) [1{d:/Software/Tools/IDE/Tex Live/texlive/2
 
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
 
 
 (d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa
 .fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
 
 
 (d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb
 .fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 81--81
-[]|\OT1/ptm/m/n/7.52812 Zhong \C70/rm/m/n/7.52812/7b I
+
+[2]
+Overfull \hbox (243.84262pt too wide) detected at line 102
+[]\OML/cmm/m/it/10.53937 Registration \OMS/cmsy/m/n/10.53937 ! \OML/cmm/m/it/10
+.53937 PreMove \OMS/cmsy/m/n/10.53937 ! \OML/cmm/m/it/10.53937 Filtering \OMS/c
+msy/m/n/10.53937 ! \OML/cmm/m/it/10.53937 Authentication \OMS/cmsy/m/n/10.53937
+ ! \OML/cmm/m/it/10.53937 Monitoring \OMS/cmsy/m/n/10.53937 ! \OML/cmm/m/it/10.
+53937 Revocation \OMS/cmsy/m/n/10.53937 ! \OML/cmm/m/it/10.53937 AntiWashing:
  []
 
 
+Underfull \hbox (badness 3128) in paragraph at lines 104--105
+\C70/rm/m/n/10.53937/63 – \C70/rm/m/n/10.53937/52 M \C70/rm/m/sc/10.53937/51 ∆ 
+\C70/rm/m/n/10.53937/59 ^^G|\C70/rm/m/n/10.53937/ff ^^[| \OT1/ptm/m/n/10.53937 
+Filtering\C70/rm/m/n/10.53937/8d ^^_ # \C70/rm/m/sc/10.53937/4f N \C70/rm/m/n/1
+0.53937/62 ^^P \C70/rm/m/sc/10.53937/67 , \C70/rm/m/n/10.53937/63 í \C70/rm/m/n
+/10.53937/96 d \C70/rm/m/n/10.53937/66 ^^N > \C70/rm/m/n/10.53937/5f ^^B \C70/r
+m/m/n/10.53937/5e 8|\C70/rm/m/n/10.53937/ff ^^[|
+ []
 
-
-
-[2]
-Package CJKpunct Info: use punctuation spaces for family 'zhkai' with punctstyl
-e (quanjiao) on input line 130.
 
 
 
 
 [3]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-64.
+Package CJKpunct Info: use punctuation spaces for family 'zhkai' with punctstyl
+e (quanjiao) on input line 191.
 
-(d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/psnfss/ot1pcr
-.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-Overfull \hbox (165.35916pt too wide) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 +---------------------------------------------------
-----------+[] 
- []
-
-LaTeX Font Info:    Trying to load font information for C70+zhfs on input line 
-183.
-
-(d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/zhmetrics/c70
-zhfs.fd
-File: c70zhfs.fd 2009/09/23 4.8.2
-)
-Underfull \hbox (badness 10000) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 |                     \C70/zhfs/m/n/10.53937/7b ° \C
-70/zhfs/m/n/10.53937/74 ^^F
- []
-
-
-Overfull \hbox (165.35916pt too wide) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 |                                                   
-          |[] 
- []
-
-
-Overfull \hbox (165.35916pt too wide) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 |    +----------------------------------------------
------+    |[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 |    |               \C70/zhfs/m/n/10.53937/67 ^^@ \
-C70/zhfs/m/n/10.53937/51 Ö
- []
-
-
-Overfull \hbox (165.35916pt too wide) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 |    |                                              
-     |    |[] 
- []
-
-
-Overfull \hbox (165.35916pt too wide) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 |    +----------------------------------------------
------+    |[] 
- []
-
-
-Overfull \hbox (171.68279pt too wide) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 | - - - - - - - - - - - - - - - - - - - - - - - - - 
-- - - - -  |[] 
- []
-
-Package CJKpunct Info: use punctuation spaces for family 'zhfs' with punctstyle
- (quanjiao) on input line 183.
-
-Underfull \hbox (badness 1616) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 | \C70/zhfs/m/n/10.53937/5f 9 \C70/zhfs/m/n/10.53937
-/60 ' \C70/zhfs/m/n/10.53937/51 Ö \C70/zhfs/m/n/10.53937/8f π \C70/zhfs/m/n/10.
-53937/75 L |\C70/zhfs/m/n/10.53937/30 ^^P|\C70/zhfs/m/n/10.53937/51 ˙ \C70/zhfs
-/m/n/10.53937/57 ﬂ \C70/zhfs/m/n/10.53937/75 L \C70/zhfs/m/n/10.53937/96 P|\C70
-/zhfs/m/n/10.53937/30 ^^Q||\C70/zhfs/m/n/10.53937/ff ^^Z| \C70/zhfs/m/n/10.5393
-7/89 Ê \C70/zhfs/m/n/10.53937/53 — \C70/zhfs/m/n/10.53937/51 ˙ \C70/zhfs/m/n/10
-.53937/57 ﬂ \C70/zhfs/m/n/10.53937/8b ° \C70/zhfs/m/n/10.53937/65 ˆ
- []
-
-
-Overfull \hbox (165.35916pt too wide) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 |                                                   
-          |[] 
- []
-
-
-Overfull \hbox (165.35916pt too wide) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 +---------------------------------------------------
-----------+[] 
- []
-
-
-Underfull \hbox (badness 1383) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 ====================== \C70/zhfs/m/n/10.53937/72 i \
-C70/zhfs/m/n/10.53937/74 ^^F \C70/zhfs/m/n/10.53937/88 L \C70/zhfs/m/n/10.53937
-/65 ? \C70/zhfs/m/n/10.53937/7a z \C70/zhfs/m/n/10.53937/57 ﬂ \C70/zhfs/m/n/10.
-53937/8f π
- []
-
-
-Overfull \hbox (165.35916pt too wide) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 +---------------------------------------------------
-----------+[] 
- []
-
-
-Overfull \hbox (171.68279pt too wide) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 | - - - - - - - - - - - - - - - - - - - - - - - - - 
-- - - - -  |[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 |                     \C70/zhfs/m/n/10.53937/7b ° \C
-70/zhfs/m/n/10.53937/74 ^^F
- []
-
-
-Overfull \hbox (165.35916pt too wide) in paragraph at lines 183--183
-[]   \OT1/pcr/m/n/10.53937 +---------------------------------------------------
-----------+[] 
- []
-
-
-Overfull \hbox (40.97513pt too wide) detected at line 190
-\OML/cmm/m/it/10.53937 d \OT1/cmr/m/n/10.53937 = \OML/cmm/m/it/10.53937 v\OT1/c
-mr/m/n/10.53937 (\OML/cmm/m/it/10.53937 t\OT1/cmr/m/n/10.53937 ) \OMS/cmsy/m/n/
-10.53937 ^^A []\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 ^^R\OT1/cmr/m/n/10
-.53937 ) \OMS/cmsy/m/n/10.53937 ^^A [] \OT1/cmr/m/n/10.53937 + 3\OML/cmm/m/it/1
-0.53937 ^^[[]
- []
-
-
-
-Runaway argument?
-{itemize">È´òÈÄü„ÄÅÂº∫ÁîµÁ£ÅÂπ≤Êâ∞Âú∫ÊôØËá™Âä®Êâ©Â§ß $d$ÔºåÊèêÂâçÂêØÂ\ETC.
-! Paragraph ended before \end  was complete.
-<to be read again> 
-                   \par 
-l.206 			
-         
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
- \OT1/ptm/m/it/10.53937 C. \C70/rm/m/it/10.53937/57 ﬂ \C70/rm/m/it/10.53937/95 
-Ù \C70/rm/m/it/10.53937/4e ã \C70/rm/m/it/10.53937/52 M \C70/rm/m/it/10.53937/8
-b § ¡ |\C70/rm/m/it/10.53937/ff ^^H|\OT1/ptm/m/it/10.53937 Inter-Domain Pre-
- []
-
-
-Underfull \vbox (badness 1484) has occurred while \output is active []
 
 
 
 [4]
-Overfull \hbox (44.60803pt too wide) detected at line 212
-\OML/cmm/m/it/10.53937 Req[] \OT1/cmr/m/n/10.53937 = \OMS/cmsy/m/n/10.53937 f\O
-ML/cmm/m/it/10.53937 PID[]; \OMS/cmsy/m/n/10.53937 D[]\OML/cmm/m/it/10.53937 ; 
-Timestamp; \OMS/cmsy/m/n/10.53937 S[]\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53
-937 PID[] \OMS/cmsy/m/n/10.53937 k D[]\OT1/cmr/m/n/10.53937 )\OMS/cmsy/m/n/10.5
-3937 g
- []
-
-
-Overfull \hbox (71.94531pt too wide) detected at line 223
-\OML/cmm/m/it/10.53937 Res[] \OT1/cmr/m/n/10.53937 = \OMS/cmsy/m/n/10.53937 f\O
-ML/cmm/m/it/10.53937 PID[]; []\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 sk[
-]; R[] \OMS/cmsy/m/n/10.53937 k \OML/cmm/m/it/10.53937 TS[]\OT1/cmr/m/n/10.5393
-7 )\OML/cmm/m/it/10.53937 ; Proof[]\OMS/cmsy/m/n/10.53937 g
- []
-
-
-Underfull \hbox (badness 2932) in paragraph at lines 228--229
-[]\C70/rm/m/sc/10.53937/8b ˚ \C70/rm/m/n/10.53937/53 ÷ \C70/rm/m/n/10.53937/80 
-T \C70/rm/m/sc/10.53937/76 ﬂ \C70/rm/m/n/10.53937/94 ˛ \C70/rm/m/sc/10.53937/67
- ^^@ \C70/rm/m/sc/10.53937/65 ∞ \C70/rm/m/n/10.53937/6b Õ \C70/rm/m/n/10.53937/
-57 ﬂ \OT1/ptm/m/n/10.53937 SMT \C70/rm/m/sc/10.53937/68 9 \C70/rm/m/n/10.53937/
-54 » \C70/rm/m/n/10.53937/5e ^^L
- []
-
-
-Underfull \hbox (badness 7047) in paragraph at lines 229--230
-[]\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 Root[]; PID[]; Proof[]\OT1/cmr/
-m/n/10.53937 ) =
+Overfull \hbox (30.51727pt too wide) detected at line 270
+[]\OML/cmm/m/it/10.53937 Audit \OT1/cmr/m/n/10.53937 = (\OML/cmm/m/it/10.53937 
+Evidence; Trust[]; StateProof; DomainSignature\OT1/cmr/m/n/10.53937 )\OML/cmm/m
+/it/10.53937 :
  []
 
 
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 267--267
-[]     \C70/zhfs/m/n/10.53937/60 v \C70/zhfs/m/n/10.53937/61 ^^O \C70/zhfs/m/n/
-10.53937/65 ‡ \C70/zhfs/m/n/10.53937/4e ∫ \C70/zhfs/m/n/10.53937/67 : \C70/zhfs
-/m/n/10.53937/64 : \C70/zhfs/m/n/10.53937/5e & \C70/zhfs/m/n/10.53937/4e ^^M \C
-70/zhfs/m/n/10.53937/53 ÿ \C70/zhfs/m/n/10.53937/78 l \C70/zhfs/m/n/10.53937/4e
- ˆ \C70/zhfs/m/n/10.53937/63 ^^G
- []
-
-LaTeX Info: Symbol \textdownarrow not provided by
-            font family pcr in TS1 encoding.
-            Default family used instead on input line 267.
-LaTeX Info: Symbol \textdownarrow not provided by
-            font family pcr in TS1 encoding.
-            Default family used instead on input line 267.
-LaTeX Info: Symbol \textdownarrow not provided by
-            font family pcr in TS1 encoding.
-            Default family used instead on input line 267.
-LaTeX Info: Symbol \textdownarrow not provided by
-            font family pcr in TS1 encoding.
-            Default family used instead on input line 267.
-LaTeX Info: Symbol \textdownarrow not provided by
-            font family pcr in TS1 encoding.
-            Default family used instead on input line 267.
 
 
 [5]
 
 
-Underfull \hbox (badness 7030) in paragraph at lines 318--319
- \OT1/ptm/m/it/10.53937 1) Dilithium3: [][] \C70/rm/m/n/10.53937/90 	 \C70/rm/m
-/n/10.53937/75 ( \OT1/ptm/m/n/10.53937 NIST \C70/rm/m/sc/10.53937/68 ^^G \C70/r
-m/m/sc/10.53937/51 ∆ \C70/rm/m/sc/10.53937/53 ^^V \OT1/ptm/m/n/10.53937 Crystal
-s-
- []
 
-
-
-[6{d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/enc/dvips/cm-su
-per/cm-super-ts1.enc}]
-Underfull \hbox (badness 1990) in paragraph at lines 350--351
-[]|\OT1/ptm/m/n/7.52812 ARM Cortex-M7 $\OMS/cmsy/m/n/7.52812 ^^U \OT1/cmr/m/n/7
-.52812 400[]$ \OT1/ptm/m/n/7.52812 /
- []
-
-
-Underfull \hbox (badness 3514) in paragraph at lines 351--352
-[]|\OT1/ptm/m/n/7.52812 SRAM $\OMS/cmsy/m/n/7.52812 ^^U \OT1/cmr/m/n/7.52812 51
-2[]$|\C70/rm/m/n/7.52812/ff ^^L| \OT1/ptm/m/n/7.52812 DRAM $\OMS/cmsy/m/n/7.528
-12 ^^U
- []
-
-
-Underfull \hbox (badness 1454) in paragraph at lines 354--355
-[]|\C70/rm/m/n/7.52812/56 ˙ \C70/rm/m/n/7.52812/4e ˆ|\C70/rm/m/n/7.52812/30 ^^A
-| \OT1/ptm/m/n/7.52812 MAC|\C70/rm/m/n/7.52812/30 ^^A| \C70/rm/m/sc/7.52812/8f 
-o \C70/rm/m/n/7.52812/4e ˆ \OT1/ptm/m/n/7.52812 ID \C70/rm/m/n/7.52812/53 Ô \C7
-0/rm/m/sc/7.52812/4f Ó \C70/rm/m/n/7.52812/65 9|\C70/rm/m/n/7.52812/ff ^^L|
- []
-
-
-Overfull \hbox (33.31725pt too wide) in paragraph at lines 344--357
- [] 
- []
-
-
-
-
-
-[7]
-
-
-
-[8]
-Underfull \hbox (badness 1968) in paragraph at lines 440--441
-[]\OT1/ptm/m/n/7.52812 M. Shen, H. Liu, L. Zhu, K. Xu, H. Yu, X. Du, and M.
- []
-
-
-Underfull \hbox (badness 1418) in paragraph at lines 440--441
-\OT1/ptm/m/n/7.52812 Guizani, "Blockchain-Assisted Se-cure De-vice Au-then-ti-c
-a-tion for
- []
-
-
+[6]
 
 
 ** Conference Paper **
@@ -991,21 +774,8 @@ Before submitting the final camera ready copy, remember to:
  process uses the appropriate paper size.
 
 
-! LaTeX Error: \begin{itemize} on input line 193 ended by \end{document}.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.452 		\end{document}
-                      
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-
-[9] (./conference_041818.aux)
+[7] (./conference_041818.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/07/14>
@@ -1014,78 +784,60 @@ L3 programming layer <2022/07/14>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
- )
-(\end occurred inside a group at level 1)
-
-### semi simple group (level 1) entered at line 193 (\begingroup)
-### bottom level 
+ ) 
 Here is how much of TeX's memory you used:
- 10988 strings out of 473190
- 200943 string characters out of 5705356
- 599921 words of memory out of 5000000
- 33360 multiletter control sequences out of 15000+600000
- 732019 words of font info for 573 fonts, out of 8000000 for 9000
+ 10093 strings out of 473190
+ 182324 string characters out of 5705356
+ 589103 words of memory out of 5000000
+ 32759 multiletter control sequences out of 15000+600000
+ 669764 words of font info for 350 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,14n,83p,1603b,493s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/W
-indows/Fonts/simhei.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.t
-tf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/
-simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Win
-dows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.
-ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fon
-ts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/
-Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfa
-ng.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/
-Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/
-Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simhei.
-ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts
-/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simfang.ttf><c:/Wind
-ows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.t
-tf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Font
-s/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/W
-indows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfan
-g.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/F
-onts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c
-:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/sim
-fang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Window
-s/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf
-><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/
-simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Win
-dows/Fonts/simfang.ttf><c:/Windows/Fonts/simfang.ttf><c:/Windows/Fonts/simkai.t
+ 80i,8n,83p,1949b,367s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/s
+imkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows
+/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:
+/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai
+.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Font
+s/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Wind
+ows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf>
+<c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/sim
+sun.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/F
+onts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/W
+indows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.t
 tf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/
 simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Window
 s/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c
-:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simka
+:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simka
 i.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fon
-ts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Win
-dows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc
-><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/si
-mhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/
-Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simkai.ttf><c:/
-Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.
-ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts
-/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windo
-ws/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simkai.ttf><
-c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/sims
+ts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Win
+dows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf
+><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/si
+mkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/
+Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/
+Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.
+ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts
+/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windo
+ws/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><
+c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/sims
 un.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fo
 nts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Wi
 ndows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.tt
 c><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/s
 imsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows
 /Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:
-/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun
-.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Font
-s/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Wind
-ows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc>
-<c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/sim
-sun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/F
-onts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/W
-indows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.t
-tc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/
-simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Window
-s/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c
-:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsu
-n.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fon
+/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai
+.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Font
+s/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Wind
+ows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf>
+<c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/sim
+hei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/F
+onts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/W
+indows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.t
+tf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/
+simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Window
+s/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c
+:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhe
+i.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fon
 ts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Win
 dows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf
 ><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/si
@@ -1097,55 +849,38 @@ ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts
 ws/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><
 c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simh
 ei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fo
-nts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Wi
-ndows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.tt
-f><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/s
-imhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows
-/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:
-/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei
-.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Font
-s/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Wind
-ows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf>
-<c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/sim
-hei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/F
-onts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/W
-indows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.t
-tc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/
-simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Window
-s/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c
-:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsu
-n.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fon
-ts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Win
-dows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc
-><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/si
-msun.ttc><c:/Windows/Fonts/simsun.ttc><d:/Software/Tools/IDE/Tex Live/texlive/2
-025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/Software/Tools/IDE
-/Tex Live/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:
-/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi10.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi5.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/Software/Tools/IDE/Tex 
-Live/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/Softw
-are/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr5.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr7.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/Software/Tools/IDE/Tex Live/tex
-live/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><d:/Software/Tool
-s/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
-><d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/public/ams
-fonts/symbols/msbm10.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dis
-t/fonts/type1/public/amsfonts/symbols/msbm7.pfb><d:/Software/Tools/IDE/Tex Live
-/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><d:/Software/
-Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><
-d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/urw/times/ut
-mb8a.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/ur
-w/times/utmbi8a.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fon
-ts/type1/urw/times/utmr8a.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/texm
-f-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on conference_041818.pdf (9 pages, 1159605 bytes).
+nts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simkai.ttf><c:/Wi
+ndows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.tt
+c><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/s
+imkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows
+/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:
+/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun
+.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Font
+s/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Wind
+ows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc>
+<c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/sim
+sun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/F
+onts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/W
+indows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><d:/Software/Tools/IDE/Tex
+ Live/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/Sof
+tware/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi10.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi5.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/Software/Tools/IDE/Tex Live
+/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/Software/
+Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
+pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/Software/Tools/IDE/Tex Live/texliv
+e/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/Software/Tools/IDE/Tex L
+ive/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><d:/Software/Tool
+s/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/Sof
+tware/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.
+pfb>
+Output written on conference_041818.pdf (7 pages, 904792 bytes).
 PDF statistics:
- 1204 PDF objects out of 1440 (max. 8388607)
- 822 compressed objects within 9 object streams
+ 918 PDF objects out of 1000 (max. 8388607)
+ 616 compressed objects within 7 object streams
  0 named destinations out of 1000 (max. 500000)
- 309 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 301 words of extra memory for PDF output out of 10000 (max. 10000000)
 
