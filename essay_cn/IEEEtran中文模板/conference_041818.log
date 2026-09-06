@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.17)  31 AUG 2026 02:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.17)  7 SEP 2026 00:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -681,9 +681,9 @@ LaTeX Font Warning: Font shape `C70/rm/m/sc' undefined
 (Font)              using `C70/rm/m/n' instead on input line 38.
 
 
+Underfull \vbox (badness 1490) has occurred while \output is active []
 
 
-Underfull \vbox (badness 1584) has occurred while \output is active []
 
 
 
@@ -706,14 +706,15 @@ pdftex.map}{UGBK.sfd}{Unicode.sfd}) [1{d:/Software/Tools/IDE/Tex Live/texlive/2
 
 
 [3]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 110
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 143
 .
 
 (d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa
 .fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 110
+LaTeX Font Info:    Trying to load font information for U+msb on input line 143
 .
 
 (d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb
@@ -721,10 +722,12 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 110
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-
-
 [4]
-Overfull \hbox (243.84262pt too wide) detected at line 144
+
+
+
+[5]
+Overfull \hbox (243.84262pt too wide) detected at line 189
 []\OML/cmm/m/it/10.53937 Registration \OMS/cmsy/m/n/10.53937 ! \OML/cmm/m/it/10
 .53937 PreMove \OMS/cmsy/m/n/10.53937 ! \OML/cmm/m/it/10.53937 Filtering \OMS/c
 msy/m/n/10.53937 ! \OML/cmm/m/it/10.53937 Authentication \OMS/cmsy/m/n/10.53937
@@ -733,7 +736,7 @@ msy/m/n/10.53937 ! \OML/cmm/m/it/10.53937 Authentication \OMS/cmsy/m/n/10.53937
  []
 
 
-Underfull \hbox (badness 3128) in paragraph at lines 146--147
+Underfull \hbox (badness 3128) in paragraph at lines 191--192
 \C70/rm/m/n/10.53937/63 – \C70/rm/m/n/10.53937/52 M \C70/rm/m/sc/10.53937/51 ∆ 
 \C70/rm/m/n/10.53937/59 ^^G|\C70/rm/m/n/10.53937/ff ^^[| \OT1/ptm/m/n/10.53937 
 Filtering\C70/rm/m/n/10.53937/8d ^^_ # \C70/rm/m/sc/10.53937/4f N \C70/rm/m/n/1
@@ -746,33 +749,29 @@ m/m/n/10.53937/5e 8|\C70/rm/m/n/10.53937/ff ^^[|
 
 
 
-[5]
-
-
-
 [6]
-Package CJKpunct Info: use punctuation spaces for family 'zhkai' with punctstyl
-e (quanjiao) on input line 255.
-
 
 
 
 [7]
+Package CJKpunct Info: use punctuation spaces for family 'zhkai' with punctstyl
+e (quanjiao) on input line 322.
+
 
 
 
 [8]
-Overfull \hbox (30.51727pt too wide) detected at line 355
-[]\OML/cmm/m/it/10.53937 Audit \OT1/cmr/m/n/10.53937 = (\OML/cmm/m/it/10.53937 
-Evidence; Trust[]; StateProof; DomainSignature\OT1/cmr/m/n/10.53937 )\OML/cmm/m
-/it/10.53937 :
- []
-
-
 
 
 
 [9]
+
+
+Overfull \hbox (30.51727pt too wide) detected at line 442
+[]\OML/cmm/m/it/10.53937 Audit \OT1/cmr/m/n/10.53937 = (\OML/cmm/m/it/10.53937 
+Evidence; Trust[]; StateProof; DomainSignature\OT1/cmr/m/n/10.53937 )\OML/cmm/m
+/it/10.53937 :
+ []
 
 
 
@@ -783,7 +782,15 @@ Evidence; Trust[]; StateProof; DomainSignature\OT1/cmr/m/n/10.53937 )\OML/cmm/m
 [11]
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 505--506
+
+[12]
+
+
+
+[13]
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 646--647
 []\C70/rm/m/n/10.53937/8f « \C70/rm/m/n/10.53937/6e ‰ \C70/rm/m/sc/10.53937/5b 
 û \C70/rm/m/n/10.53937/9a å \C70/rm/m/sc/10.53937/97 ^^@ \C70/rm/m/n/10.53937/8
 9 Å \C70/rm/m/sc/10.53937/52 ^^F + \C70/rm/m/sc/10.53937/7e ﬂ \C70/rm/m/sc/10.5
@@ -792,7 +799,7 @@ m/n/10.53937 Recall|\C70/rm/m/n/10.53937/30 ^^A|
  []
 
 
-Underfull \hbox (badness 1412) in paragraph at lines 505--506
+Underfull \hbox (badness 1412) in paragraph at lines 646--647
 \OT1/ptm/m/n/10.53937 FPR\C70/rm/m/n/10.53937/54 å\OT1/ptm/m/n/10.53937 FNR|\C7
 0/rm/m/n/10.53937/30 ^^B| \C70/rm/m/sc/10.53937/5b ˘ \C70/rm/m/sc/10.53937/4e é
  \C70/rm/m/n/10.53937/8f « \C70/rm/m/n/10.53937/6e ‰ \C70/rm/m/sc/10.53937/7c ˚
@@ -803,12 +810,15 @@ a ^^@|\C70/rm/m/n/10.53937/ff ^^L| \OT1/ptm/m/n/10.53937 Precision\C70/rm/m/sc/
 
 
 
-[12]
+[14]
 
 
 
-[13]
+[15]
 
+
+
+[16]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -822,7 +832,11 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-[14] (./conference_041818.aux)
+
+
+[17
+
+] (./conference_041818.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/07/14>
@@ -833,31 +847,31 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 10259 strings out of 473190
- 185394 string characters out of 5705356
- 597617 words of memory out of 5000000
- 32916 multiletter control sequences out of 15000+600000
+ 10281 strings out of 473190
+ 185803 string characters out of 5705356
+ 592737 words of memory out of 5000000
+ 32938 multiletter control sequences out of 15000+600000
  671114 words of font info for 355 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,8n,83p,1949b,367s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/s
-imkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows
-/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simkai.ttf><c:
-/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai
-.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Font
+imkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows
+/Fonts/simsun.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:
+/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun
+.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Font
 s/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Wind
-ows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc>
+ows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc>
 <c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/sim
 kai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/F
-onts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/W
+onts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/W
 indows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.t
 tf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/
 simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Window
 s/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c
-:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsu
-n.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fon
+:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simka
+i.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fon
 ts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Win
-dows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf
+dows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc
 ><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/si
 mkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/
 Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/
@@ -868,14 +882,14 @@ ws/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><
 c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/sims
 un.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fo
 nts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Wi
-ndows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.tt
-c><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/s
-imsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows
+ndows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simkai.tt
+f><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/s
+imkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows
 /Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:
 /Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun
 .ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Font
-s/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Wind
-ows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc>
+s/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Wind
+ows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc>
 <c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/sim
 hei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/F
 onts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/W
@@ -925,10 +939,10 @@ dist/fonts/type1/urw/times/utmb8a.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2
 025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><d:/Software/Tools/IDE/Tex Liv
 e/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/Software/Tools/I
 DE/Tex Live/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on conference_041818.pdf (14 pages, 1004596 bytes).
+Output written on conference_041818.pdf (17 pages, 1021078 bytes).
 PDF statistics:
- 964 PDF objects out of 1000 (max. 8388607)
- 646 compressed objects within 7 object streams
+ 973 PDF objects out of 1000 (max. 8388607)
+ 652 compressed objects within 7 object streams
  0 named destinations out of 1000 (max. 500000)
  317 words of extra memory for PDF output out of 10000 (max. 10000000)
 

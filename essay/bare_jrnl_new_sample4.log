@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.17)  31 AUG 2026 03:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.17)  7 SEP 2026 00:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -462,31 +462,34 @@ dvips/base/8r.enc}
 
 
 ]
-Underfull \hbox (badness 2318) in paragraph at lines 47--48
+Underfull \hbox (badness 2318) in paragraph at lines 51--52
 \OT1/ptm/m/n/10 and a high-frequency on-line phase, and fur-ther moves
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \hbox (badness 4713) in paragraph at lines 68--69
+
+
+Underfull \hbox (badness 4713) in paragraph at lines 74--75
 []\OT1/ptm/m/n/10 How can fast revocation-set lookup and pre-cise
- []
-
-
-Underfull \hbox (badness 3803) in paragraph at lines 79--80
-[]\OT1/ptm/m/n/10 An elastic-boundary-driven pre-move au-then-ti-ca-tion
  []
 
 
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
+Underfull \hbox (badness 3803) in paragraph at lines 87--88
+[]\OT1/ptm/m/n/10 An elastic-boundary-driven pre-move au-then-ti-ca-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
 []\OT1/ptm/m/n/10 A four-level malicious-request fil-ter-ing chain is
  []
 
 
-Underfull \hbox (badness 3291) in paragraph at lines 81--82
+Underfull \hbox (badness 3291) in paragraph at lines 89--90
 \OT1/ptm/m/n/10 de-signed, con-sist-ing of pro-to-col/freshness fil-ter-ing,
  []
 
@@ -495,14 +498,15 @@ Underfull \hbox (badness 3291) in paragraph at lines 81--82
 
 
 [3]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 124
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 146
 .
 
 (d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa
 .fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 124
+LaTeX Font Info:    Trying to load font information for U+msb on input line 146
 .
 
 (d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb
@@ -510,93 +514,52 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 124
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-
-
 [4]
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.165 		
-        
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Display math should end with $$.
-<to be read again> 
-                   \tex_par:D 
-l.165 		
-        
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.166 		Authentication\rightarrow
-                                  Monitoring\rightarrow Revocation\rightarro...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! You can't use `\eqno' in math mode.
-\veqno ->\@kernel@eqno 
-                       \aftergroup \ignorespaces 
-l.167 	\end{equation}
-                     
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.167 	\end{equation}
-                     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Underfull \hbox (badness 4193) in paragraph at lines 166--168
-[]\OT1/ptm/m/n/10 Authentication$\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 Monitoring
- \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 Revocation \OMS/cmsy/m/n/10 !
- []
 
 
 
 [5]
+Overfull \hbox (218.46701pt too wide) detected at line 195
+[]\OML/cmm/m/it/10 Registration \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 PreMove \OM
+S/cmsy/m/n/10 ! \OML/cmm/m/it/10 Filtering \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 
+Authentication \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 Monitoring \OMS/cmsy/m/n/10 
+! \OML/cmm/m/it/10 Revocation \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 AntiWashing:
+ []
+
+
 
 
 
 [6]
-Underfull \hbox (badness 1448) in paragraph at lines 250--251
+
+
+Underfull \hbox (badness 1448) in paragraph at lines 290--291
 []\OT1/ptm/m/n/10 The cen-tral pur-pose of pre-authentication is to move
  []
-
-
 
 
 
 [7]
 
 
-Underfull \hbox (badness 4391) in paragraph at lines 356--357
+
+[8]
+
+
+Underfull \hbox (badness 4391) in paragraph at lines 408--409
 []\OT1/ptm/m/n/10 A clear au-tho-riza-tion bound-ary ex-ists be-tween pre-
  []
 
 
 
-[8]
-Overfull \hbox (16.27469pt too wide) detected at line 393
+[9]
+Overfull \hbox (16.27469pt too wide) detected at line 449
 []\OML/cmm/m/it/10 Audit \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 Evidence; Trust[];
  StateProof; DomainSignature\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
  []
 
 
-Underfull \hbox (badness 5091) in paragraph at lines 400--401
+Underfull \hbox (badness 5091) in paragraph at lines 456--457
 []\OT1/ptm/m/n/10 The re-vo-ca-tion event is writ-ten to the con-sor-tium
  []
 
@@ -604,40 +567,36 @@ Underfull \hbox (badness 5091) in paragraph at lines 400--401
 
 
 
-[9]
-
-
-
 [10]
-
-
-Underfull \hbox (badness 2205) in paragraph at lines 528--529
-[]\OT1/ptm/m/n/10 The pro-posed post-quantum strat-egy fol-lows security-
- []
-
-
-Underfull \hbox (badness 7099) in paragraph at lines 528--529
-\OT1/ptm/m/n/10 lifecycle sep-a-ra-tion. Long-lived reg-is-tra-tion cre-den-tia
-ls,
- []
-
-
-Underfull \hbox (badness 1596) in paragraph at lines 530--531
-[]\OT1/ptm/m/n/10 When on-line cryp-tog-ra-phy is fully mi-grated to post-
- []
 
 
 
 [11]
 
 
-Underfull \hbox (badness 2781) in paragraph at lines 562--563
-[]\OT1/ptm/m/n/10 The con-ven-tional post-boundary au-then-ti-ca-tion la-tency
+
+[12]
+Underfull \hbox (badness 2205) in paragraph at lines 604--605
+[]\OT1/ptm/m/n/10 The pro-posed post-quantum strat-egy fol-lows security-
+ []
+
+
+Underfull \hbox (badness 7099) in paragraph at lines 604--605
+\OT1/ptm/m/n/10 lifecycle sep-a-ra-tion. Long-lived reg-is-tra-tion cre-den-tia
+ls,
+ []
+
+
+Underfull \hbox (badness 1596) in paragraph at lines 606--607
+[]\OT1/ptm/m/n/10 When on-line cryp-tog-ra-phy is fully mi-grated to post-
  []
 
 
 
-[12]
+
+Underfull \hbox (badness 2781) in paragraph at lines 642--643
+[]\OT1/ptm/m/n/10 The con-ven-tional post-boundary au-then-ti-ca-tion la-tency
+ []
 
 
 
@@ -645,7 +604,17 @@ Underfull \hbox (badness 2781) in paragraph at lines 562--563
 
 
 
-[14] (./bare_jrnl_new_sample4.aux)
+[14]
+
+
+
+[15]
+
+
+
+[16
+
+] (./bare_jrnl_new_sample4.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -654,11 +623,11 @@ L3 programming layer <2025-01-18>
 Here is how much of TeX's memory you used:
  5598 strings out of 473190
  94110 string characters out of 5705356
- 503747 words of memory out of 5000000
+ 500747 words of memory out of 5000000
  28789 multiletter control sequences out of 15000+600000
  592117 words of font info for 94 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
- 57i,7n,65p,2816b,240s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,7n,65p,2816b,282s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmex10.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmmi10.pfb><d:/Software/Tools/IDE/Tex Live/texlive
@@ -674,10 +643,10 @@ re/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
 tmbi8a.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fonts/type1/
 urw/times/utmr8a.pfb><d:/Software/Tools/IDE/Tex Live/texlive/2025/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on bare_jrnl_new_sample4.pdf (14 pages, 226176 bytes).
+Output written on bare_jrnl_new_sample4.pdf (16 pages, 232421 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+ 117 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
