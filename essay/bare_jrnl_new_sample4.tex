@@ -1,5 +1,5 @@
 \documentclass[lettersize,journal]{IEEEtran}
-\usepackage{amsmath,amsfonts}
+\usepackage{amsmath,amsfonts,amssymb}
 \usepackage{algorithmic}
 \usepackage{algorithm}
 \usepackage{array}
@@ -10,608 +10,660 @@
 \usepackage{verbatim}
 \usepackage{graphicx}
 \usepackage{cite}
+\usepackage{booktabs}
+\usepackage{xcolor}
 \hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
-% updated with editorial comments 8/9/2021
 
 \begin{document}
-
-\title{A Sample Article Using IEEEtran.cls\\ for IEEE Journals and Transactions}
-
-\author{IEEE Publication Technology,~\IEEEmembership{Staff,~IEEE,}
-        % <-this % stops a space
-\thanks{This paper was produced by the IEEE Publication Technology Group. They are in Piscataway, NJ.}% <-this % stops a space
-\thanks{Manuscript received April 19, 2021; revised August 16, 2021.}}
-
-% The paper headers
-\markboth{Journal of \LaTeX\ Class Files,~Vol.~14, No.~8, August~2021}%
-{Shell \MakeLowercase{\textit{et al.}}: A Sample Article Using IEEEtran.cls for IEEE Journals}
-
-\IEEEpubid{0000--0000/00\$00.00~\copyright~2021 IEEE}
-% Remember, if you use this you must call \IEEEpubidadjcol in the second
-% column for its text to clear the IEEEpubid mark.
-
-\maketitle
-
-\begin{abstract}
-This document describes the most common article elements and how to use the IEEEtran class with \LaTeX \ to produce files that are suitable for submission to the IEEE.  IEEEtran can produce conference, journal, and technical note (correspondence) papers with a suitable choice of class options. 
-\end{abstract}
-
-\begin{IEEEkeywords}
-Article submission, IEEE, IEEEtran, journal, \LaTeX, paper, template, typesetting.
-\end{IEEEkeywords}
-
-\section{Introduction}
-\IEEEPARstart{T}{his} file is intended to serve as a ``sample article file''
-for IEEE journal papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8b and later. The most common elements are covered in the simplified and updated instructions in ``New\_IEEEtran\_how-to.pdf''. For less common elements you can refer back to the original ``IEEEtran\_HOWTO.pdf''. It is assumed that the reader has a basic working knowledge of \LaTeX. Those who are new to \LaTeX \ are encouraged to read Tobias Oetiker's ``The Not So Short Introduction to \LaTeX ,'' available at: \url{http://tug.ctan.org/info/lshort/english/lshort.pdf} which provides an overview of working with \LaTeX.
-
-\section{The Design, Intent, and \\ Limitations of the Templates}
-The templates are intended to {\bf{approximate the final look and page length of the articles/papers}}. {\bf{They are NOT intended to be the final produced work that is displayed in print or on IEEEXplore\textsuperscript{\textregistered}}}. They will help to give the authors an approximation of the number of pages that will be in the final version. The structure of the \LaTeX\ files, as designed, enable easy conversion to XML for the composition systems used by the IEEE. The XML files are used to produce the final print/IEEEXplore pdf and then converted to HTML for IEEEXplore.
-
-\section{Where to Get \LaTeX \ Help --- User Groups}
-The following online groups are helpful to beginning and experienced \LaTeX\ users. A search through their archives can provide many answers to common questions.
-\begin{list}{}{}
-\item{\url{http://www.latex-community.org/}} 
-\item{\url{https://tex.stackexchange.com/} }
-\end{list}
-
-\section{Other Resources}
-See \cite{ref1,ref2,ref3,ref4,ref5} for resources on formatting math into text and additional help in working with \LaTeX .
-
-\section{Text}
-For some of the remainer of this sample we will use dummy text to fill out paragraphs rather than use live text that may violate a copyright.
-
-Itam, que ipiti sum dem velit la sum et dionet quatibus apitet voloritet audam, qui aliciant voloreicid quaspe volorem ut maximusandit faccum conemporerum aut ellatur, nobis arcimus.
-Fugit odi ut pliquia incitium latum que cusapere perit molupta eaquaeria quod ut optatem poreiur? Quiaerr ovitior suntiant litio bearciur?
-
-Onseque sequaes rectur autate minullore nusae nestiberum, sum voluptatio. Et ratem sequiam quaspername nos rem repudandae volum consequis nos eium aut as molupta tectum ulparumquam ut maximillesti consequas quas inctia cum volectinusa porrum unt eius cusaest exeritatur? Nias es enist fugit pa vollum reium essusam nist et pa aceaqui quo elibusdandis deligendus que nullaci lloreri bla que sa coreriam explacc atiumquos simolorpore, non prehendunt lam que occum\cite{ref6} si aut aut maximus eliaeruntia dia sequiamenime natem sendae ipidemp orehend uciisi omnienetus most verum, ommolendi omnimus, est, veni aut ipsa volendelist mo conserum volores estisciis recessi nveles ut poressitatur sitiis ex endi diti volum dolupta aut aut odi as eatquo cullabo remquis toreptum et des accus dolende pores sequas dolores tinust quas expel moditae ne sum quiatis nis endipie nihilis etum fugiae audi dia quiasit quibus.
-\IEEEpubidadjcol
-Ibus el et quatemo luptatque doluptaest et pe volent rem ipidusa eribus utem venimolorae dera qui acea quam etur aceruptat.
-Gias anis doluptaspic tem et aliquis alique inctiuntiur?
-
-Sedigent, si aligend elibuscid ut et ium volo tem eictore pellore ritatus ut ut ullatus in con con pere nos ab ium di tem aliqui od magnit repta volectur suntio. Nam isquiante doluptis essit, ut eos suntionsecto debitiur sum ea ipitiis adipit, oditiore, a dolorerempos aut harum ius, atquat.
-
-Rum rem ditinti sciendunti volupiciendi sequiae nonsect oreniatur, volores sition ressimil inus solut ea volum harumqui to see\eqref{deqn_ex1a} mint aut quat eos explis ad quodi debis deliqui aspel earcius.
-
-\begin{equation}
-\label{deqn_ex1a}
-x = \sum_{i=0}^{n} 2{i} Q.
-\end{equation}
-
-Alis nime volorempera perferi sitio denim repudae pre ducilit atatet volecte ssimillorae dolore, ut pel ipsa nonsequiam in re nus maiost et que dolor sunt eturita tibusanis eatent a aut et dio blaudit reptibu scipitem liquia consequodi od unto ipsae. Et enitia vel et experferum quiat harum sa net faccae dolut voloria nem. Bus ut labo. Ita eum repraer rovitia samendit aut et volupta tecupti busant omni quiae porro que nossimodic temquis anto blacita conse nis am, que ereperum eumquam quaescil imenisci quae magnimos recus ilibeaque cum etum iliate prae parumquatemo blaceaquiam quundia dit apienditem rerit re eici quaes eos sinvers pelecabo. Namendignis as exerupit aut magnim ium illabor roratecte plic tem res apiscipsam et vernat untur a deliquaest que non cus eat ea dolupiducim fugiam volum hil ius dolo eaquis sitis aut landesto quo corerest et auditaquas ditae voloribus, qui optaspis exero cusa am, ut plibus.
-
-
-\section{Some Common Elements}
-\subsection{Sections and Subsections}
-Enumeration of section headings is desirable, but not required. When numbered, please be consistent throughout the article, that is, all headings and all levels of section headings in the article should be enumerated. Primary headings are designated with Roman numerals, secondary with capital letters, tertiary with Arabic numbers; and quaternary with lowercase letters. Reference and Acknowledgment headings are unlike all other section headings in text. They are never enumerated. They are simply primary headings without labels, regardless of whether the other headings in the article are enumerated. 
-
-\subsection{Citations to the Bibliography}
-The coding for the citations is made with the \LaTeX\ $\backslash${\tt{cite}} command. 
-This will display as: see \cite{ref1}.
-
-For multiple citations code as follows: {\tt{$\backslash$cite\{ref1,ref2,ref3\}}}
- which will produce \cite{ref1,ref2,ref3}. For reference ranges that are not consecutive code as {\tt{$\backslash$cite\{ref1,ref2,ref3,ref9\}}} which will produce  \cite{ref1,ref2,ref3,ref9}
-
-\subsection{Lists}
-In this section, we will consider three types of lists: simple unnumbered, numbered, and bulleted. There have been many options added to IEEEtran to enhance the creation of lists. If your lists are more complex than those shown below, please refer to the original ``IEEEtran\_HOWTO.pdf'' for additional options.\\
-
-\subsubsection*{\bf A plain  unnumbered list}
-\begin{list}{}{}
-\item{bare\_jrnl.tex}
-\item{bare\_conf.tex}
-\item{bare\_jrnl\_compsoc.tex}
-\item{bare\_conf\_compsoc.tex}
-\item{bare\_jrnl\_comsoc.tex}
-\end{list}
-
-\subsubsection*{\bf A simple numbered list}
-\begin{enumerate}
-\item{bare\_jrnl.tex}
-\item{bare\_conf.tex}
-\item{bare\_jrnl\_compsoc.tex}
-\item{bare\_conf\_compsoc.tex}
-\item{bare\_jrnl\_comsoc.tex}
-\end{enumerate}
-
-\subsubsection*{\bf A simple bulleted list}
-\begin{itemize}
-\item{bare\_jrnl.tex}
-\item{bare\_conf.tex}
-\item{bare\_jrnl\_compsoc.tex}
-\item{bare\_conf\_compsoc.tex}
-\item{bare\_jrnl\_comsoc.tex}
-\end{itemize}
-
-
-
-
-
-\subsection{Figures}
-Fig. 1 is an example of a floating figure using the graphicx package.
- Note that $\backslash${\tt{label}} must occur AFTER (or within) $\backslash${\tt{caption}}.
- For figures, $\backslash${\tt{caption}} should occur after the $\backslash${\tt{includegraphics}}.
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=2.5in]{fig1}
-\caption{Simulation results for the network.}
-\label{fig_1}
-\end{figure}
-
-Fig. 2(a) and 2(b) is an example of a double column floating figure using two subfigures.
- (The subfig.sty package must be loaded for this to work.)
- The subfigure $\backslash${\tt{label}} commands are set within each subfloat command,
- and the $\backslash${\tt{label}} for the overall figure must come after $\backslash${\tt{caption}}.
- $\backslash${\tt{hfil}} is used as a separator to get equal spacing.
- The combined width of all the parts of the figure should do not exceed the text width or a line break will occur.
-%
-\begin{figure*}[!t]
-\centering
-\subfloat[]{\includegraphics[width=2.5in]{fig1}%
-\label{fig_first_case}}
-\hfil
-\subfloat[]{\includegraphics[width=2.5in]{fig1}%
-\label{fig_second_case}}
-\caption{Dae. Ad quatur autat ut porepel itemoles dolor autem fuga. Bus quia con nessunti as remo di quatus non perum que nimus. (a) Case I. (b) Case II.}
-\label{fig_sim}
-\end{figure*}
-
-Note that often IEEE papers with multi-part figures do not place the labels within the image itself (using the optional argument to $\backslash${\tt{subfloat}}[]), but instead will
- reference/describe all of them (a), (b), etc., within the main caption.
- Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
- labels, the optional argument to $\backslash${\tt{subfloat}} must be present. If a
- subcaption is not desired, leave its contents blank,
- e.g.,$\backslash${\tt{subfloat}}[].
-
-
- 
-
-\section{Tables}
-Note that, for IEEE-style tables, the
- $\backslash${\tt{caption}} command should come BEFORE the table. Table captions use title case. Articles (a, an, the), coordinating conjunctions (and, but, for, or, nor), and most short prepositions are lowercase unless they are the first or last word. Table text will default to $\backslash${\tt{footnotesize}} as
- the IEEE normally uses this smaller font for tables.
- The $\backslash${\tt{label}} must come after $\backslash${\tt{caption}} as always.
- 
-\begin{table}[!t]
-\caption{An Example of a Table\label{tab:table1}}
-\centering
-\begin{tabular}{|c||c|}
-\hline
-One & Two\\
-\hline
-Three & Four\\
-\hline
-\end{tabular}
-\end{table}
-
-\section{Algorithms}
-Algorithms should be numbered and include a short title. They are set off from the text with rules above and below the title and after the last line.
-
-\begin{algorithm}[H]
-\caption{Weighted Tanimoto ELM.}\label{alg:alg1}
-\begin{algorithmic}
-\STATE 
-\STATE {\textsc{TRAIN}}$(\mathbf{X} \mathbf{T})$
-\STATE \hspace{0.5cm}$ \textbf{select randomly } W \subset \mathbf{X}  $
-\STATE \hspace{0.5cm}$ N_\mathbf{t} \gets | \{ i : \mathbf{t}_i = \mathbf{t} \} | $ \textbf{ for } $ \mathbf{t}= -1,+1 $
-\STATE \hspace{0.5cm}$ B_i \gets \sqrt{ \textsc{max}(N_{-1},N_{+1}) / N_{\mathbf{t}_i} } $ \textbf{ for } $ i = 1,...,N $
-\STATE \hspace{0.5cm}$ \hat{\mathbf{H}} \gets  B \cdot (\mathbf{X}^T\textbf{W})/( \mathbb{1}\mathbf{X} + \mathbb{1}\textbf{W} - \mathbf{X}^T\textbf{W} ) $
-\STATE \hspace{0.5cm}$ \beta \gets \left ( I/C + \hat{\mathbf{H}}^T\hat{\mathbf{H}} \right )^{-1}(\hat{\mathbf{H}}^T B\cdot \mathbf{T})  $
-\STATE \hspace{0.5cm}\textbf{return}  $\textbf{W},  \beta $
-\STATE 
-\STATE {\textsc{PREDICT}}$(\mathbf{X} )$
-\STATE \hspace{0.5cm}$ \mathbf{H} \gets  (\mathbf{X}^T\textbf{W} )/( \mathbb{1}\mathbf{X}  + \mathbb{1}\textbf{W}- \mathbf{X}^T\textbf{W}  ) $
-\STATE \hspace{0.5cm}\textbf{return}  $\textsc{sign}( \mathbf{H} \beta )$
-\end{algorithmic}
-\label{alg1}
-\end{algorithm}
-
-Que sunt eum lam eos si dic to estist, culluptium quid qui nestrum nobis reiumquiatur minimus minctem. Ro moluptat fuga. Itatquiam ut laborpo rersped exceres vollandi repudaerem. Ulparci sunt, qui doluptaquis sumquia ndestiu sapient iorepella sunti veribus. Ro moluptat fuga. Itatquiam ut laborpo rersped exceres vollandi repudaerem. 
-\section{Mathematical Typography \\ and Why It Matters}
-
-Typographical conventions for mathematical formulas have been developed to {\bf provide uniformity and clarity of presentation across mathematical texts}. This enables the readers of those texts to both understand the author's ideas and to grasp new concepts quickly. While software such as \LaTeX \ and MathType\textsuperscript{\textregistered} can produce aesthetically pleasing math when used properly, it is also very easy to misuse the software, potentially resulting in incorrect math display.
-
-IEEE aims to provide authors with the proper guidance on mathematical typesetting style and assist them in writing the best possible article. As such, IEEE has assembled a set of examples of good and bad mathematical typesetting \cite{ref1,ref2,ref3,ref4,ref5}. 
-
-Further examples can be found at \url{http://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/sites/7/IEEE-Math-Typesetting-Guide-for-LaTeX-Users.pdf}
-
-\subsection{Display Equations}
-The simple display equation example shown below uses the ``equation'' environment. To number the equations, use the $\backslash${\tt{label}} macro to create an identifier for the equation. LaTeX will automatically number the equation for you.
-\begin{equation}
-\label{deqn_ex1}
-x = \sum_{i=0}^{n} 2{i} Q.
-\end{equation}
-
-\noindent is coded as follows:
-\begin{verbatim}
-\begin{equation}
-\label{deqn_ex1}
-x = \sum_{i=0}^{n} 2{i} Q.
-\end{equation}
-\end{verbatim}
-
-To reference this equation in the text use the $\backslash${\tt{ref}} macro. 
-Please see (\ref{deqn_ex1})\\
-\noindent is coded as follows:
-\begin{verbatim}
-Please see (\ref{deqn_ex1})\end{verbatim}
-
-\subsection{Equation Numbering}
-{\bf{Consecutive Numbering:}} Equations within an article are numbered consecutively from the beginning of the
-article to the end, i.e., (1), (2), (3), (4), (5), etc. Do not use roman numerals or section numbers for equation numbering.
-
-\noindent {\bf{Appendix Equations:}} The continuation of consecutively numbered equations is best in the Appendix, but numbering
- as (A1), (A2), etc., is permissible.\\
-
-\noindent {\bf{Hyphens and Periods}}: Hyphens and periods should not be used in equation numbers, i.e., use (1a) rather than
-(1-a) and (2a) rather than (2.a) for subequations. This should be consistent throughout the article.
-
-\subsection{Multi-Line Equations and Alignment}
-Here we show several examples of multi-line equations and proper alignments.
-
-\noindent {\bf{A single equation that must break over multiple lines due to length with no specific alignment.}}
-\begin{multline}
-\text{The first line of this example}\\
-\text{The second line of this example}\\
-\text{The third line of this example}
-\end{multline}
-
-\noindent is coded as:
-\begin{verbatim}
-\begin{multline}
-\text{The first line of this example}\\
-\text{The second line of this example}\\
-\text{The third line of this example}
-\end{multline}
-\end{verbatim}
-
-\noindent {\bf{A single equation with multiple lines aligned at the = signs}}
-\begin{align}
-a &= c+d \\
-b &= e+f
-\end{align}
-\noindent is coded as:
-\begin{verbatim}
-\begin{align}
-a &= c+d \\
-b &= e+f
-\end{align}
-\end{verbatim}
-
-The {\tt{align}} environment can align on multiple  points as shown in the following example:
-\begin{align}
-x &= y & X & =Y & a &=bc\\
-x' &= y' & X' &=Y' &a' &=bz
-\end{align}
-\noindent is coded as:
-\begin{verbatim}
-\begin{align}
-x &= y & X & =Y & a &=bc\\
-x' &= y' & X' &=Y' &a' &=bz
-\end{align}
-\end{verbatim}
-
-
-
-
-
-\subsection{Subnumbering}
-The amsmath package provides a {\tt{subequations}} environment to facilitate subnumbering. An example:
-
-\begin{subequations}\label{eq:2}
-\begin{align}
-f&=g \label{eq:2A}\\
-f' &=g' \label{eq:2B}\\
-\mathcal{L}f &= \mathcal{L}g \label{eq:2c}
-\end{align}
-\end{subequations}
-
-\noindent is coded as:
-\begin{verbatim}
-\begin{subequations}\label{eq:2}
-\begin{align}
-f&=g \label{eq:2A}\\
-f' &=g' \label{eq:2B}\\
-\mathcal{L}f &= \mathcal{L}g \label{eq:2c}
-\end{align}
-\end{subequations}
-
-\end{verbatim}
-
-\subsection{Matrices}
-There are several useful matrix environments that can save you some keystrokes. See the example coding below and the output.
-
-\noindent {\bf{A simple matrix:}}
-\begin{equation}
-\begin{matrix}  0 &  1 \\ 
-1 &  0 \end{matrix}
-\end{equation}
-is coded as:
-\begin{verbatim}
-\begin{equation}
-\begin{matrix}  0 &  1 \\ 
-1 &  0 \end{matrix}
-\end{equation}
-\end{verbatim}
-
-\noindent {\bf{A matrix with parenthesis}}
-\begin{equation}
-\begin{pmatrix} 0 & -i \\
- i &  0 \end{pmatrix}
-\end{equation}
-is coded as:
-\begin{verbatim}
-\begin{equation}
-\begin{pmatrix} 0 & -i \\
- i &  0 \end{pmatrix}
-\end{equation}
-\end{verbatim}
-
-\noindent {\bf{A matrix with square brackets}}
-\begin{equation}
-\begin{bmatrix} 0 & -1 \\ 
-1 &  0 \end{bmatrix}
-\end{equation}
-is coded as:
-\begin{verbatim}
-\begin{equation}
-\begin{bmatrix} 0 & -1 \\ 
-1 &  0 \end{bmatrix}
-\end{equation}
-\end{verbatim}
-
-\noindent {\bf{A matrix with curly braces}}
-\begin{equation}
-\begin{Bmatrix} 1 &  0 \\ 
-0 & -1 \end{Bmatrix}
-\end{equation}
-is coded as:
-\begin{verbatim}
-\begin{equation}
-\begin{Bmatrix} 1 &  0 \\ 
-0 & -1 \end{Bmatrix}
-\end{equation}\end{verbatim}
-
-\noindent {\bf{A matrix with single verticals}}
-\begin{equation}
-\begin{vmatrix} a &  b \\ 
-c &  d \end{vmatrix}
-\end{equation}
-is coded as:
-\begin{verbatim}
-\begin{equation}
-\begin{vmatrix} a &  b \\ 
-c &  d \end{vmatrix}
-\end{equation}\end{verbatim}
-
-\noindent {\bf{A matrix with double verticals}}
-\begin{equation}
-\begin{Vmatrix} i &  0 \\ 
-0 & -i \end{Vmatrix}
-\end{equation}
-is coded as:
-\begin{verbatim}
-\begin{equation}
-\begin{Vmatrix} i &  0 \\ 
-0 & -i \end{Vmatrix}
-\end{equation}\end{verbatim}
-
-\subsection{Arrays}
-The {\tt{array}} environment allows you some options for matrix-like equations. You will have to manually key the fences, but there are other options for alignment of the columns and for setting horizontal and vertical rules. The argument to {\tt{array}} controls alignment and placement of vertical rules.
-
-A simple array
-\begin{equation}
-\left(
-\begin{array}{cccc}
-a+b+c & uv & x-y & 27\\
-a+b & u+v & z & 134
-\end{array}\right)
-\end{equation}
-is coded as:
-\begin{verbatim}
-\begin{equation}
-\left(
-\begin{array}{cccc}
-a+b+c & uv & x-y & 27\\
-a+b & u+v & z & 134
-\end{array} \right)
-\end{equation}
-\end{verbatim}
-
-A slight variation on this to better align the numbers in the last column
-\begin{equation}
-\left(
-\begin{array}{cccr}
-a+b+c & uv & x-y & 27\\
-a+b & u+v & z & 134
-\end{array}\right)
-\end{equation}
-is coded as:
-\begin{verbatim}
-\begin{equation}
-\left(
-\begin{array}{cccr}
-a+b+c & uv & x-y & 27\\
-a+b & u+v & z & 134
-\end{array} \right)
-\end{equation}
-\end{verbatim}
-
-An array with vertical and horizontal rules
-\begin{equation}
-\left( \begin{array}{c|c|c|r}
-a+b+c & uv & x-y & 27\\ \hline
-a+b & u+v & z & 134
-\end{array}\right)
-\end{equation}
-is coded as:
-\begin{verbatim}
-\begin{equation}
-\left(
-\begin{array}{c|c|c|r}
-a+b+c & uv & x-y & 27\\
-a+b & u+v & z & 134
-\end{array} \right)
-\end{equation}
-\end{verbatim}
-Note the argument now has the pipe "$\vert$" included to indicate the placement of the vertical rules.
-
-
-\subsection{Cases Structures}
-Many times cases can be miscoded using the wrong environment, i.e., {\tt{array}}. Using the {\tt{cases}} environment will save keystrokes (from not having to type the $\backslash${\tt{left}}$\backslash${\tt{lbrace}}) and automatically provide the correct column alignment.
-\begin{equation*}
-{z_m(t)} = \begin{cases}
-1,&{\text{if}}\ {\beta }_m(t) \\ 
-{0,}&{\text{otherwise.}} 
-\end{cases}
-\end{equation*}
-\noindent is coded as follows:
-\begin{verbatim}
-\begin{equation*}
-{z_m(t)} = 
-\begin{cases}
-1,&{\text{if}}\ {\beta }_m(t),\\ 
-{0,}&{\text{otherwise.}} 
-\end{cases}
-\end{equation*}
-\end{verbatim}
-\noindent Note that the ``\&'' is used to mark the tabular alignment. This is important to get  proper column alignment. Do not use $\backslash${\tt{quad}} or other fixed spaces to try and align the columns. Also, note the use of the $\backslash${\tt{text}} macro for text elements such as ``if'' and ``otherwise.''
-
-\subsection{Function Formatting in Equations}
-Often, there is an easy way to properly format most common functions. Use of the $\backslash$ in front of the function name will in most cases, provide the correct formatting. When this does not work, the following example provides a solution using the $\backslash${\tt{text}} macro:
-
-\begin{equation*} 
-  d_{R}^{KM} = \underset {d_{l}^{KM}} {\text{arg min}} \{ d_{1}^{KM},\ldots,d_{6}^{KM}\}.
-\end{equation*}
-
-\noindent is coded as follows:
-\begin{verbatim}
-\begin{equation*} 
- d_{R}^{KM} = \underset {d_{l}^{KM}} 
- {\text{arg min}} \{ d_{1}^{KM},
- \ldots,d_{6}^{KM}\}.
-\end{equation*}
-\end{verbatim}
-
-\subsection{ Text Acronyms Inside Equations}
-This example shows where the acronym ``MSE" is coded using $\backslash${\tt{text\{\}}} to match how it appears in the text.
-
-\begin{equation*}
- \text{MSE} = \frac {1}{n}\sum _{i=1}^{n}(Y_{i} - \hat {Y_{i}})^{2}
-\end{equation*}
-
-\begin{verbatim}
-\begin{equation*}
- \text{MSE} = \frac {1}{n}\sum _{i=1}^{n}
-(Y_{i} - \hat {Y_{i}})^{2}
-\end{equation*}
-\end{verbatim}
-
-\section{Conclusion}
-The conclusion goes here.
-
-
-\section*{Acknowledgments}
-This should be a simple paragraph before the References to thank those individuals and institutions who have supported your work on this article.
-
-
-
-{\appendix[Proof of the Zonklar Equations]
-Use $\backslash${\tt{appendix}} if you have a single appendix:
-Do not use $\backslash${\tt{section}} anymore after $\backslash${\tt{appendix}}, only $\backslash${\tt{section*}}.
-If you have multiple appendixes use $\backslash${\tt{appendices}} then use $\backslash${\tt{section}} to start each appendix.
-You must declare a $\backslash${\tt{section}} before using any $\backslash${\tt{subsection}} or using $\backslash${\tt{label}} ($\backslash${\tt{appendices}} by itself
- starts a section numbered zero.)}
-
-
-
-%{\appendices
-%\section*{Proof of the First Zonklar Equation}
-%Appendix one text goes here.
-% You can choose not to have a title for an appendix if you want by leaving the argument blank
-%\section*{Proof of the Second Zonklar Equation}
-%Appendix two text goes here.}
-
-
-
-\section{References Section}
-You can use a bibliography generated by BibTeX as a .bbl file.
- BibTeX documentation can be easily obtained at:
- http://mirror.ctan.org/biblio/bibtex/contrib/doc/
- The IEEEtran BibTeX style support page is:
- http://www.michaelshell.org/tex/ieeetran/bibtex/
- 
- % argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
-%
-\section{Simple References}
-You can manually copy in the resultant .bbl file and set second argument of $\backslash${\tt{begin}} to the number of references
- (used to reserve space for the reference number labels box).
-
-\begin{thebibliography}{1}
-\bibliographystyle{IEEEtran}
-
-\bibitem{ref1}
-{\it{Mathematics Into Type}}. American Mathematical Society. [Online]. Available: https://www.ams.org/arc/styleguide/mit-2.pdf
-
-\bibitem{ref2}
-T. W. Chaundy, P. R. Barrett and C. Batey, {\it{The Printing of Mathematics}}. London, U.K., Oxford Univ. Press, 1954.
-
-\bibitem{ref3}
-F. Mittelbach and M. Goossens, {\it{The \LaTeX Companion}}, 2nd ed. Boston, MA, USA: Pearson, 2004.
-
-\bibitem{ref4}
-G. Gr\"atzer, {\it{More Math Into LaTeX}}, New York, NY, USA: Springer, 2007.
-
-\bibitem{ref5}M. Letourneau and J. W. Sharp, {\it{AMS-StyleGuide-online.pdf,}} American Mathematical Society, Providence, RI, USA, [Online]. Available: http://www.ams.org/arc/styleguide/index.html
-
-\bibitem{ref6}
-H. Sira-Ramirez, ``On the sliding mode control of nonlinear systems,'' \textit{Syst. Control Lett.}, vol. 19, pp. 303--312, 1992.
-
-\bibitem{ref7}
-A. Levant, ``Exact differentiation of signals with unbounded higher derivatives,''  in \textit{Proc. 45th IEEE Conf. Decis.
-Control}, San Diego, CA, USA, 2006, pp. 5585--5590. DOI: 10.1109/CDC.2006.377165.
-
-\bibitem{ref8}
-M. Fliess, C. Join, and H. Sira-Ramirez, ``Non-linear estimation is easy,'' \textit{Int. J. Model., Ident. Control}, vol. 4, no. 1, pp. 12--27, 2008.
-
-\bibitem{ref9}
-R. Ortega, A. Astolfi, G. Bastin, and H. Rodriguez, ``Stabilization of food-chain systems using a port-controlled Hamiltonian description,'' in \textit{Proc. Amer. Control Conf.}, Chicago, IL, USA,
-2000, pp. 2245--2249.
-
-\end{thebibliography}
-
-
-\newpage
-
-\section{Biography Section}
-If you have an EPS/PDF photo (graphicx package needed), extra braces are
- needed around the contents of the optional argument to biography to prevent
- the LaTeX parser from getting confused when it sees the complicated
- $\backslash${\tt{includegraphics}} command within an optional argument. (You can create
- your own custom macro containing the $\backslash${\tt{includegraphics}} command to make things
- simpler here.)
- 
-\vspace{11pt}
-
-\bf{If you include a photo:}\vspace{-33pt}
-\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{fig1}}]{Michael Shell}
-Use $\backslash${\tt{begin\{IEEEbiography\}}} and then for the 1st argument use $\backslash${\tt{includegraphics}} to declare and link the author photo.
-Use the author name as the 3rd argument followed by the biography text.
-\end{IEEEbiography}
-
-\vspace{11pt}
-
-\bf{If you will not include a photo:}\vspace{-33pt}
-\begin{IEEEbiographynophoto}{John Doe}
-Use $\backslash${\tt{begin\{IEEEbiographynophoto\}}} and the author name as the argument followed by the biography text.
-\end{IEEEbiographynophoto}
-
-
-
-
-\vfill
-
+	
+	\title{Pre-Move Authentication and Hierarchical Malicious-Request Filtering for Cross-Domain UAV Authentication with Non-Washable Revocation}
+	
+	\author{Li Xiang%
+		\thanks{The author is with the Department of Network Cyberspace Security, Institution, City, Country.}}
+	
+	\markboth{IEEE Journal Manuscript}%
+	{Author: Pre-Move Authentication and Hierarchical Malicious-Request Filtering for Cross-Domain UAV Authentication}
+	
+	\maketitle
+	
+	\begin{abstract}
+		Low-altitude unmanned aerial vehicles (UAVs) increasingly operate across administrative domains, where authentication latency, heterogeneous trust relationships, anonymous identity revocation, and identity washing after malicious devices replace software identifiers pose significant security challenges. This paper proposes a cross-domain authentication framework that combines pre-move authentication, hierarchical malicious-request filtering, and non-washable revocation for low-altitude airspace. The design follows the principle of heavy low-frequency registration and lightweight online authentication. Relatively expensive operations, including hardware-root binding and post-quantum anonymous credential issuance, are concentrated in the registration phase, whereas online operation relies primarily on pre-generated credentials, short signatures, and lightweight state queries. To determine an appropriate authentication trigger time, an elastic boundary model is constructed from UAV speed, boundary-normal velocity, communication latency, and positioning error, allowing pre-authentication to start before the UAV actually crosses a domain boundary. For malicious-request handling, a four-level filtering chain is introduced, consisting of protocol freshness, credential status, contextual trust, and Bloom-filter checks. The first two levels discard malformed, replayed, and expired requests at very low cost; the third identifies high-risk requests according to historical behavior and current context; and the fourth rapidly queries the known revocation set. A Bloom-filter hit is subsequently verified by a sparse Merkle tree (SMT), preventing a probabilistic data structure from being treated as the final revocation authority. Formal authentication uses challenge--response and state proofs to establish mutual authentication and a short-lived session key. Once a device is confirmed malicious, a consortium blockchain records the revocation event, the SMT state is updated, and a hardware PUF denylist is maintained. Subsequent registration must pass the hardware denylist check, thereby preventing the revoked physical device from obtaining a new identity through software-level changes. IPFS is further used for large-scale state storage, while the consortium blockchain anchors state roots. BLS short signatures can reduce communication and verification overhead in dense online scenarios. The resulting lifecycle forms a complete security loop of registration, pre-move authentication, hierarchical filtering, formal authentication, behavior monitoring, precise revocation, and hardware-level anti-washing protection, providing an implementable security framework for long-distance inspection, logistics delivery, and cross-domain low-altitude security operations.
+	\end{abstract}
+	
+	\begin{IEEEkeywords}
+		UAV cross-domain authentication, pre-move authentication, malicious-request filtering, Bloom filter, sparse Merkle tree, PUF, blockchain, privacy preservation.
+	\end{IEEEkeywords}
+	
+	\section{Introduction}
+	
+	\subsection{Research Background}
+	
+	In recent years, low-altitude airspace operations have gradually evolved from isolated, single-domain applications toward multi-party cooperation and continuous operation across administrative regions. UAVs deployed for power-line inspection, traffic monitoring, emergency response, logistics transportation, and low-altitude security commonly cross multiple management domains. Because each domain may maintain independent registration, access-control, and security policies, a UAV entering a new domain must complete identity confirmation and privilege migration within a short time. Otherwise, communication may be interrupted, missions may be suspended, and flight safety may be affected. Consequently, the central question of cross-domain authentication is no longer simply whether an entity can be authenticated, but whether authentication can be completed at the correct time and at an acceptable cost.
+	
+	From a network-security perspective, low-altitude UAV systems also operate in an open wireless environment. Wireless links are exposed to eavesdropping, replay, forgery, and flooding attacks. An attacker can continuously generate low-cost requests and force edge authentication nodes to spend computational resources on requests that have no security value. Conventional authentication protocols often perform signature verification, certificate validation, or complicated key establishment before determining whether a request deserves further processing. Under high concurrency, this ordering creates a high-cost entrance to the authentication service. If an attacker possesses a legitimate device credential, the request can even pass basic identity validation, making it difficult for credential-validity checks alone to distinguish normal devices from malicious ones.
+	
+	Anonymous authentication introduces another fundamental conflict with device revocation. To protect UAV identity privacy, wireless messages normally avoid transmitting a long-term real identity and instead use pseudonyms, temporary identifiers, or anonymous credentials. Once an anonymous identifier is revoked, however, the system must still determine whether a newly generated identifier belongs to the same physical device. If revocation is bound only to a software identity, an attacker may modify the device identifier, regenerate keys, or replace application-layer credentials and then attempt to register again. A practical low-altitude UAV security architecture must therefore address two apparently conflicting properties simultaneously: anonymity of the communication identity and continuity of the physical identity.
+	
+	Based on these characteristics, this paper separates cross-domain authentication into a low-frequency registration phase and a high-frequency online phase, and further moves malicious-request processing ahead of formal authentication. The objective is not to add cryptographic algorithms indiscriminately, but to change the computational path through functional decomposition. Higher-cost operations are performed when the device is registered, while redundant computation during flight is minimized. Incoming requests are screened from lightweight to heavyweight checks so that clearly abnormal requests are discarded before reaching expensive cryptographic authentication.
+	
+	With the development of the low-altitude economy and large-scale UAV deployment, industry-grade UAVs increasingly undertake cross-administrative inspection, logistics transportation, emergency communications, and large-area security tasks. Compared with operation inside a single domain, cross-domain flight requires continuous identity confirmation, authorization verification, and state checking among independent management authorities. A conventional centralized public-key infrastructure (PKI) depends on a single certification center and may suffer from a single point of failure and a long cross-domain trust chain. When many UAVs simultaneously approach a domain boundary, centralized authentication can also introduce substantial computational and communication congestion.
+	
+	Anonymous authentication can reduce the risk that long-term flight trajectories are directly linked to a device, but it also makes malicious-device revocation more difficult. After obtaining a legitimate credential, an attacker may perform unauthorized operations, deviate from prescribed routes, or forge control messages. When software identifiers, MAC addresses, or firmware identifiers can be modified, revoking only a software pseudonym cannot prevent the same physical device from registering again. At the same time, conventional certificate revocation lists (CRLs) and frequent on-chain queries have difficulty satisfying both the real-time requirements and the large-scale state-management requirements of low-altitude systems.
+	
+	Therefore, cross-domain UAV authentication is not merely a problem of increasing cryptographic strength. It is a system problem involving authentication timing, request filtering, state proofs, dynamic revocation, and continuity of the hardware identity. The proposed protocol gives each cryptographic primitive and data structure a clearly defined responsibility.
+	
+	\subsection{Research Problems}
+	
+	For low-altitude cross-domain flight, this paper focuses on the coordination among authentication timing, authentication cost, malicious-request processing, and device revocation. First, the authentication trigger should adapt to both UAV motion and network conditions. A fixed-distance boundary is easy to implement but cannot capture the effect of different flight speeds, communication delays, and positioning errors on the available preparation time. Second, registration and online authentication have very different invocation frequencies. If all security operations are placed in the online phase, UAVs may incur unnecessary computational costs during high-concurrency and high-speed movement.
+	
+	Malicious devices can also appear in two forms. One is an external source that has no valid credential and generates forged requests; the other is an internal malicious device that owns a valid credential but behaves abnormally during a mission. The former is well suited to rapid filtering using syntax, freshness, and state checks, whereas the latter requires historical behavior and flight context. A single filter therefore cannot adequately cover the entire attack surface, and a hierarchical processing path is required.
+	
+	Finally, revocation must provide both real-time lookup and trustworthy state confirmation. A Bloom filter can perform fast set membership testing with low storage cost, but it is probabilistic. Blockchain provides tamper-resistant revocation records, but direct on-chain queries introduce latency. An SMT provides efficient state proofs but is not suitable as the first-line filter for a large request stream. Accordingly, the three mechanisms are placed at different positions for fast filtering, precise proof, and trusted anchoring, respectively.
+	
+	The main problems addressed are as follows:
+	\begin{enumerate}
+		\item How can cross-domain preparation be completed before an actual boundary crossing so that authentication delay does not leave the UAV temporarily unmanaged?
+		\item How can high-cost operations be concentrated in the low-frequency registration phase while reducing online cross-domain authentication overhead?
+		\item How can lightweight multi-level filtering discard clearly malicious requests before formal authentication?
+		\item How can fast revocation-set lookup and precise revocation-state proof be separated in responsibility?
+		\item How can a revoked device be prevented from re-registering after changing its software identity?
+		\item How can anonymity, revocability, and cross-domain auditability be balanced?
+	\end{enumerate}
+	
+	\subsection{Main Contributions}
+	
+	The contribution of this paper is not limited to introducing a new cryptographic primitive. Instead, the authentication, filtering, and revocation procedures are reorganized according to the temporal characteristics of low-altitude UAV cross-domain operation. First, an authentication pre-move model related to UAV motion is established so that authentication preparation time becomes part of the boundary-triggering decision. Second, relatively heavy hardware binding and anonymous credential establishment are concentrated in the low-frequency registration phase, while online operation is reduced to credential use and lightweight state checking. Third, a four-level filtering chain applies different computational complexities to different security decisions. Finally, a continuous revocation relationship from software identity to physical device is established through a PUF hardware root, SMT state, and blockchain revocation records.
+	
+	The main contributions can be summarized as follows:
+	\begin{enumerate}
+		\item An elastic-boundary-driven pre-move authentication mechanism is proposed to dynamically determine the pre-authentication trigger interval according to the time required for a UAV to approach the boundary and the system's authentication preparation time.
+		\item A hybrid cryptographic architecture based on heavy registration and lightweight online authentication is proposed. PUF binding and post-quantum anonymous credential establishment are completed during registration, avoiding repeated high-cost registration operations online.
+		\item A four-level malicious-request filtering chain is designed, consisting of protocol/freshness filtering, credential-status filtering, contextual-trust filtering, and Bloom-filter set filtering. The Bloom filter performs only rapid candidate screening, while the final revocation conclusion is obtained from an SMT state proof.
+		\item A non-washable revocation mechanism based on a PUF denylist and on-chain revocation records is constructed so that software-level pseudonym updates cannot bypass physical-device revocation.
+		\item A consortium-blockchain/IPFS state-management architecture is established, separating tamper-resistant on-chain anchoring from large-scale off-chain storage and thereby reducing state-synchronization pressure.
+	\end{enumerate}
+	
+	\section{Related Work}
+	
+	\subsection{Cross-Domain UAV Authentication}
+	
+	The primary objective of cross-domain UAV authentication is to allow a target management domain to confirm the legitimacy of an accessing device and its home domain without requiring the two domains to share their complete internal identity databases. Existing schemes commonly use consortium blockchains, edge computing, group signatures, anonymous credentials, or lightweight key agreement to reduce cross-domain authentication cost. For low-altitude operations, authentication must additionally consider the temporal constraints caused by high-speed UAV movement. If authentication starts only after the physical boundary has been crossed, network queuing, inter-domain communication, and state synchronization may cause the authentication result to arrive after the service-switching deadline even when the cryptographic protocol itself is fast.
+	
+	This paper therefore does not regard cross-domain authentication as an isolated handshake. Instead, it divides the process into preparation and authorization. The pre-authentication phase establishes the target-domain authorization context and prepares the necessary state, whereas the formal authentication phase determines whether the device is actually allowed to obtain services in the target domain. This separation reduces authentication pressure at the exact boundary-crossing moment and provides an independent entrance for malicious-request filtering.
+	
+	Existing UAV cross-domain authentication studies mainly focus on blockchain, trust management, anonymous authentication, and lightweight cryptography. Rui \emph{et al.} proposed a trust-based cross-domain batch authentication mechanism for UAV networks and improved batch-access efficiency, but did not primarily address post-quantum security or hardware-level revocation \cite{b1}. Qiao \emph{et al.} combined blockchain with trajectory privacy for UAV cross-domain authentication and flight-trajectory protection \cite{b2}. Feng \emph{et al.} further investigated a trusted and efficient blockchain-based cross-domain authentication protocol for UAVs \cite{b21}. These studies demonstrate that blockchain can reduce dependence on bilateral cross-domain trust, although high-frequency on-chain operations may still affect real-time performance.
+	
+	\subsection{Revocable Anonymous Authentication}
+	
+	Anonymous authentication generally hides the real identity through pseudonyms or anonymous credentials, making it difficult for observers to derive a UAV's long-term identity directly from network packets. However, stronger anonymity also makes revocation-state management more challenging. Traditional certificate revocation lists require periodic broadcasting and may introduce significant communication and storage overhead as the number of devices grows. Recording every device directly on chain improves tamper resistance but is unsuitable for turning every online lookup into a blockchain transaction.
+	
+	This paper adopts hierarchical state management. Online communication uses only anonymous PIDs. The target domain performs rapid checks using local caches and a Bloom filter, invokes an SMT proof when precise state confirmation is required, and records final revocation events on the consortium blockchain. Thus, the use of anonymous identities, the proof of revocation state, and the tamper-resistant record are assigned to different mechanisms rather than being forced into one data structure.
+	
+	Revocable anonymous authentication in vehicular networks and industrial Internet of Things (IIoT) systems provides useful references for UAV systems. Li \emph{et al.} investigated blockchain-assisted revocable cross-domain authentication \cite{b3}, while Zeng \emph{et al.} studied revocable cross-domain anonymous authentication \cite{b17}. Nevertheless, revocation mechanisms relying only on software pseudonyms or certificate states cannot fundamentally prevent re-registration after a device changes its identity. The proposed architecture therefore separates the anonymous pseudonym from the physical PUF identity: normal communication uses an anonymous PID, whereas revocation and re-registration auditing use the hardware binding state.
+	
+	\subsection{Malicious-Request Filtering and Trust Evaluation}
+	
+	The key to malicious-request filtering is not simply increasing the complexity of a detection model, but controlling the computational path followed by different types of requests. For requests with obvious syntax errors, expired timestamps, or repeated nonces, further cryptographic verification provides little security benefit. Similarly, a credential already known to be invalid does not need to enter behavior scoring. Only requests that cannot be classified by low-cost rules deserve additional computation. The filtering process should therefore follow the principle of low-cost checks first and high-cost judgments later.
+	
+	Bloom filters are suitable for set screening in this process but are not suitable as an independent security decision mechanism. A false positive means that a legitimate device may temporarily be marked as a possible revoked member; this is harmless if every hit is followed by precise state verification. Trust scoring, in contrast, addresses abnormal behavior by a legitimate credential holder. It answers whether a request deserves further review rather than whether the device has already been formally revoked. This semantic separation is the basis of the proposed filtering chain.
+	
+	Malicious-request filtering commonly employs rule checking, rate limiting, reputation evaluation, anomaly detection, and probabilistic set structures. A Bloom filter has low space overhead and approximately constant-time membership testing, making it appropriate for high-frequency request entrances. Its false-positive property, however, prevents it from serving as the final security decision. Trust-management research can use historical behavior, current behavior, and contextual information to identify nodes that possess legitimate credentials but behave abnormally. The proposed design combines these mechanisms so that trust scoring determines suspiciousness, the Bloom filter performs rapid lookup of the known revocation set, and the SMT provides the final precise state confirmation.
+	
+	\subsection{Research Gap}
+	
+	Existing studies have produced substantial results in cross-domain authentication, anonymous protection, blockchain revocation, and UAV trust management. However, these mechanisms are often designed separately according to individual security objectives, and relatively few studies consider the continuous relationship among authentication triggering, malicious-request processing, and physical-device revocation over the complete flight lifecycle. In particular, when a legitimate credential is abused, cryptographic authentication alone cannot determine whether the device is currently behaving maliciously; behavioral detection alone lacks a trustworthy mechanism for propagating the final revocation state.
+	
+	The proposed design therefore focuses on system-level coordination. The elastic boundary determines when authentication preparation should start; the pre-authentication mechanism determines how preparation is performed in advance; the four-level filter determines which requests deserve formal authentication; the SMT determines whether the revocation state is genuine; and the PUF denylist determines whether a revoked physical device can obtain a new identity. This chain distinguishes the proposed framework from conventional cross-domain authentication protocols.
+	
+	A review of existing work indicates that current schemes usually optimize one of authentication, privacy, or revocation, while lacking a complete closed loop from boundary triggering to final malicious-device revocation. The central idea here is therefore not cryptographic stacking, but lifecycle-oriented functional allocation in which each module performs one primary task.
+	
+	\section{System Model and Security Requirements}
+	
+	\subsection{System Entities}
+	
+	The UAV $U_j$ is the mobile terminal of the system. It collects mission data and accesses different management domains through wireless links. The home domain $\mathcal{D}_A$ performs device registration, initial authorization, and controlled mapping between real identities and anonymous identities. The target domain $\mathcal{D}_B$ receives pre-authentication requests and performs filtering and formal authentication. The domain edge node $RSU_B$ maintains filtering caches, trust scores, and a Bloom filter to shorten the request-processing path. The consortium blockchain network $\mathcal{BC}$ is jointly maintained by management domains and stores revocation events, state roots, and version information. IPFS stores large state trees and audit evidence.
+	
+	This division gives each entity a clear computational boundary. The UAV primarily uses registration credentials and performs lightweight cryptographic operations; the edge node handles high-frequency filtering; the management domain makes policy decisions and performs anomaly audits; and the consortium blockchain provides the final trusted record. Consequently, even when the request rate suddenly increases, every wireless request does not need to query on-chain state.
+	
+	The system consists of UAV $U_j$, home domain $\mathcal{D}_A$, target domain $\mathcal{D}_B$, edge node $RSU_B$, consortium blockchain network $\mathcal{BC}$, and IPFS network. The home domain performs registration and initial authorization, the target domain performs cross-domain access verification, the blockchain anchors trusted cross-domain state, and IPFS stores the complete SMT and large hardware-denylist data.
+	
+	\subsection{Trust Relationships}
+	
+	Management domains do not need to share complete device databases. Instead, they establish a minimum necessary trust anchor through the consortium blockchain. Domain public keys, revocation-state roots, and version information are treated as public state required for cross-domain verification and receive consistency guarantees from the blockchain. The home domain maintains the controlled mapping between the real identity and anonymous PID, while the target domain receives only the minimum information necessary for the current mission.
+	
+	This minimum-disclosure principle reduces privacy diffusion caused by cross-domain sharing. During normal operation, the target domain only needs to confirm the anonymous credential, current state, and authorization scope. Reverse resolution of an anonymous identity is performed by an authorized entity only when a security event occurs and audit conditions are satisfied.
+	
+	Each management domain runs the consensus protocol as a consortium-blockchain member. Inter-domain public keys and state roots are authenticated through smart contracts. A UAV does not need to store complete device lists from all other domains; it stores its own registration credential, anonymous PID, PUF-derived secret, and necessary cached state.
+	
+	\subsection{Adversary Model}
+	
+	We consider an adversary with strong network-control capabilities but without the ability to directly compromise consortium-blockchain consensus or the PUF hardware root. The adversary can listen to public wireless communication, copy and replay historical messages, modify message fields, construct forged requests, and potentially control a UAV that has obtained a legitimate credential and deliberately generate abnormal behavior. For a revoked device, the adversary may additionally attempt to modify the RealID, MAC address, software key, or request a new anonymous PID.
+	
+	Request flooding is also considered. An attacker does not necessarily need to forge a valid identity; continuously sending large numbers of low-cost requests is sufficient to consume signature-verification and state-query resources at the edge. The filtering chain therefore needs to run as close to the entrance as possible and perform a large number of low-cost rejections before expensive cryptographic operations. A Bloom-filter false positive cannot be exploited for unauthorized access because every hit must be verified by an SMT.
+	
+	The adversary may eavesdrop on, replay, modify, and forge wireless requests; control a malicious UAV that already possesses a legitimate software credential; modify device identifiers, MAC addresses, firmware, and random registration parameters; and exploit revocation-state synchronization delays to attempt repeated access. The adversary is assumed unable to directly extract the non-exportable hardware response of the PUF or violate the basic consensus-security assumption of the consortium blockchain.
+	
+	\subsection{Security Requirements}
+	
+	In addition to conventional confidentiality, integrity, and authentication, low-altitude UAV systems require temporal security and state continuity. Temporal security requires authentication to finish within the expected cross-domain time window. State continuity requires a device's revocation state to propagate from the home domain to the target domain and remain effective during re-registration. Anonymity requires that a wireless observer cannot directly obtain the real device identity, while unlinkability requires different mission sessions to avoid long-term identifier correlation as far as practical.
+	
+	The filtering chain also requires monotonic security: adding a filtering layer must not reduce the security level of final authentication. A filter's ``pass'' result cannot replace formal authentication, and a probabilistic filter's ``hit'' result cannot be treated as a final malicious-device judgment. Final authorization must be determined jointly by a cryptographic credential and trusted state.
+	
+	The scheme must provide mutual authentication, unforgeability of messages, replay resistance, anonymity, unlinkability, dynamic revocation, cross-domain state consistency, and hardware-level anti-washing protection. For Bloom-filter false positives, the system must guarantee that a hit causes only additional verification and never unauthorized acceptance; therefore, the final security decision cannot be made by the Bloom filter alone.
+	
+	\section{Overall System Architecture}
+	
+	The overall architecture is organized according to the device lifecycle rather than according to cryptographic algorithms. The registration phase establishes the long-term trust root; the pre-move phase predicts the authentication trigger time from the flight trajectory; the pre-authentication phase establishes the target-domain context; the filtering phase screens requests according to risk and revocation state; the formal-authentication phase completes final authorization; the mission phase continuously updates trust; and confirmed malicious behavior triggers formal revocation and synchronization of the hardware denylist.
+	
+	The modules form strict sequential dependencies. A device must first obtain a valid registration credential before participating in pre-authentication. A pre-authentication request must pass filtering before formal authentication. Formal revocation is executed only after precise state confirmation. Even after a revoked device generates a new software identity, it must pass the PUF denylist check again. Thus, the architecture has no bypass through which a revoked device can directly restore its identity.
+	
+	From the deployment perspective, the system adopts a four-level collaborative structure consisting of the terminal, edge, management-domain, and consortium-blockchain layers. The UAV performs lightweight operations directly related to the mission; edge nodes handle high-frequency filtering and cache access; management domains perform security policies and anomaly audits; and the consortium blockchain provides cross-domain state consistency. This structure avoids forwarding every high-frequency wireless request to a central node and avoids replicating the complete revocation database to every UAV.
+	
+	The lifecycle is expressed as
+	\begin{equation}
+		Registration\rightarrow PreMove\rightarrow Filtering\rightarrow
+		
+		Authentication\rightarrow Monitoring\rightarrow Revocation\rightarrow AntiWashing.
+	\end{equation}
+	
+	Registration is a low-frequency heavyweight operation; PreMove prepares authentication in advance; Filtering eliminates obvious anomalies at low cost; Authentication performs final identity and state confirmation; Monitoring continuously updates behavioral trust; Revocation performs an irreversible state transition; and AntiWashing prevents a revoked physical device from registering again.
+	
+	\subsection{Functional Decoupling Principle}
+	
+	One of the most common causes of difficulty in security analysis is assigning the same security objective to multiple mechanisms. For example, if the Bloom filter, SMT, and smart contract are all described as ``revocation mechanisms,'' it becomes difficult to explain the exact necessity of each component under an attack. The proposed design therefore follows the principle of one primary responsibility per component.
+	
+	This decoupling benefits both theoretical analysis and subsequent implementation and performance testing. Experiments can independently measure filtering time, SMT proof time, on-chain confirmation time, and PUF registration time without double counting overlapping functions.
+	
+	The functional responsibilities are explicitly constrained as follows:
+	\begin{itemize}
+		\item The PUF is responsible only for physical-device binding and does not participate in online session authentication.
+		\item The anonymous PID is responsible only for identity privacy during normal communication and does not directly represent the physical identity.
+		\item PRE is responsible only for cross-domain authorized ciphertext transformation and does not perform revocation decisions.
+		\item The Bloom filter performs only rapid set queries and does not make final revocation decisions.
+		\item The SMT provides precise state proofs and does not perform behavioral anomaly detection.
+		\item The blockchain provides trusted state anchoring and revocation-event records and does not store complete device data.
+		\item IPFS stores large-scale state data and does not make trust decisions.
+	\end{itemize}
+	
+	\section{Proposed Cross-Domain Authentication Scheme}
+	
+	\subsection{System Initialization}
+	
+	The system sets a security parameter $\lambda$, a hash function $H:\{0,1\}^{*}\rightarrow\{0,1\}^{256}$, an SMT root state, a Bloom filter, and consortium-blockchain smart contracts. Each management domain generates a post-quantum signature key pair:
+	\begin{equation}
+		(pk_i,sk_i)\leftarrow \mathrm{PQ.KeyGen}(1^\lambda).
+	\end{equation}
+	Domain public keys, state roots, and version numbers are written to the consortium blockchain.
+	
+	\subsection{UAV Hardware Binding and Heavyweight Registration}
+	
+	Compared with online authentication, device registration normally occurs only when a device first joins the system, when keys are updated, or when a management domain reauthorizes the device. Its invocation frequency is therefore substantially lower. This allows the registration phase to absorb relatively high computation and communication costs. The strategy is particularly appropriate for industry-grade UAVs whose computing capability and cryptographic acceleration have improved in recent years: rather than repeating expensive operations at every cross-domain transition, security material that can be reused over time is established in advance during registration.
+	
+	The PUF establishes the association between the device and its physical hardware. Because PUF responses may contain small amounts of noise due to manufacturing variation, a fuzzy extractor is first used to derive a stable key rather than treating the raw response directly as a cryptographic key. The real identity participates only in the registration commitment and is not transmitted directly in online wireless authentication messages.
+	
+	Anonymous credentials are issued during registration so that the UAV can use pre-generated credential material during subsequent cross-domain operations. For post-quantum security, the long-term domain signature uses a standardized post-quantum signature algorithm, while the anonymous credential uses an independent lattice-based blind-signature construction with an appropriate security proof. This avoids incorrectly treating a standardized digital signature as a blind signature and keeps the functional boundaries between long-term trust and anonymity clear.
+	
+	The registration phase is low frequency and can therefore exchange higher computational cost for long-term credential security. The UAV first reads the raw response $R_j$ from an SRAM-PUF and obtains a stable key through a fuzzy extractor:
+	\begin{equation}
+		(K_j,Helper_j)\leftarrow FE.Gen(R_j).
+	\end{equation}
+	
+	The UAV generates a random secret $s_j$ and computes a device-binding commitment:
+	\begin{equation}
+		C_j=H(K_j\parallel s_j\parallel RealID_j\parallel t_{reg}).
+	\end{equation}
+	
+	To avoid mixing a traditional RSA blind-signature equation with Dilithium, the anonymous credential is abstracted as a security-proven lattice-based blind-signature interface:
+	\begin{equation}
+		(\sigma_j,\omega_j)\leftarrow BlindSign_{PQ}(C_j),
+	\end{equation}
+	where $\omega_j$ denotes necessary blinding auxiliary information. The registration server sees only the blinded registration message and cannot directly obtain the anonymous PID subsequently used by the UAV. After unblinding, the device computes
+	\begin{equation}
+		PID_j=H(C_j\parallel \sigma_j).
+	\end{equation}
+	
+	The home domain then creates an SMT state leaf:
+	\begin{equation}
+		Leaf_j=H(PID_j\parallel Status_j\parallel Exp_j\parallel Ver_j).
+	\end{equation}
+	The complete SMT is stored in IPFS, while the root hash $Root_A$ and the corresponding CID are written to the consortium blockchain.
+	
+	\subsection{Elastic Boundary and Pre-Move Authentication}
+	
+	A fixed geographical distance cannot accurately represent the time required for authentication. For example, the same UAV may have very different authentication preparation time when cruising slowly or crossing a boundary at high speed, even if its distance from the boundary is identical. Wireless congestion and positioning error similarly change the actual time available. Therefore, the proposed scheme defines the boundary trigger as a time-margin problem and estimates the remaining time before boundary arrival from the boundary-normal velocity.
+	
+	When the remaining flight time approaches the authentication preparation time, the system starts pre-authentication in advance. The target domain does not immediately grant formal flight privileges; it only prepares the verification context and authorization state. This prevents both excessively early authentication that consumes resources without benefit and excessively late authentication that leaves the UAV unauthorized after entering the target domain.
+	
+	Let $L(t)$ denote the shortest distance from the UAV's current position to the target administrative boundary and $v_n(t)$ the velocity component normal to the boundary. Based on the estimated remaining authentication time $T_{auth}$, network-jitter margin $T_{jit}$, and positioning error $\sigma_{GNSS}$, the dynamic safety margin is defined as
+	\begin{equation}
+		d(t)=\max(0,v_n(t)(T_{auth}+T_{jit})+3\sigma_{GNSS}).
+	\end{equation}
+	
+	When
+	\begin{equation}
+		L(t)\le d(t),
+	\end{equation}
+	the UAV enters the pre-authentication trigger region. If the estimated boundary-crossing time is shorter than the required pre-authentication time, the UAV immediately sends a pre-authentication request. Unlike a fixed distance threshold, this method can automatically enlarge or reduce the trigger range according to speed and communication conditions.
+	
+	\subsection{Cross-Domain Pre-Authentication}
+	
+	The central purpose of pre-authentication is to move ``inter-domain preparation'' forward from the actual boundary-crossing moment. The request contains the target-domain identifier, a one-time nonce, and a timestamp so that the target domain can confirm that the request belongs to the current flight rather than being a replay of a historical request. The home domain transforms the necessary authorization information through a pre-established inter-domain re-encryption relationship, and the target domain receives only ciphertext and state related to the current access.
+	
+	After pre-authentication, the target domain establishes only a candidate-access context and does not directly grant full mission privileges. Formal authorization still depends on subsequent filtering and formal authentication. This prevents an attacker from exploiting the pre-authentication interface to obtain services and separates complicated cross-domain preparation from the final authorization decision.
+	
+	The UAV generates a one-time random number $N_j$ and timestamp $T_j$:
+	\begin{equation}
+		M_{pre}=PID_j\parallel D_B\parallel N_j\parallel T_j.
+	\end{equation}
+	
+	An online lightweight signature is generated as
+	\begin{equation}
+		\sigma_{pre}=BLS.Sign(sk_j,M_{pre}).
+	\end{equation}
+	
+	After the home domain verifies request freshness, it performs
+	\begin{equation}
+		CT_B=PRE.ReEnc(rk_{A\rightarrow B},CT_A).
+	\end{equation}
+	
+	After receiving the pre-authentication information, the target domain adds only $PID_j$ to a preparation cache and does not immediately grant formal flight privileges. The time-consuming cross-domain authorization preparation is thus moved ahead of the actual boundary crossing.
+	
+	\subsection{Four-Level Malicious-Request Filtering}
+	
+	The four-level filter is organized in increasing order of computational cost. The first level checks only protocol fields and freshness; the second checks local credential state; the third computes risk from behavior and context; and the fourth queries the known revocation set. Only requests that cannot be eliminated by low-cost processing and do not hit the known revocation set proceed to formal authentication.
+	
+	The main benefit is to reduce exposure of high-cost interfaces. Let $N$ be the total number of arriving requests and $\rho$ the proportion entering formal authentication after the four filters. The formal authentication module processes approximately $\rho N$ requests. When malicious traffic is significant, effective filtering in the first three levels can substantially reduce $\rho$. The filtering chain therefore serves not only to identify malicious devices but also to control authentication-resource consumption.
+	
+	The layers also have explicit state-transfer relationships. The first layer outputs requests with valid syntax and freshness; the second confirms business validity of the credential; the third evaluates behavioral risk; and the fourth performs a probabilistic fast query against the revocation set. No layer replaces formal authentication.
+	
+	The filter is located after pre-authentication request reception and before formal cross-domain trust establishment. Its purpose is not to prove that a device is absolutely malicious, but to eliminate obvious anomalies at the lowest possible cost and send high-risk candidates to precise verification.
+	
+	\subsubsection{Level 1: Protocol Integrity and Freshness Filtering}
+	
+	The first layer does not perform signature verification. It checks whether the message satisfies basic protocol syntax and timing constraints. This has direct engineering value because an attacker can construct packets with missing fields, incorrect lengths, or expired timestamps at very low cost. Executing cryptographic operations for every such packet would waste resources.
+	
+	The time window and nonce cache jointly address typical replay patterns. The time window limits message lifetime, a target-domain random challenge prevents reuse across different formal authentication sessions, and the nonce cache prevents repeated transmission within a valid window. The result of this layer only determines whether the request deserves further processing and is not itself an identity-authentication decision.
+	
+	The system checks message length, field format, domain identifier, timestamp, and nonce:
+	\begin{equation}
+		|T_{now}-T_j|\le\Delta T.
+	\end{equation}
+	If a nonce has already appeared in the short-term cache, the request is immediately rejected. No expensive cryptographic operation is executed at this layer. Its main purpose is to resist replay, malformed packets, and invalid-request flooding.
+	
+	\subsubsection{Level 2: Credential-State Filtering}
+	
+	Requests that pass the first layer enter local credential-state checking. Edge nodes cache the current valid credential version, expiration time, and status bit, allowing most expired and known-invalid requests to be processed without accessing the blockchain. Cached data are not the final trust source; their version number and state root are periodically synchronized with blockchain-anchored information.
+	
+	This design separates high-frequency reads from low-frequency trusted state updates. Normal legitimate requests can be handled directly from the edge cache, while inconsistent or version-abnormal requests are escalated to precise state verification. On-chain state therefore does not become a mandatory bottleneck for every authentication request.
+	
+	The local-domain cache is queried for the credential version, expiration time, and revocation status corresponding to $PID_j$. If
+	\begin{equation}
+		Status_j\neq Active
+	\end{equation}
+	or
+	\begin{equation}
+		T_{now}>Exp_j,
+	\end{equation}
+	the request is rejected immediately. This prevents large numbers of obviously invalid requests from entering subsequent trust computation.
+	
+	\subsubsection{Level 3: Contextual Trust Filtering}
+	
+	The third level targets devices whose identity is valid but whose behavior is suspicious. The system does not rely on a single anomaly indicator. Instead, it combines recent behavior, historical reputation, and the current flight context into a continuous Trust value. The behavioral dimension describes recent request patterns and mission status; the historical dimension represents long-term reliability; and the contextual dimension considers position, speed, communication quality, and mission period.
+	
+	The trust value uses a continuous interval rather than a simple binary decision. A request below $\tau_L$ can be rejected directly, a request above $\tau_H$ enters the normal path, and a request in the intermediate interval enters Review. This reduces false revocation caused by a single abnormal event while retaining information for later security auditing. Trust scoring itself is not a revocation operation; it only determines whether additional checking is necessary.
+	
+	For a request that passes the first two layers, a lightweight risk score is computed:
+	\begin{equation}
+		Trust_j=w_bB_j+w_hH_j+w_cC_j,
+	\end{equation}
+	where $B_j$ is the recent behavior score, $H_j$ is historical reputation, and $C_j$ is the current flight-context score, with
+	\begin{equation}
+		w_b+w_h+w_c=1.
+	\end{equation}
+	
+	The behavior score can be calculated from authentication-failure rate, abnormal-request frequency, and route-deviation degree. The historical score is updated exponentially:
+	\begin{equation}
+		H_j^{new}=\alpha H_j^{old}+(1-\alpha)H_j^{cur}.
+	\end{equation}
+	
+	Let $\tau_L$ and $\tau_H$ be the low- and high-risk thresholds:
+	\begin{equation}
+		Decision_j=
+		\begin{cases}
+			Reject,&Trust_j<\tau_L,\\
+			Review,&\tau_L\le Trust_j<\tau_H,\\
+			Pass,&Trust_j\ge\tau_H.
+		\end{cases}
+	\end{equation}
+	To avoid false rejection, requests in the Review interval enter subsequent precise state checking rather than being immediately classified as malicious.
+	
+	\subsubsection{Level 4: Bloom Filter}
+	
+	The fourth level answers a specific question: whether the current anonymous PID may belong to the known revocation set. Compared with directly traversing a revocation list, a Bloom filter substantially reduces storage and computational cost for set membership testing and is especially suitable for an edge node that must process a large request volume.
+	
+	Because a Bloom filter allows false positives, its result is explicitly assigned only candidate-state semantics. A result of zero means that the PID is not contained in the currently maintained filter set. A result of one means only that the PID may belong to the revocation set; the system must obtain the corresponding SMT proof for precise confirmation. Thus, the probabilistic structure cannot alter the final security semantics.
+	
+	The system maintains a Bloom filter $BF_R$ corresponding to the revoked-PID set and performs
+	\begin{equation}
+		BF_R.Query(PID_j).
+	\end{equation}
+	If the result is zero, the PID is not in the currently known revocation set and may enter formal authentication. If the result is one, the PID is only a candidate for revocation and must undergo SMT verification. A false positive therefore increases verification cost but does not reduce security.
+	
+	\subsection{Formal Cross-Domain Authentication}
+	
+	After four-level filtering, the request enters formal cross-domain authentication. The number of requests reaching this module is already substantially smaller than the number arriving at the wireless entrance, allowing computation to be concentrated on security-critical verification. The target domain generates a random challenge and requires the UAV to respond using its registration credential. It also verifies the state proof supplied by the home domain to confirm that the device remains Active in the current global state.
+	
+	A clear authorization boundary exists between pre-authentication and formal authentication. Pre-authentication means that the target domain is prepared to receive the device; formal authentication means that the device is authorized to obtain services for the current mission. Even if an attacker bypasses the filters and constructs a correctly formatted request, the request must still satisfy cryptographic authentication and the latest state proof.
+	
+	The target domain sends a random challenge $R_B$ and timestamp $T_B$. The UAV generates
+	\begin{equation}
+		M_{auth}=PID_j\parallel R_B\parallel T_B\parallel D_B.
+	\end{equation}
+	
+	The UAV generates an authentication response from the proof material associated with its registration credential. The target domain first verifies the signature and challenge freshness and then verifies the SMT state proof:
+	\begin{equation}
+		SMT.Verify(Root_A,PID_j,Proof_j)=1.
+	\end{equation}
+	
+	The state leaf contains the $Active$ flag, expiration time, and version number. Therefore, even if a revoked device still holds an historical anonymous credential, it cannot pass the latest state proof.
+	
+	After both parties complete verification, a temporary key agreement establishes
+	\begin{equation}
+		K_{sess}=KDF(g^{ab}\parallel PID_j\parallel R_B).
+	\end{equation}
+	$K_{sess}$ is used only for the current cross-domain session and expires when the mission ends.
+	
+	\subsection{Continuous Behavior Monitoring and Trust Updating}
+	
+	Successful cross-domain authentication does not automatically make a device permanently trusted. Behavior may change during a mission, so the target domain continues to record necessary security events using a sliding window. To reduce privacy leakage, only statistical features directly relevant to security decisions are retained; a complete long-term flight trajectory is not required as ordinary authentication data.
+	
+	Trust is updated using exponential weighting so that recent behavior can rapidly influence the score while retaining some historical stability. A single occasional anomaly does not immediately reduce the score to the revocation threshold. Persistent abnormal behavior, however, jointly drives the historical and current behavior terms downward and eventually moves the device into the audit and revocation process.
+	
+	Authentication success therefore does not imply permanent trust. During mission execution, the target domain continuously collects the minimum necessary security-event summaries, including the number of abnormal requests, authentication failures, route-deviation ratio, and unauthorized control commands. $Trust_j$ is updated using a sliding window. When the trust value falls below $\tau_R$, a revocation-candidate event is triggered rather than an immediate on-chain revocation.
+	
+	\subsection{Malicious-Request Confirmation and Formal Revocation}
+	
+	This paper strictly distinguishes ``suspicious'' from ``revoked.'' A filter can reject a request, but a device enters formal revocation only when persistent abnormal evidence reaches a policy threshold and an authorized node confirms the result. This two-stage decision reduces false revocation caused by a single network anomaly, GNSS fluctuation, or wireless packet loss.
+	
+	Formal revocation is executed by a smart contract and produces a tamper-resistant event. The event contains the anonymous PID, reason category, state version, and time information. The SMT then updates the corresponding leaf, and the target domain confirms the revocation through the new state root. Because the blockchain record, state tree, and edge cache are versioned, the target domain can detect stale state and avoid accepting a revoked device for an extended period because its local cache has not yet been updated.
+	
+	When a request passes the filter chain but continues to exhibit abnormal behavior, it enters precise auditing. The audit node re-verifies
+	\begin{equation}
+		Audit=(Evidence,Trust_j,StateProof,DomainSignature).
+	\end{equation}
+	
+	Only after the policy threshold is satisfied and an authorized management node confirms the evidence does the smart contract execute
+	\begin{equation}
+		Revoke(PID_j,Reason,Version,t).
+	\end{equation}
+	
+	The revocation event is written to the consortium blockchain. The home domain then changes the device state in the SMT to Revoked and generates a new root:
+	\begin{equation}
+		Root_A^{new}=Update(Root_A,PID_j,Revoked).
+	\end{equation}
+	
+	The new root and IPFS CID are atomically anchored on chain, and the device is simultaneously added to the hardware denylist.
+	
+	\subsection{Hardware-Level Non-Washable Mechanism}
+	
+	The separation between software identity and physical identity is the core of the anti-washing mechanism. Normal business traffic exposes only the anonymous PID, thereby protecting communication privacy. During revocation, however, a PUF-derived hardware association value is written to a protected denylist. Re-registration is therefore not a matter of submitting a new RealID; the device must complete hardware proof again.
+	
+	Under the threat model in which the attacker can modify only software-layer state, RealID, MAC addresses, and application-layer keys do not constitute reliable device-root identities. Even if the attacker constructs a new $PID'_j$, the registration server can derive the same hardware association value from the PUF and compare it with the denylist. A device can obtain a new registration credential only if its hardware association state has not been revoked.
+	
+	During re-registration, the device must again perform PUF response extraction and registration proof. The raw PUF response is not uploaded to the blockchain. Instead, a hardware association identifier is constructed from a secure derived value:
+	\begin{equation}
+		HID_j=H(K_j\parallel DomainSalt).
+	\end{equation}
+	
+	If $HID_j$ hits the hardware denylist, issuance of a new anonymous credential is rejected. Because the attacker can change software-layer RealID, MAC addresses, or random values but cannot change the PUF root secret, generating $PID'_j$ cannot bypass the revocation state.
+	
+	\section{Instantiation of Cryptographic and State Management Components}
+	
+	The hybrid cryptographic architecture is motivated by the fact that different primitives have different security lifecycles and computational characteristics. Long-term registration trust must consider quantum attacks and therefore prioritizes post-quantum signatures. Short-lived online messages emphasize communication size and verification efficiency and may use short-signature mechanisms such as BLS. State proofs require low space overhead and verifiable updates and are therefore implemented with an SMT. High-frequency set screening is assigned to the Bloom filter.
+	
+	The combination does not mean that every cryptographic algorithm participates in every authentication. Each algorithm appears only in the phase where it is most appropriate. This avoids algorithm stacking and enables subsequent experiments to evaluate the individual components independently.
+	
+	\subsection{Post-Quantum Registration Credentials}
+	
+	``Post-quantum signature'' and ``blind signature'' are distinct concepts. Standardized ML-DSA provides post-quantum digital-signature capability, but its interface does not automatically provide a blind-signature property. The proposed architecture therefore separates domain-level long-term signatures from the anonymous credential issuance interface. Domain-level signatures authenticate management domains and state records, while anonymous credentials use an independent lattice-based blind-signature construction.
+	
+	In an actual implementation, concrete parameters should be selected according to the target security level, and key, signature, and proof sizes should be measured separately. The registration phase can tolerate relatively high cost, but UAV storage capacity must still be considered. Credential material should therefore be preprocessed as much as possible at registration servers and edge nodes.
+	
+	Online authentication does not repeat the high-cost blind-signature operation performed during registration. Registration credentials are updated only when a device joins the system or is reauthorized. The post-quantum signature component may use the NIST-standardized ML-DSA (formerly Dilithium) as the domain-level signature, while the anonymous blind signature uses an independent lattice-based construction with an appropriate security proof.
+	
+	\subsection{BLS Short Signatures}
+	
+	The principal advantages of BLS are short signatures and support for aggregation. In a low-concurrency single-request scenario, these advantages may not be significant. The proposed architecture therefore treats BLS as an optional instantiation for short online messages and dense batch verification rather than as the long-term root of system trust. When multiple UAVs simultaneously send pre-authentication messages to the same edge node, their independent signatures can be aggregated and verified together, reducing verification-interface invocations.
+	
+	Because BLS relies on classical elliptic-curve pairings, it is not treated as a post-quantum component. Long-term trust remains protected by post-quantum signatures and on-chain state. This layered design preserves online performance without incorrectly presenting a short-term performance optimization as long-term quantum resistance.
+	
+	BLS is used for short-message authentication during pre-authentication and for batch verification in dense scenarios:
+	\begin{equation}
+		\sigma_j=H_1(M_j)^{sk_j}.
+	\end{equation}
+	Multiple requests may be verified in aggregate. Since BLS is based on elliptic-curve pairings and is not a post-quantum primitive, it is used only for short-lived online communication and does not carry long-term root trust.
+	
+	\subsection{SMT State Proofs}
+	
+	The SMT organizes device state as a verifiable key-value set. A leaf contains the anonymous PID, state, expiration time, and version number, while internal nodes are recursively hashed to obtain the state root. The consortium blockchain does not need to store the entire tree; it stores only the latest root and version. Once the target domain obtains a proof path, it can verify the device state locally without trusting the intermediate node that supplied the proof.
+	
+	When a device is revoked, only the affected leaf and the internal nodes along its path need to be updated. Compared with broadcasting a complete list, an SMT keeps the state-proof size related primarily to tree height. For edge nodes, this proof is particularly suitable for the small number of candidate devices generated by Bloom-filter hits.
+	
+	The SMT leaf is defined as
+	\begin{equation}
+		Leaf_j=H(PID_j\parallel Status_j\parallel Exp_j\parallel Ver_j).
+	\end{equation}
+	Only the root hash is stored on chain. The target domain verifies the device state using a Merkle path or a corresponding zero-knowledge encapsulated proof. When state changes, only the relevant path needs to be updated and the new root anchored.
+	
+	\subsection{Bloom-Filter Parameters}
+	
+	Engineering parameters of the Bloom filter should be determined jointly by the size of the revocation set and the allowed false-positive rate. If the bit array is too small, the false-positive rate rises rapidly and many legitimate devices are forced into SMT verification. If it is too large, edge-node memory consumption and synchronization traffic increase. The system should therefore periodically re-estimate $n$ according to the historical revocation growth rate and adjust filter capacity.
+	
+	A false-positive rate is treated as a performance parameter rather than a security vulnerability. As long as every hit enters precise state verification, a Bloom-filter false positive increases computational cost without changing the final authorization result. Experiments should report FPR, average query time, memory consumption, and the proportion of requests requiring secondary SMT verification.
+	
+	For $n$ revoked devices and target false-positive probability $p$, the Bloom-filter bit-array length can be approximated as
+	\begin{equation}
+		m=-\frac{n\ln p}{(\ln2)^2},
+	\end{equation}
+	and the number of hash functions is
+	\begin{equation}
+		k=\frac{m}{n}\ln2.
+	\end{equation}
+	In deployment, the filter can be periodically expanded according to the revocation-set size or implemented as a generational Bloom filter. The Bloom filter remains a rapid screening structure and does not replace on-chain state proofs.
+	
+	\subsection{IPFS and Consortium Blockchain}
+	
+	A blockchain is well suited to storing small state summaries that require consistency and tamper resistance, but it is not suitable for long-term storage of large audit records and complete state trees. The proposed architecture therefore uses on-chain anchoring and off-chain storage. IPFS stores the complete SMT, historical state, and authorized audit evidence, while the consortium blockchain stores only summaries such as Root, CID, Version, and timestamp.
+	
+	When obtaining state, the target domain first verifies the on-chain root and version and then retrieves the corresponding off-chain object using its CID. Even if an IPFS node provides malicious or outdated data, the target domain can detect inconsistency through the root hash. This retains complete audit capability without significantly increasing on-chain burden.
+	
+	The complete SMT, hardware-denylist shards, and audit evidence are stored in IPFS. The consortium blockchain records
+	\begin{equation}
+		Record=\{Root,CID,Version,Timestamp,TxID\}.
+	\end{equation}
+	This avoids directly writing large numbers of leaves and historical audit data to the blockchain while preserving the tamper resistance of state roots and revocation events.
+	
+	\section{Security Analysis}
+	
+	\subsection{Mutual Authentication}
+	
+	Mutual authentication requires the target domain to verify not only the UAV's anonymous credential but also its own legitimacy to the UAV. After receiving the target-domain challenge and domain-level signature, the UAV verifies that the domain public key belongs to a legitimate consortium member and checks the state version. Session-key establishment is performed only after both parties have been authenticated.
+	
+	This design prevents an attacker from impersonating a target domain and inducing a UAV to disclose authentication material. In cross-domain flight, target-domain authentication is as important as UAV authentication because an illegitimate target domain could subsequently cause control privileges or mission data to be disclosed.
+	
+	The target domain grants access only after verifying the anonymous credential, challenge response, and latest SMT state. The UAV simultaneously verifies the legitimate domain certificate and challenge information. An attacker therefore cannot obtain access by forging only the PID.
+	
+	\subsection{Replay Resistance}
+	
+	Replay attacks are highly feasible on UAV wireless links. An attacker does not need to break a signature and can instead copy a previously accepted authentication message and transmit it again. The proposed design imposes three constraints through timestamps, random challenges, and nonce caching. The timestamp limits message lifetime, the target-domain random challenge prevents reuse across different formal sessions, and the nonce cache prevents repeated transmission within the valid window.
+	
+	Consequently, even if the signature on a historical message remains cryptographically valid, that message cannot be directly reused in a new authentication session. Each pre-authentication and formal-authentication exchange contains a random nonce and timestamp, while the nonce cache and time window jointly prevent repeated acceptance of old messages.
+	
+	\subsection{Anonymity and Unlinkability}
+	
+	Normal communication does not transmit RealID directly but uses an anonymous PID and necessary short-lived session identifiers. The target domain can verify the credential and state corresponding to the PID, while an ordinary network observer cannot recover the real identity from a single packet. Applications requiring stronger unlinkability can update short-term identifiers between mission sessions while retaining long-term hardware association information at the controlled registration side.
+	
+	Anonymity does not imply non-accountability. The proposed architecture uses controlled identity mapping. When a serious security incident occurs and audit conditions are satisfied, an authorized management entity can resolve the real identity. This balances normal operational privacy with post-event security governance.
+	
+	Normal communication uses PID rather than RealID. Different sessions can use short-term derived identifiers to avoid direct long-term trajectory correlation. The mapping to the real device is retained only within a controlled audit environment of the authorized management domain.
+	
+	\subsection{Revocation Correctness}
+	
+	Revocation correctness must simultaneously address filter false positives, state-synchronization delay, and reuse of old credentials. Bloom-filter false positives are eliminated by secondary SMT verification; state synchronization is detected through Root and Version; and old credentials cannot pass formal authentication because the corresponding state leaf has already been changed to Revoked.
+	
+	The system therefore allows a temporary ``unknown'' state but does not allow high privilege to be granted by default when the latest state cannot be confirmed. A target domain with an outdated version should suspend authorization and request state synchronization instead of continuing to use stale state.
+	
+	A Bloom-filter hit does not directly cause rejection; it triggers precise SMT verification. Hence, a false positive cannot cause a legitimate device to be permanently revoked by mistake. Formal revocation is recorded on the consortium blockchain and represented by the latest SMT root.
+	
+	\subsection{Non-Washability}
+	
+	Non-washability is based on the assumption that the hardware root cannot be easily copied. An attacker may modify identity information in application software but cannot generate the same hardware-derived secret without the physical characteristics of the original PUF. The registration server identifies the physical device through the PUF association value, so a new software PID does not automatically create a new trust root.
+	
+	This security property depends on the quality of the PUF implementation. If the actual hardware PUF is vulnerable to modeling, cloning, or response leakage, anti-washing capability will decrease. Prototype evaluation should therefore examine PUF stability, uniqueness, and resistance to attacks.
+	
+	Changing a software ID or regenerating a random number only creates a new software-layer identifier and cannot change the PUF root secret. Hardware-denylist checking occurs before re-registration, so a revoked physical device cannot obtain a new anonymous credential through re-registration.
+	
+	\subsection{Post-Quantum Security Boundary}
+	
+	The proposed post-quantum strategy follows security-lifecycle separation. Long-lived registration credentials, domain-level trust, and on-chain identity signatures preferentially use post-quantum cryptography. Short-lived sessions and performance-sensitive online messages may continue to use carefully bounded classical mechanisms. The goal is not to claim that every component has the same post-quantum property, but to prevent classical cryptography from becoming the long-term identity root.
+	
+	When online cryptography is fully migrated to post-quantum mechanisms in the future, components such as BLS can be replaced by post-quantum aggregation or short-signature schemes without changing the overall architecture of pre-move authentication, filtering, SMT state, and revocation.
+	
+	Long-term domain-level trust and registration credentials use post-quantum components. BLS is limited to short-lived online message authentication and is therefore not treated as a long-term root-trust assumption.
+	
+	\subsection{Security of the Filtering Chain}
+	
+	The filtering chain can be viewed as a security funnel with progressively increasing computational cost. The first level handles obvious anomalies at the lowest cost, the second handles known state anomalies, the third handles behavioral risk, and the fourth handles the revocation set. Only then does a request enter formal cryptographic authentication. If the passing rates of the four levels are $p_1,p_2,p_3,p_4$, the expected proportion entering formal authentication can be approximated by
+	\begin{equation}
+		\rho=p_1p_2p_3p_4.
+	\end{equation}
+	This relationship does not imply statistical independence among the layers; it illustrates the resource-reduction effect of the filtering structure. Actual experiments should measure $\rho$ using real or simulated traffic and analyze the contribution of each layer under different malicious-traffic ratios.
+	
+	At the same time, filtering must not change the conditions under which a legitimate device finally obtains authorization. Every ``pass'' result still enters formal authentication, and every ``possible revocation'' result still requires SMT confirmation. The filter is therefore a front-end optimization of security decisions rather than a reduction in the authentication standard.
+	
+	The four filters form a progressive cost structure:
+	\begin{equation}
+		C_1<C_2<C_3<C_4<C_{auth}.
+	\end{equation}
+	Large numbers of low-quality requests are discarded in the first two levels; behaviorally abnormal requests are diverted at the third level; known revoked devices are rapidly detected at the fourth level; and only the remaining requests enter formal cryptographic authentication. This reduces the exposure of the high-cost authentication interface to flooding traffic.
+	
+	\section{Performance Evaluation Plan}
+	
+	Performance evaluation should cover communication, computation, storage, and security detection. Reporting only a single authentication latency cannot demonstrate the practical value of hierarchical filtering. The evaluation should compare request-processing paths under different filtering configurations and record the discard ratio, CPU time, and memory consumption of each level. Registration and online phases should also be evaluated separately to test the assumption of heavy registration and lightweight online authentication.
+	
+	At least five traffic categories should be included: legitimate requests, externally forged requests, replay requests, expired-credential requests, and malicious behavior using legitimate credentials. This allows each filter level to be evaluated against different attack types rather than deriving a single aggregate accuracy from randomly generated malicious traffic.
+	
+	Because the complete system is still at the protocol-implementation stage, this paper does not fabricate experimental results. The evaluation should be conducted along the following dimensions.
+	
+	\subsection{Authentication Latency}
+	
+	Evaluation of pre-move authentication cannot compare cryptographic computation time alone; it must also consider the boundary-triggering moment. For each flight mission, record the time $t_0$ when the UAV enters the trigger region, the time $t_1$ when pre-authentication completes, and the actual boundary-crossing time $t_b$. If formal authorization completes at $t_2\le t_b$, the mission is considered to satisfy seamless cross-domain operation.
+	
+	The conventional post-boundary authentication latency $T_{post}$ and the proposed pre-move latency $T_{pre}$ should be measured. In addition to the mean, P95 and P99 latencies should be reported because high-concurrency low-altitude systems are particularly sensitive to tail latency.
+	
+	The conventional ``post-crossing authentication'' mechanism and the proposed ``pre-move authentication'' mechanism are compared by measuring the total time from entering the boundary buffer to formal authorization:
+	\begin{equation}
+		T_{total}=T_{trigger}+T_{pre}+T_{filter}+T_{auth}.
+	\end{equation}
+	
+	\subsection{Filtering Effectiveness}
+	
+	Filtering experiments should separately report Precision, Recall, FPR, and FNR. Precision represents the proportion of truly malicious requests among requests marked malicious, while Recall reflects the degree to which malicious requests are identified. FPR evaluates the extent to which legitimate devices are incorrectly sent to the review path, and FNR is related to the risk that malicious requests pass through the filtering chain.
+	
+	The filtering layer is not the final authorization module, so a moderate false-positive rate can be acceptable as long as SMT and formal authentication recover the final decision. The key quantities are the number of requests entering formal authentication after filtering and the final miss rate for malicious requests.
+	
+	Experiments should compare no filtering, one-level filtering, two-level filtering, three-level filtering, and the complete four-level configuration. The main metrics are Precision, Recall, False Positive Rate, False Negative Rate, and average processing time. The paper does not assume 100\% filtering accuracy; actual false positives and false negatives should be measured experimentally.
+	
+	\subsection{Bloom-Filter Experiments}
+	
+	Bloom-filter experiments should be repeated under different revocation-set sizes and target FPRs. As the number of revoked devices increases, the false-positive rate rises if the bit-array length remains fixed. The experiments should therefore compare fixed-capacity and dynamically expanded strategies.
+	
+	In addition to query time, the proportion of requests entering SMT verification because of false positives should be measured. This directly reflects the actual pressure placed by the Bloom filter on the back-end state-proof module and is more informative about engineering value than the theoretical FPR alone.
+	
+	By varying the revocation-set size $n$, bit-array size $m$, and hash-function count $k$, the experiments should measure memory consumption, query time, and false-positive rate, and verify that false positives only increase the number of SMT verifications rather than causing incorrect acceptance.
+	
+	\subsection{Concurrent Access Experiments}
+	
+	Concurrency experiments should focus on the stability of the edge node under mixed flooding and normal traffic. The number of UAVs and request rate should be increased progressively while recording filtering-entry throughput, formal-authentication throughput, CPU utilization, memory utilization, and average response time. As attack traffic increases, the ideal behavior is for the first three filters to make the growth rate of the high-cost authentication load lower than the growth rate of incoming requests.
+	
+	The number of blockchain and SMT queries with and without the filtering chain should also be compared to verify whether the filtering layer actually reduces pressure on the back-end trusted-state modules.
+	
+	Different UAV populations should be configured to compare pre-authentication request throughput, the number of requests entering formal authentication, and edge-node CPU utilization. The key objective is to verify whether the filtering chain reduces the proportion of requests reaching high-cost authentication.
+	
+	\subsection{Registration and Online Authentication Cost}
+	
+	Registration and online costs must be reported separately. The registration phase can tolerate longer latency but should remain within an acceptable device-onboarding window. The online phase must satisfy real-time cross-domain switching requirements. The experiments should record the single-operation costs of PUF extraction, anonymous credential issuance, credential verification, BLS verification, and SMT verification.
+	
+	The final evaluation should report the number of authentications supported per unit time and the average computational cost of each cross-domain mission rather than comparing the execution time of only one cryptographic algorithm.
+	
+	The registration phase should separately measure PUF extraction, anonymous credential generation, and server-side post-quantum operations. The online phase should measure pre-authentication, filtering, and formal-authentication costs. The expected behavior is to exchange relatively high low-frequency registration cost for lower high-frequency online cost.
+	
+	\section{Discussion}
+	
+	The proposed architecture deliberately avoids assigning every security problem to a single cryptographic algorithm, but the layered design introduces new issues in parameter selection and deployment. First, trust scoring requires appropriate behavioral features and thresholds; otherwise, the system may over-reject legitimate devices or become insufficiently sensitive. Second, the Bloom filter requires capacity management as the revocation set changes. Third, stable version mapping between SMT states and IPFS objects is necessary to prevent edge nodes from using stale state for an extended period.
+	
+	Although PUFs provide physical-device binding, PUF stability differs considerably across hardware platforms. The current protocol design assumes a reliable PUF implementation, and a concrete hardware realization must be validated through temperature, voltage, aging, and repeated-sampling experiments. UAVs without a hardware PUF can use a secure chip to provide an equivalent non-exportable device root, but its security properties must be analyzed separately.
+	
+	From a deployment perspective, the architecture is most suitable for a distributed structure in which edge nodes execute high-frequency filtering, management domains make authorization decisions, and the consortium blockchain maintains trusted state. This avoids concentrating all tasks at blockchain nodes and reduces the UAV's own online computational burden.
+	
+	Three issues require further prototype validation. First, concrete parameters for the lattice-based blind signature must be selected according to the final security level and cannot simply reuse ordinary ML-DSA signature parameters. Second, behavioral-feature weights in the trust score must be calibrated using datasets or measured flight logs rather than manually selected and declared optimal. Third, PUF stability and environmental robustness must be verified through temperature, voltage, and aging experiments.
+	
+	In addition, $T_{auth}$ and $T_{jit}$ in the elastic boundary model should be obtained from actual network measurements. This paper defines their position in the protocol and their computational relationship but does not treat unmeasured communication parameters as fixed engineering facts.
+	
+	\section{Conclusion and Future Work}
+	
+	This paper constructs a complete security chain for continuous identity authentication during low-altitude UAV flight across management domains. Unlike conventional authentication protocols that focus primarily on a single handshake, the proposed architecture considers the flight boundary, request filtering, state proofs, behavior monitoring, and device revocation within one lifecycle. Hardware binding and post-quantum anonymous credential establishment are performed during registration; pre-move authentication prepares the cross-domain context in advance; the four-level filtering chain reduces the number of invalid requests entering the high-cost authentication module; SMT and the consortium blockchain provide precise and traceable revocation state; and the PUF denylist further prevents a revoked physical device from obtaining a new identity.
+	
+	The key contribution is not the simple addition of security components but the reordering of security operations. Low-cost rules and state information first eliminate obvious anomalies, after which limited computational resources are devoted to requests requiring cryptographic confirmation. Software-level identity protects communication anonymity, while the hardware root preserves revocation continuity. The result is a closed security loop combining lightweight screening, precise confirmation, trusted revocation, and hardware binding.
+	
+	Future research will proceed in three directions. First, a concrete lattice-based anonymous credential protocol will be instantiated, together with formal proofs of unforgeability, unlinkability, and blindness. Second, a complete prototype will be implemented in NS-3 or on a real edge platform to evaluate performance under different UAV populations, network delays, and malicious-request ratios. Third, trust-scoring models will be trained and calibrated using real flight logs, while dynamic Bloom filters and incremental SMT updates will be investigated for large-scale revocation sets.
+	
+	In summary, this paper addresses authentication delay, malicious requests, dynamic revocation, and identity washing in cross-domain low-altitude UAV operations by combining pre-move authentication with hierarchical malicious-request filtering. PUF hardware binding and post-quantum anonymous credentials are established during low-frequency registration, while lightweight pre-authentication and four-level filtering are used during high-frequency online operation, with SMT providing precise state proofs. The elastic boundary allows authentication preparation to start before the actual boundary crossing, and the protocol/freshness, credential-state, contextual-trust, and Bloom-filter levels form a lightweight-to-heavyweight request-processing chain. After malicious behavior is confirmed, the consortium blockchain records the irreversible revocation event, the SMT state is updated, and the PUF hardware denylist prevents re-registration. The resulting architecture forms a complete loop of pre-move authentication, request filtering, formal authentication, continuous monitoring, precise revocation, and hardware-level anti-washing protection.
+	
+	Future work will complete NS-3 network simulation and testing on real embedded platforms, with particular attention to the practical performance of the filtering chain under different malicious-request ratios, UAV densities, and wireless-channel conditions. Further research will instantiate lattice-based anonymous credentials, provide formal security proofs, and evaluate communication sizes. The energy consumption of PUF operations, post-quantum cryptography, and online authentication will also be measured on ARM platforms to determine the practical deployment boundary of the scheme on industry-grade UAVs.
+	
+	\begin{thebibliography}{00}
+		
+		\bibitem{b1} L. Rui, X. Zhang, J. Yang, and L. Liu, ``Trust-Based Cross-Domain Batch Authentication Protocol for UAV Networks,'' in \emph{2025 11th International Conference on Computer and Communications (ICCC)}, 2025, pp. 1715--1720.
+		
+		\bibitem{b2} G. Qiao, P. Yang, T. Ye, and F. Han, ``A Blockchain-Based Cross-Domain Authentication and Flight Trajectory Privacy Protection Scheme for Unmanned Aerial Vehicle Networks,'' \emph{IEEE Internet of Things Journal}, vol. 13, no. 2, pp. 2155--2170, Jan. 2026.
+		
+		\bibitem{b3} R. Li, J. Cui, J. Zhang, L. Wei, H. Zhong, and D. He, ``Blockchain-Assisted Revocable Cross-Domain Authentication for Vehicular Ad-Hoc Networks,'' \emph{IEEE Transactions on Dependable and Secure Computing}, vol. 22, no. 5, pp. 4593--4607, 2025.
+		
+		\bibitem{b4} N. Kang, Z. Ning, S. Zhang, S. Rehman, and M. Waqas, ``Identity-Based Edge Computing Anonymous Authentication Protocol,'' \emph{Computers, Materials \& Continua}, vol. 74, no. 1, pp. 2005--2018, 2023.
+		
+		\bibitem{b5} Z. Cao, X. Wen, S. Ai, W. Shang, and S. Huan, ``A decentralized authentication scheme for smart factory based on blockchain,'' \emph{Scientific Reports}, vol. 14, no. 1, p. 24640, 2024.
+		
+		\bibitem{b6} K. Xue, X. Luo, Y. Ma, J. Li, J. Liu, and D. S. L. Wei, ``A Distributed Authentication Scheme Based on Smart Contract for Roaming Service in Mobile Vehicular Networks,'' \emph{IEEE Transactions on Vehicular Technology}, vol. 71, no. 5, pp. 5284--5297, 2022.
+		
+		\bibitem{b7} P. Gu, ``An Efficient Blockchain-based Cross-domain Authentication and Secure Certificate Revocation Scheme,'' in \emph{2020 IEEE 6th International Conference on Computer and Communications (ICCC)}, 2020, pp. 1651--1655.
+		
+		\bibitem{b8} Y. Sun, R. Lu, X. Lin, X. S. Shen, and J. Su, ``An Efficient Pseudonymous Authentication Scheme With Strong Privacy Preservation for Vehicular Communications,'' \emph{IEEE Transactions on Vehicular Technology}, vol. 59, no. 7, pp. 3589--3603, 2010.
+		
+		\bibitem{b9} C. Lin, D. He, X. Huang, N. Kumar, and K. R. Choo, ``BCPPA: A Blockchain-Based Conditional Privacy-Preserving Authentication Protocol for Vehicular Ad Hoc Networks,'' \emph{IEEE Transactions on Intelligent Transportation Systems}, vol. 22, no. 12, pp. 7408--7420, 2021.
+		
+		\bibitem{b10} M. Shen, H. Liu, L. Zhu, K. Xu, H. Yu, X. Du, and M. Guizani, ``Blockchain-Assisted Secure Device Authentication for Cross-Domain Industrial IoT,'' \emph{IEEE Journal on Selected Areas in Communications}, vol. 38, no. 5, pp. 942--954, 2020.
+		
+		\bibitem{b11} Z. Li, X. Liu, N. Zhang, and Z. Wei, ``Blockchain-Based Certificateless Cross-Domain Authentication Scheme in the Industrial Internet of Things,'' \emph{Computers, Materials \& Continua}, vol. 80, no. 3, pp. 3835--3856, 2024.
+		
+		\bibitem{b12} J. Dong, G. Xu, M. Chuang, J. Liu, and U. G. O. Cliff, ``Blockchain-Based Certificate-Free Cross-Domain Authentication Mechanism for Industrial Internet,'' \emph{IEEE Internet of Things Journal}, vol. 11, no. 2, pp. 3316--3329, 2024.
+		
+		\bibitem{b13} F. Wang, J. Cui, Q. Zhang, D. He, C. Gu, and H. Zhong, ``Blockchain-Based Lightweight Message Authentication for Edge-Assisted Cross-Domain Industrial Internet of Things,'' \emph{IEEE Transactions on Dependable and Secure Computing}, vol. 21, no. 4, pp. 1587--1601, 2024.
+		
+		\bibitem{b15} H. Zhong, C. Gu, Q. Zhang, J. Cui, C. Gu, and D. He, ``Conditional privacy-preserving message authentication scheme for cross-domain Industrial Internet of Things,'' \emph{Ad Hoc Networks}, vol. 144, p. 103137, 2023.
+		
+		\bibitem{b16} J. Cui, N. Liu, Q. Zhang, D. He, C. Gu, and H. Zhong, ``Efficient and Anonymous Cross-Domain Authentication for IIoT Based on Blockchain,'' \emph{IEEE Transactions on Network Science and Engineering}, vol. 10, no. 3, pp. 899--910, 2023.
+		
+		\bibitem{b17} M. Zeng, J. Cui, Q. Zhang, H. Zhong, and D. He, ``Efficient Revocable Cross-Domain Anonymous Authentication Scheme for IIoT,'' \emph{IEEE Transactions on Information Forensics and Security}, vol. 20, pp. 996--1010, 2025.
+		
+		\bibitem{b18} Y. Chen, G. Dong, J. Bai, Y. Hao, F. Li, and H. Peng, ``A Trust Enhancement Scheme for Cross Domain Authentication of PKI system,'' in \emph{2019 International Conference on Cyber-Enabled Distributed Computing and Knowledge Discovery}, 2019, pp. 364--371.
+		
+		\bibitem{b19} Y. Wu, Z. Jia, J. Zhao, H. Wang, Q. Wu, and Z. Han, ``A Blockchain-Based Trust Framework for Resilient Cross-Domain UAV Service Orchestration,'' arXiv preprint arXiv:2603.00456, 2026.
+		
+		\bibitem{b20} S. Liang, B. Duo, J. Ning, and R. Zhou, ``A Lightweight Authentication and Key Agreement Scheme for Cross-Domain UAV Networks Based on Extended Chebyshev Chaotic Map and Hash Chain,'' in \emph{2025 4th International Conference on Cloud Computing, Big Data Application and Software Engineering}, 2025.
+		
+		\bibitem{b21} L. Feng, C. Xu, M. Liu, F. Huang, and Y. Yu, ``TEBP-UAVs: A trusted and efficient blockchain-based protocol for cross-domain authentication in UAVs,'' \emph{Computer Networks}, vol. 282, p. 112243, 2026.
+		
+	\end{thebibliography}
+	
 \end{document}
-
-
